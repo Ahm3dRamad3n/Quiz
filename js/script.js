@@ -21,8 +21,8 @@
         let quizzes = [];
         let currentQuiz = null;
         let currentQuestionIndex = 0;
-        let answers = {};
-        let submitted = {};
+        let answers = {}; // تتبع إجابات المستخدم
+        let submitted = {}; // تتبع الأسئلة التي تم تقديم إجاباتها
         let skipped = new Set();
         let correctCount = 0;
         let incorrectCount = 0;
@@ -368,8 +368,10 @@
                             const isCorrect = checkIfCorrect(idx);
                             if (isCorrect) {
                                 div.classList.add('correct');
+                                correctCount++;
                             } else {
                                 div.classList.add('incorrect');
+                                incorrectCount++;
                                 // تمييز الإجابة الصحيحة
                                 const correctIdx = question.correct_answer;
                                 const correctOption = document.getElementById(`option_${currentQuestionIndex}_${correctIdx}`);
@@ -397,6 +399,7 @@
             // إظهار الملاحظات إذا كان السؤال محلول
             if (isAnswered && !isSkippedQuestion) {
                 feedbackElement.classList.add('show');
+                showFeedback();
             }
             else {
                 feedbackElement.classList.remove('show');
@@ -464,7 +467,6 @@
             }
 
             if (isCorrect) {
-                correctCount++;
                 feedback.className = 'feedback show correct';
                 const explanation = isTranslated && question.explanation_ar ? question.explanation_ar : question.explanation;
                 feedback.innerHTML = `
@@ -472,7 +474,6 @@
                     <div class="feedback-text">${explanation}</div>
                 `;
             } else {
-                incorrectCount++;
                 let correctAnswerText = '';
 
                 if (question.type === 'multiple_choice') {
@@ -571,6 +572,12 @@
             document.getElementById('finalIncorrect').textContent = incorrectCount;
             document.getElementById('finalSkipped').textContent = skippedCount;
 
+            // حذف الاخطاء السابقة وليس اخفائها
+            document.getElementById('wrongAnswersList').innerHTML = '';
+            document.getElementById('wrongAnswersContainer').style.display = 'none';
+            document.getElementById('skippedAnswersList').innerHTML = '';
+            document.getElementById('skippedAnswersContainer').style.display = 'none';
+
             // إظهار/إخفاء الوقت حسب نوع المؤقت
             const timeContainer = document.getElementById('timeContainer');
             if (timerMode === 'none') {
@@ -632,9 +639,7 @@
                     list.appendChild(div);
                 });
             }
-            else {
-                document.getElementById('wrongAnswersContainer').style.display = 'none';
-            }
+            
 
             // الأسئلة المتخطاة
             const skippedAnswers = [];
@@ -673,9 +678,6 @@
                     list.appendChild(div);
                 });
             }
-            else {
-                document.getElementById('skippedAnswersContainer').style.display = 'none';
-            }
 
             // إظهار زر تحميل PDF إذا كانت هناك أخطاء
             const downloadBtn = document.getElementById('downloadPdfBtn');
@@ -708,11 +710,14 @@
         // دالة عكس الكلمات العربية (الحل المعتمد للمشكلة)
         function fixArabic(text) {
             if (!text) return "";
-            const isArabic = /[\u0600-\u06FF]/.test(text);
-            if (isArabic) {
-                return text.split(" ").reverse().join(" ");
+            const IsContainingArabic = /[\u0600-\u06FF]/.test(text);    
+            if (!IsContainingArabic) return text;
+            const startindexenglish = text.search(/[A-Za-z0-9]/);
+            if (startindexenglish === -1) {
+                return text.split(' ').reverse().join(' ');
             }
-            return text;
+            return  text.substring(startindexenglish - 1) + " "
+            + text.substring(0, startindexenglish - 1).split(' ').reverse().join(' ') ;
         }
 
         // ===== تحميل تقرير الأخطاء كملف PDF =====
@@ -750,13 +755,25 @@
                     redText: '#cf1322'      // أحمر للإجابة الخاطئة
                 };
 
+                const iconCross = {
+                    svg: `<svg viewBox="0 0 24 24"><path fill="${colors.wrongBorder}" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`,
+                    width: 15, 
+                    height: 15
+                };
+
+                const iconWarn = {
+                    svg: `<svg viewBox="0 0 24 24"><path fill="${colors.skipBorder}" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>`,
+                    width: 15, 
+                    height: 15
+                };
+
                 let content = [];
 
                 // 1. الهيدر (Header)
-                content.push({ text: fixArabic(' تقرير مراجعة الأخطاء '), style: 'header' });
+                content.push({ text: fixArabic(' تقرير مراجعة الأخطاء'), style: 'header' });
                 content.push({ text: currentQuiz.name, style: 'subheader' });
                 content.push({ 
-                    text: fixArabic(` النتيجة: ${correctCount}  من ${totalQuestions} (${percentage}%)`), 
+                    text: ` (${percentage}%) ${totalQuestions} من  ${correctCount} النتيجة: `, 
                     style: 'score',
                     color: percentage >= 50 ? colors.greenText : colors.redText
                 });
@@ -837,28 +854,52 @@
                 };
 
                 // دالة معالجة الأقسام
-                const processSection = (containerId, title, type) => {
+                // دالة معالجة الأقسام (تم تعديلها لدعم الأيقونات)
+                const processSection = (containerId, titleText, type) => {
                     const container = document.getElementById(containerId);
+                    
+                    // لو مفيش حاوية أو مفيش أسئلة، نخرج من الدالة
                     if (!container || container.children.length === 0) return;
 
-                    // العنوان مع أيقونة
-                    content.push({ 
-                        text: fixArabic(title), 
-                        fontSize: 16, 
-                        bold: true, 
-                        color: type === 'wrong' ? colors.redText : colors.skipBorder,
-                        alignment: 'right',
-                        margin: [0, 20, 0, 10]
+                    // 1. تحديد الأيقونة واللون بناءً على نوع القسم (خطأ أم تخطي)
+                    // (iconCross و iconWarn و colors لازم يكونوا متعرفين فوق الدالة دي)
+                    const icon = type === 'wrong' ? iconCross : iconWarn;
+                    const titleColor = type === 'wrong' ? colors.redText : colors.skipBorder;
+
+                    // 2. إضافة العنوان + الأيقونة
+                    // بنستخدم columns عشان نحطهم جنب بعض
+                    content.push({
+                        columns: [
+                            { width: '*', text: '' }, // عمود فارغ لزق الكلام لليمين (عشان المحاذاة)
+                            { 
+                                width: 'auto', 
+                                text: fixArabic(titleText), // النص العربي المعكوس
+                                fontSize: 16, 
+                                bold: true, 
+                                color: titleColor,
+                                margin: [0, 0, 10, 0] // مسافة صغيرة بين النص والأيقونة
+                            },
+                            { 
+                                width: 20, 
+                                svg: icon.svg, // رسم الأيقونة
+                                color: icon.color, 
+                                relativePosition: { y: 3 } // تظبيط ارتفاع الأيقونة عشان تكون في سوى النص
+                            } 
+                        ],
+                        columnGap: 10, // مسافة بين الأيقونة والنص
+                        margin: [0, 20, 0, 10] // هوامش العنوان كله
                     });
 
+                    // 3. اللف على الأسئلة وإضافتها
                     Array.from(container.children).forEach((child) => {
+                        // نستخدم الدالة createQuestionCard لإنشاء تصميم السؤال
                         content.push(createQuestionCard(child, type));
                     });
                 };
 
                 // معالجة البيانات
-                processSection('wrongAnswersList', 'X الأسئلة التي أجبت عليها بشكل خاطئ', 'wrong');
-                processSection('skippedAnswersList', '⊘ الأسئلة التي تم تخطيها', 'skip');
+                processSection('wrongAnswersList', '  الأسئلة التي أجبت عليها بشكل خاطئ', 'wrong');
+                processSection('skippedAnswersList', ' الأسئلة التي تم تخطيها', 'skip');
 
                 if (content.length <= 4) {
                     content.push({ text: fixArabic('ممتاز! لا توجد ملاحظات.'), alignment: 'center', margin: [0, 20], color: 'green' });
