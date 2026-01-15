@@ -1,1611 +1,549 @@
 [
     {
-        "name": "Proof Methods",
-        "description": "A comprehensive quiz covering various mathematical proof techniques including direct proof, contraposition, contradiction, and induction.",
+        "name": "Assignment 1 - Part I: MCQ",
+        "description": "Multiple Choice Questions covering Technical Writing Lectures 1, 2 & 3.",
         "questions": [
             {
                 "type": "choice",
-                "question": "To prove the statement “If n is an even integer, then n^2 is even,” we assume n is even and write n = 2k, then show n^2 = 2(2k^2). This is an example of:",
-                "question_ar": "لإثبات العبارة 'إذا كان n عدداً صحيحاً زوجياً، فإن n^2 زوجي'، نفترض أن n زوجي ونكتب n = 2k، ثم نبين أن n^2 = 2(2k^2). هذا مثال على:",
+                "question": "The overall purpose of technical writing is to:",
+                "question_ar": "الهدف العام للكتابة الفنية هو:",
                 "options": [
-                    "Proof by contraposition",
-                    "Direct proof",
-                    "Proof by contradiction",
-                    "Exhaustive proof"
+                    "Entertain readers",
+                    "Communicate specialized necessary information clearly",
+                    "Express emotions",
+                    "Persuade subjectively"
                 ],
                 "options_ar": [
-                    "البرهان بالمعاكس الإيجابي",
-                    "البرهان المباشر",
-                    "البرهان بالتناقض",
-                    "البرهان الشامل"
+                    "ترفيه القراء",
+                    "توصيل المعلومات المتخصصة الضرورية بوضوح",
+                    "التعبير عن المشاعر",
+                    "الإقناع بشكل ذاتي"
                 ],
                 "correct_answer": 1,
-                "explanation": "This is a direct proof where we assume the hypothesis (p) is true and deductively show the conclusion (q) is true.",
-                "explanation_ar": "هذا برهان مباشر حيث نفترض صحة الفرضية ونستخدم المنطق للوصول مباشرة إلى النتيجة."
+                "explanation": "Technical writing focuses on conveying complex information clearly and objectively.",
+                "explanation_ar": "تركز الكتابة الفنية على نقل المعلومات المعقدة بوضوح وموضوعية."
             },
             {
                 "type": "choice",
-                "question": "In a proof by contraposition of p → q, we start by assuming:",
-                "question_ar": "في البرهان بالمعاكس الإيجابي للعبارة الشرطية p ← q، نبدأ بافتراض:",
+                "question": "Technical writing is most commonly used in fields such as:",
+                "question_ar": "تستخدم الكتابة الفنية بشكل شائع في مجالات مثل:",
                 "options": [
-                    "p is true",
-                    "q is false",
-                    "p is false",
-                    "q is true"
+                    "Art and Literature",
+                    "Science, Engineering, and Medicine",
+                    "History and Music",
+                    "Drama and Poetry"
                 ],
                 "options_ar": [
-                    "p صحيحة",
-                    "q خاطئة",
-                    "p خاطئة",
-                    "q صحيحة"
+                    "الفن والأدب",
+                    "العلوم والهندسة والطب",
+                    "التاريخ والموسيقى",
+                    "الدراما والشعر"
                 ],
                 "correct_answer": 1,
-                "explanation": "In contraposition, we prove ¬q → ¬p, so we start by assuming q is false (¬q).",
-                "explanation_ar": "في المعاكس الإيجابي، نثبت ¬q ← ¬p، لذا نبدأ بافتراض أن النتيجة q خاطئة."
+                "explanation": "These fields require precise documentation and instructions.",
+                "explanation_ar": "تتطلب هذه المجالات توثيقاً وتعليمات دقيقة."
             },
             {
                 "type": "choice",
-                "question": "To prove “If 3n + 2 is odd, then n is odd” by contraposition, we assume:",
-                "question_ar": "لإثبات 'إذا كان 3n + 2 فردياً، فإن n فردي' باستخدام المعاكس الإيجابي، نفترض:",
+                "question": "Unlike creative writing, technical writing focuses on:",
+                "question_ar": "على عكس الكتابة الإبداعية، تركز الكتابة الفنية على:",
                 "options": [
-                    "3n + 2 is even",
-                    "n is even",
-                    "n is odd",
-                    "3n + 2 is odd"
+                    "Engaging the reader emotionally",
+                    "Explaining information clearly and precisely",
+                    "Using imaginative language",
+                    "Storytelling and rhythm"
                 ],
                 "options_ar": [
-                    "3n + 2 زوجي",
-                    "n زوجي",
-                    "n فردي",
-                    "3n + 2 فردي"
+                    "إشراك القارئ عاطفياً",
+                    "شرح المعلومات بوضوح ودقة",
+                    "استخدام لغة خيالية",
+                    "سرد القصص والإيقاع"
                 ],
                 "correct_answer": 1,
-                "explanation": "We negate the conclusion 'n is odd', so we assume 'n is even'.",
-                "explanation_ar": "نقوم بنفي النتيجة 'n فردي'، لذا نفترض أن 'n زوجي'."
+                "explanation": "Clarity and precision are the hallmarks of technical writing.",
+                "explanation_ar": "الوضوح والدقة هما السمتان المميزتان للكتابة الفنية."
             },
             {
                 "type": "choice",
-                "question": "In a proof by contradiction that √2 is irrational, we start by assuming:",
-                "question_ar": "في البرهان بالتناقض لإثبات أن 2√ عدد غير نسبي، نبدأ بافتراض:",
+                "question": "Which of the following is NOT a genre of technical writing?",
+                "question_ar": "أي مما يلي لا يعتبر نوعاً من الكتابة الفنية؟",
                 "options": [
-                    "√2 is rational",
-                    "√2 is irrational",
-                    "√2 is an integer",
-                    "√2 is not a real number"
+                    "Texting",
+                    "Poetry",
+                    "Memorandum",
+                    "Proposal and Grant writing"
                 ],
                 "options_ar": [
-                    "2√ عدد نسبي",
-                    "2√ عدد غير نسبي",
-                    "2√ عدد صحيح",
-                    "2√ ليس عدداً حقيقياً"
+                    "الرسائل النصية",
+                    "الشعر",
+                    "المذكرات الداخلية (Memo)",
+                    "كتابة المقترحات والمنح"
+                ],
+                "correct_answer": 1,
+                "explanation": "Poetry is a form of creative writing, not technical writing.",
+                "explanation_ar": "الشعر هو شكل من أشكال الكتابة الإبداعية، وليس الكتابة الفنية."
+            },
+            {
+                "type": "choice",
+                "question": "Texting in a business context should be:",
+                "question_ar": "الرسائل النصية في سياق العمل يجب أن تكون:",
+                "options": [
+                    "Used only for long reports",
+                    "Used for quick, simple communication",
+                    "Avoided completely",
+                    "Written with slang"
+                ],
+                "options_ar": [
+                    "تستخدم فقط للتقارير الطويلة",
+                    "تستخدم للتواصل السريع والبسيط",
+                    "يجب تجنبها تماماً",
+                    "تكتب باستخدام العامية"
+                ],
+                "correct_answer": 1,
+                "explanation": "Business texting is best for brief, urgent, or logistical messages.",
+                "explanation_ar": "الرسائل النصية في العمل هي الأفضل للرسائل القصيرة أو العاجلة أو اللوجستية."
+            },
+            {
+                "type": "choice",
+                "question": "E-mails have mostly replaced ________ for business communication.",
+                "question_ar": "استبدلت رسائل البريد الإلكتروني في الغالب ________ في اتصالات العمل.",
+                "options": [
+                    "Poetry",
+                    "Printed letters",
+                    "Reports",
+                    "Social media posts"
+                ],
+                "options_ar": [
+                    "الشعر",
+                    "الرسائل المطبوعة",
+                    "التقارير",
+                    "منشورات وسائل التواصل الاجتماعي"
+                ],
+                "correct_answer": 1,
+                "explanation": "Email offers a faster, more efficient alternative to traditional printed letters.",
+                "explanation_ar": "يوفر البريد الإلكتروني بديلاً أسرع وأكثر كفاءة للرسائل المطبوعة التقليدية."
+            },
+            {
+                "type": "choice",
+                "question": "A professional e-mail should always include:",
+                "question_ar": "يجب أن يتضمن البريد الإلكتروني المهني دائماً:",
+                "options": [
+                    "Emojis",
+                    "A clear subject line",
+                    "Random abbreviations",
+                    "Slang"
+                ],
+                "options_ar": [
+                    "الرموز التعبيرية",
+                    "سطر موضوع واضح",
+                    "اختصارات عشوائية",
+                    "لغة عامية"
+                ],
+                "correct_answer": 1,
+                "explanation": "A clear subject line helps the recipient understand the purpose immediately.",
+                "explanation_ar": "يساعد سطر الموضوع الواضح المستلم على فهم الغرض فوراً."
+            },
+            {
+                "type": "choice",
+                "question": "If gender is unclear, the proper salutation is:",
+                "question_ar": "إذا كان الجنس غير واضح، فإن التحية المناسبة هي:",
+                "options": [
+                    "Dear Sir",
+                    "Dear Madam",
+                    "Dear [Full Name]",
+                    "Dear Mr."
+                ],
+                "options_ar": [
+                    "عزيزي السيد",
+                    "عزيزتي السيدة",
+                    "عزيزي [الاسم الكامل]",
+                    "عزيزي السيد"
+                ],
+                "correct_answer": 2,
+                "explanation": "Using the full name is a neutral and respectful way to address someone when gender is unknown.",
+                "explanation_ar": "استخدام الاسم الكامل هو طريقة محايدة ومحترمة لمخاطبة شخص ما عندما يكون الجنس غير معروف."
+            },
+            {
+                "type": "choice",
+                "question": "The memo header includes:",
+                "question_ar": "يحتوي رأس المذكرة (Memo Header) على:",
+                "options": [
+                    "Title, date, sender, and recipients",
+                    "Images and graphs",
+                    "Only the topic",
+                    "Attachments only"
+                ],
+                "options_ar": [
+                    "العنوان، التاريخ، المرسل، والمستلمين",
+                    "صور ورسوم بيانية",
+                    "الموضوع فقط",
+                    "المرفقات فقط"
                 ],
                 "correct_answer": 0,
-                "explanation": "Proof by contradiction starts by assuming the negation of what we want to prove.",
-                "explanation_ar": "البرهان بالتناقض يبدأ بافتراض عكس ما نريد إثباته (أنه نسبي)."
+                "explanation": "Standard memo headers follow the 'To, From, Date, Subject' format.",
+                "explanation_ar": "رؤوس المذكرات القياسية تتبع تنسيق 'إلى، من، التاريخ، الموضوع'."
             },
             {
                 "type": "choice",
-                "question": "In the proof that √2 is irrational, we reach a contradiction because:",
-                "question_ar": "في إثبات أن 2√ غير نسبي، نصل إلى تناقض بسبب:",
+                "question": "The term 'memo' comes from the word meaning:",
+                "question_ar": "كلمة 'مذكرة' (Memo) تأتي من كلمة تعني:",
                 "options": [
-                    "a and b are both odd",
-                    "a and b have no common factors and yet both are even",
-                    "a^2 is odd but b^2 is even",
-                    "a/b is not in lowest terms initially"
+                    "Memory",
+                    "Reminder",
+                    "Message",
+                    "Mail"
                 ],
                 "options_ar": [
-                    "كلاً من a و b فرديان",
-                    "لا توجد عوامل مشتركة بين a و b ومع ذلك كلاهما زوجي",
-                    "a^2 فردي لكن b^2 زوجي",
-                    "a/b ليس في أبسط صورة في البداية"
+                    "ذاكرة",
+                    "تذكير (Reminder)",
+                    "رسالة",
+                    "بريد"
                 ],
                 "correct_answer": 1,
-                "explanation": "The contradiction arises when we deduce that both numerator and denominator must be even, violating the assumption that the fraction is in simplest form.",
-                "explanation_ar": "يحدث التناقض عندما نستنتج أن البسط والمقام كلاهما زوجي، مما يخالف فرضية أن الكسر في أبسط صورة."
+                "explanation": "It comes from 'Memorandum', which relates to something to be remembered or a reminder.",
+                "explanation_ar": "تأتي من 'Memorandum'، والتي تتعلق بشيء يجب تذكره أو تذكير."
             },
             {
                 "type": "choice",
-                "question": "To prove p ↔ q, we must prove:",
-                "question_ar": "لإثبات التكافؤ p ↔ q، يجب أن نثبت:",
+                "question": "Which of the following is NOT a type of letter?",
+                "question_ar": "أي مما يلي **ليس** نوعاً من الرسائل؟",
                 "options": [
-                    "p → q",
-                    "q → p",
-                    "p → q and q → p",
-                    "p ∨ q"
+                    "Inquiry letter",
+                    "Comic letter",
+                    "Follow-up letter",
+                    "Cover letter"
                 ],
                 "options_ar": [
-                    "p ← q",
-                    "q ← p",
-                    "p ← q و q ← p",
-                    "p ∨ q"
-                ],
-                "correct_answer": 2,
-                "explanation": "Biconditional statements require proving the implication in both directions.",
-                "explanation_ar": "العبارات ثنائية الشرط تتطلب إثبات الاستلزام في كلا الاتجاهين."
-            },
-            {
-                "type": "choice",
-                "question": "In a proof by cases of (p1 ∨ p2 ∨ ... ∨ pn) → q, we prove:",
-                "question_ar": "في البرهان بالحالات للصيغة (p1 ∨ p2 ∨ ... ∨ pn) ← q، نثبت:",
-                "options": [
-                    "p1 → q only",
-                    "pn → q only",
-                    "pi → q for each i",
-                    "q → pi for each i"
-                ],
-                "options_ar": [
-                    "p1 ← q فقط",
-                    "pn ← q فقط",
-                    "pi ← q لكل حالة i",
-                    "q ← pi لكل حالة i"
-                ],
-                "correct_answer": 2,
-                "explanation": "We must show that every possible case (pi) implies the conclusion q.",
-                "explanation_ar": "يجب التأكد من أن كل حالة محتملة (pi) تؤدي بمفردها إلى النتيجة q."
-            },
-            {
-                "type": "choice",
-                "question": "An exhaustive proof is used when:",
-                "question_ar": "يستخدم البرهان الشامل عندما:",
-                "options": [
-                    "The domain is infinite",
-                    "There are too many cases to check",
-                    "The domain is small and finite",
-                    "We want to prove by contradiction"
-                ],
-                "options_ar": [
-                    "المجال لا نهائي",
-                    "هناك حالات كثيرة جداً للتحقق منها",
-                    "المجال صغير ومحدود",
-                    "نريد البرهان بالتناقض"
-                ],
-                "correct_answer": 2,
-                "explanation": "Exhaustive proof checks every single element in the domain, which is only feasible if the domain is small.",
-                "explanation_ar": "البرهان الشامل يتحقق من كل عنصر في المجال، وهو ممكن فقط إذا كان المجال صغيراً ومحدوداً."
-            },
-            {
-                "type": "choice",
-                "question": "To disprove a statement of the form ∀x P(x), we use:",
-                "question_ar": "لنفي عبارة من الشكل ∀x P(x) (لكل x)، نستخدم:",
-                "options": [
-                    "Direct proof",
-                    "Proof by contraposition",
-                    "Proof by counterexample",
-                    "Proof by cases"
-                ],
-                "options_ar": [
-                    "البرهان المباشر",
-                    "البرهان بالمعاكس الإيجابي",
-                    "البرهان بمثال مضاد",
-                    "البرهان بالحالات"
-                ],
-                "correct_answer": 2,
-                "explanation": "A single counterexample where P(x) is false is sufficient to disprove a universal quantification.",
-                "explanation_ar": "يكفي إيجاد حالة واحدة (مثال مضاد) لا تنطبق عليها القاعدة لنفي التعميم."
-            },
-            {
-                "type": "choice",
-                "question": "In the incorrect proof that 1 = 2, the error occurs when:",
-                "question_ar": "في البرهان الخاطئ بأن 1 = 2، يحدث الخطأ عندما:",
-                "options": [
-                    "We factor a^2 - b^2",
-                    "We divide by a - b (which is 0)",
-                    "We set a = b",
-                    "We multiply both sides by a"
-                ],
-                "options_ar": [
-                    "نحلل a^2 - b^2",
-                    "نقسم على a - b (الذي يساوي 0)",
-                    "نضع a = b",
-                    "نضرب كلا الطرفين في a"
+                    "رسالة استفسار",
+                    "رسالة هزلية (Comic letter)",
+                    "رسالة متابعة",
+                    "رسالة تغطية"
                 ],
                 "correct_answer": 1,
-                "explanation": "Division by zero is undefined and is the source of the fallacy.",
-                "explanation_ar": "القسمة على (a - b) تعني القسمة على صفر وهي عملية غير معرفة ومصدر الخطأ."
+                "explanation": "Comic letters are not a standard category of business or technical correspondence. (Corrected from the file which incorrectly selected Inquiry letter).",
+                "explanation_ar": "الرسائل الهزلية ليست فئة قياسية في مراسلات العمل أو المراسلات الفنية. (تم تصحيح الإجابة من الملف الذي اختار خطأً رسالة الاستفسار)."
             },
             {
                 "type": "choice",
-                "question": "To prove “If n is odd, then n^2 is odd,” we write n = 2k+1 and square it. This method is:",
-                "question_ar": "لإثبات 'إذا كان n فردياً، فإن n^2 فردي'، نكتب n = 2k+1 ونقوم بتربيعه. هذه الطريقة هي:",
+                "question": "The main purpose of a user manual is to:",
+                "question_ar": "الغرض الرئيسي من دليل المستخدم هو:",
                 "options": [
-                    "Proof by contradiction",
-                    "Proof by contraposition",
-                    "Direct proof",
-                    "Exhaustive proof"
+                    "Entertain readers",
+                    "Provide step-by-step instructions",
+                    "Advertise products",
+                    "Tell stories"
                 ],
                 "options_ar": [
-                    "البرهان بالتناقض",
-                    "البرهان بالمعاكس الإيجابي",
-                    "البرهان المباشر",
-                    "البرهان الشامل"
+                    "ترفيه القراء",
+                    "تقديم تعليمات خطوة بخطوة",
+                    "الإعلان عن المنتجات",
+                    "سرد القصص"
+                ],
+                "correct_answer": 1,
+                "explanation": "User manuals are instructional documents designed to guide users.",
+                "explanation_ar": "أدلة المستخدم هي وثائق تعليمية مصممة لتوجيه المستخدمين."
+            },
+            {
+                "type": "choice",
+                "question": "Grant proposals are written to:",
+                "question_ar": "تكتب مقترحات المنح لـ:",
+                "options": [
+                    "Entertain readers",
+                    "Request funding for a project",
+                    "Advertise a company",
+                    "Summarize data"
+                ],
+                "options_ar": [
+                    "ترفيه القراء",
+                    "طلب تمويل لمشروع",
+                    "الإعلان عن شركة",
+                    "تلخيص البيانات"
+                ],
+                "correct_answer": 1,
+                "explanation": "The primary goal of a grant proposal is to secure financial support.",
+                "explanation_ar": "الهدف الأساسي لمقترح المنحة هو تأمين الدعم المالي."
+            },
+            {
+                "type": "choice",
+                "question": "Which of the following is NOT a convention of technical writing?",
+                "question_ar": "أي مما يلي ليس من اتفاقيات (خصائص) الكتابة الفنية؟",
+                "options": [
+                    "Objectivity",
+                    "Clarity",
+                    "Vagueness",
+                    "Accuracy"
+                ],
+                "options_ar": [
+                    "الموضوعية",
+                    "الوضوح",
+                    "الغموض (Vagueness)",
+                    "الدقة"
                 ],
                 "correct_answer": 2,
-                "explanation": "We are starting with the hypothesis and directly deriving the conclusion using algebra.",
-                "explanation_ar": "هذا تطبيق مباشر حيث نبدأ بالفرضية ونستنتج النتيجة جبرياً."
+                "explanation": "Technical writing must be clear and precise, so vagueness is to be avoided.",
+                "explanation_ar": "يجب أن تكون الكتابة الفنية واضحة ودقيقة، لذا يجب تجنب الغموض."
             },
             {
                 "type": "choice",
-                "question": "To prove “If n^2 is odd, then n is odd” by contraposition, we assume:",
-                "question_ar": "لإثبات 'إذا كان n^2 فردياً، فإن n فردي' بالمعاكس الإيجابي، نفترض:",
+                "question": "A lack of clarity usually results from:",
+                "question_ar": "عادة ما ينتج عدم الوضوح عن:",
                 "options": [
-                    "n^2 is even",
-                    "n is even",
-                    "n is odd",
-                    "n^2 is odd"
+                    "Over-editing",
+                    "Unclear thinking or poor planning",
+                    "Too much research",
+                    "Lack of vocabulary"
                 ],
                 "options_ar": [
-                    "n^2 زوجي",
-                    "n زوجي",
-                    "n فردي",
-                    "n^2 فردي"
+                    "الإفراط في التحرير",
+                    "التفكير غير الواضح أو التخطيط السيئ",
+                    "كثرة البحث",
+                    "نقص المفردات"
                 ],
                 "correct_answer": 1,
-                "explanation": "The negation of the conclusion 'n is odd' is 'n is even'.",
-                "explanation_ar": "نفي النتيجة 'n فردي' هو 'n زوجي'."
+                "explanation": "Clear writing comes from clear thinking and structured planning.",
+                "explanation_ar": "الكتابة الواضحة تأتي من التفكير الواضح والتخطيط المنظم."
             },
             {
                 "type": "choice",
-                "question": "In a proof by contradiction for p → q, we start by assuming:",
-                "question_ar": "في البرهان بالتناقض للعبارة p ← q، نبدأ بافتراض:",
+                "question": "Concise writing focuses on:",
+                "question_ar": "تركز الكتابة الموجزة (Concise) على:",
                 "options": [
-                    "p is true",
-                    "q is false",
-                    "p is true and q is false",
-                    "p is false and q is true"
+                    "Using the fewest words that delivers the most meaning",
+                    "Adding as much detail as possible",
+                    "Using long phrases",
+                    "Writing poetically"
                 ],
                 "options_ar": [
-                    "p صحيحة",
-                    "q خاطئة",
-                    "p صحيحة و q خاطئة",
-                    "p خاطئة و q صحيحة"
-                ],
-                "correct_answer": 2,
-                "explanation": "To contradict a conditional statement, we assume the condition is met but the result is not.",
-                "explanation_ar": "لإثبات التناقض في جملة شرطية، نفترض تحقق الشرط (p) وعدم تحقق النتيجة (q)."
-            },
-            {
-                "type": "choice",
-                "question": "If we prove “If n is even, then n-1 is odd” and “If n-1 is odd, then n^2 is even” and “If n^2 is even, then n is even,” we are showing:",
-                "question_ar": "إذا أثبتنا سلسلة العبارات: (n زوجي ← n-1 فردي) و (n-1 فردي ← n^2 زوجي) و (n^2 زوجي ← n زوجي)، فإننا نبين:",
-                "options": [
-                    "A direct proof",
-                    "These three statements are equivalent",
-                    "A proof by cases",
-                    "A proof by contradiction"
-                ],
-                "options_ar": [
-                    "برهاناً مباشراً",
-                    "أن هذه العبارات الثلاث متكافئة",
-                    "برهاناً بالحالات",
-                    "برهاناً بالتناقض"
-                ],
-                "correct_answer": 1,
-                "explanation": "Circular implication (p → q → r → p) proves equivalence between all statements.",
-                "explanation_ar": "سلسلة الاستنتاجات الدائرية تثبت أن جميع الجمل متكافئة."
-            },
-            {
-                "type": "choice",
-                "question": "To prove max(x,y) + min(x,y) = x + y, we consider cases x ≥ y and x < y. This is:",
-                "question_ar": "لإثبات max(x,y) + min(x,y) = x + y، نعتبر الحالتين x ≥ y و x < y. هذا هو:",
-                "options": [
-                    "Exhaustive proof",
-                    "Proof by cases",
-                    "Direct proof",
-                    "Proof by contradiction"
-                ],
-                "options_ar": [
-                    "البرهان الشامل",
-                    "البرهان بالحالات",
-                    "البرهان المباشر",
-                    "البرهان بالتناقض"
-                ],
-                "correct_answer": 1,
-                "explanation": "Dividing the problem into mutually exclusive scenarios covers all possibilities.",
-                "explanation_ar": "تقسيم المسألة إلى احتمالات تغطي جميع المواقف الممكنة هو برهان بالحالات."
-            },
-            {
-                "type": "choice",
-                "question": "In an exhaustive proof that (n+1)^3 ≥ 3^n for n ≤ 4, we check:",
-                "question_ar": "في برهان شامل للمتباينة (n+1)^3 ≥ 3^n حيث n ≤ 4، نتحقق من:",
-                "options": [
-                    "n = 1, 2, 3, 4",
-                    "All integers",
-                    "n = 0, 1, 2, 3, 4",
-                    "Only n = 4"
-                ],
-                "options_ar": [
-                    "n = 1, 2, 3, 4",
-                    "كل الأعداد الصحيحة",
-                    "n = 0, 1, 2, 3, 4",
-                    "فقط n = 4"
+                    "استخدام أقل عدد من الكلمات لتوصيل أكبر قدر من المعنى",
+                    "إضافة أكبر قدر ممكن من التفاصيل",
+                    "استخدام عبارات طويلة",
+                    "الكتابة الشعرية"
                 ],
                 "correct_answer": 0,
-                "explanation": "Assuming the domain is positive integers, we check each value up to 4.",
-                "explanation_ar": "في البرهان الشامل لمجال محدد، نتحقق من كل القيم المذكورة."
+                "explanation": "Conciseness is about efficiency in word choice without losing meaning.",
+                "explanation_ar": "الإيجاز يدور حول الكفاءة في اختيار الكلمات دون فقدان المعنى."
             },
             {
                 "type": "choice",
-                "question": "To show “Every positive integer is a perfect square” is false, we provide:",
-                "question_ar": "لإظهار خطأ العبارة 'كل عدد صحيح موجب هو مربع كامل'، نقدم:",
+                "question": "Concrete writing uses:",
+                "question_ar": "تستخدم الكتابة الملموسة (Concrete):",
                 "options": [
-                    "A direct proof",
-                    "A counterexample (e.g., 3)",
-                    "A proof by cases",
-                    "A proof by contradiction"
+                    "Specific and measurable language",
+                    "Abstract and vague terms",
+                    "Figurative language",
+                    "Personal feelings"
                 ],
                 "options_ar": [
-                    "برهاناً مباشراً",
-                    "مثالاً مضاداً (مثل 3)",
-                    "برهاناً بالحالات",
-                    "برهاناً بالتناقض"
-                ],
-                "correct_answer": 1,
-                "explanation": "A single example that fails the condition (Counterexample) is enough to disprove 'Every'.",
-                "explanation_ar": "لإثبات خطأ جملة عامة، يكفي تقديم مثال واحد يثبت العكس."
-            },
-            {
-                "type": "choice",
-                "question": "In proving “If n = ab with a,b > 0, then a ≤ √n or b ≤ √n” by contraposition, we assume:",
-                "question_ar": "عند إثبات 'إذا كان n = ab حيث a,b > 0، فإن a ≤ √n أو b ≤ √n' بالمعاكس الإيجابي، نفترض:",
-                "options": [
-                    "a > √n and b > √n",
-                    "a ≤ √n or b ≤ √n",
-                    "a ≤ √n and b ≤ √n",
-                    "n is prime"
-                ],
-                "options_ar": [
-                    "a > √n و b > √n",
-                    "a ≤ √n أو b ≤ √n",
-                    "a ≤ √n و b ≤ √n",
-                    "n عدد أولي"
+                    "لغة محددة وقابلة للقياس",
+                    "مصطلحات مجردة وغامضة",
+                    "لغة مجازية",
+                    "مشاعر شخصية"
                 ],
                 "correct_answer": 0,
-                "explanation": "By De Morgan's laws, the negation of (A or B) is (Not A and Not B).",
-                "explanation_ar": "نفي العبارة (أو) هو (و) مع عكس الإشارات."
+                "explanation": "Concrete writing uses facts, data, and specific details rather than generalizations.",
+                "explanation_ar": "تستخدم الكتابة الملموسة الحقائق والبيانات والتفاصيل المحددة بدلاً من التعميمات."
             },
             {
                 "type": "choice",
-                "question": "If a proof examines every possible instance in a finite domain, it is:",
-                "question_ar": "إذا فحص البرهان كل حالة ممكنة في مجال محدود، فهو:",
+                "question": "Which 'C' (feature of technical writing) prevents redundancy and wordiness?",
+                "question_ar": "أي من الـ '7 Cs' (ميزات الكتابة الفنية) تمنع التكرار والإطناب؟",
                 "options": [
-                    "Proof by cases",
-                    "Exhaustive proof",
-                    "Direct proof",
-                    "Proof by induction"
+                    "Clear",
+                    "Concise",
+                    "Concrete",
+                    "Courteous"
                 ],
                 "options_ar": [
-                    "البرهان بالحالات",
-                    "البرهان الشامل",
-                    "البرهان المباشر",
-                    "البرهان بالاستقراء"
+                    "الوضوح",
+                    "الإيجاز (Concise)",
+                    "الملموسية",
+                    "اللطف/الكياسة"
                 ],
                 "correct_answer": 1,
-                "explanation": "Checking all instances one by one exhaustively proves the statement for that domain.",
-                "explanation_ar": "البرهان الشامل هو الذي يغطي كل حالة فردية في مجال محدود."
-            },
-            {
-                "type": "choice",
-                "question": "To prove “If x and y are integers, then x^2 + 3y^2 ≠ 8” we check all possible x^2 ∈ {0,1,4} and 3y^2 ∈ {0,3}. This is:",
-                "question_ar": "لإثبات 'إذا كان x و y أعداداً صحيحة، فإن x^2 + 3y^2 ≠ 8'، نتحقق من كل القيم الممكنة للمربعات. هذا هو:",
-                "options": [
-                    "Direct proof",
-                    "Proof by contradiction",
-                    "Exhaustive proof",
-                    "Proof by contraposition"
-                ],
-                "options_ar": [
-                    "البرهان المباشر",
-                    "البرهان بالتناقض",
-                    "البرهان الشامل",
-                    "البرهان بالمعاكس الإيجابي"
-                ],
-                "correct_answer": 2,
-                "explanation": "Testing all possible combinations of values within the limit constitutes an exhaustive proof.",
-                "explanation_ar": "تجربة كل الاحتمالات الممكنة للمجاميع يعتبر برهاناً شاملاً."
-            },
-            {
-                "type": "choice",
-                "question": "In a proof of equivalence for three statements p1, p2, p3, we prove:",
-                "question_ar": "في إثبات تكافؤ ثلاث عبارات p1, p2, p3، نثبت:",
-                "options": [
-                    "p1 → p2, p2 → p3, p3 → p1",
-                    "p1 → p2 only",
-                    "p1 ↔ p2 and p2 ↔ p3",
-                    "p1 ∧ p2 ∧ p3"
-                ],
-                "options_ar": [
-                    "p1 ← p2, p2 ← p3, p3 ← p1",
-                    "p1 ← p2 فقط",
-                    "p1 ↔ p2 و p2 ↔ p3",
-                    "p1 ∧ p2 ∧ p3"
-                ],
-                "correct_answer": 0,
-                "explanation": "Establishing a cycle of implications is the standard efficient method.",
-                "explanation_ar": "أكثر الطرق كفاءة هي إثبات سلسلة دائرية من الاشتراطات."
-            },
-            {
-                "type": "choice",
-                "question": "A lemma is:",
-                "question_ar": "اللِمّة (Lemma) هي:",
-                "options": [
-                    "The main theorem",
-                    "A less important theorem used to prove other results",
-                    "A counterexample",
-                    "A type of contradiction"
-                ],
-                "options_ar": [
-                    "النظرية الأساسية",
-                    "نظرية مساعدة تستخدم لإثبات نتائج أخرى",
-                    "مثال مضاد",
-                    "نوع من التناقض"
-                ],
-                "correct_answer": 1,
-                "explanation": "A lemma is a helping theorem used as a stepping stone.",
-                "explanation_ar": "اللِمة (Lemma) هي نظرية مساعدة أو تمهيدية تستخدم لإثبات نظريات أكبر وأهم."
-            },
-            {
-                "type": "choice",
-                "question": "In the proof that “If n is integer, then n^2 ≥ n” by cases, the cases are:",
-                "question_ar": "في إثبات 'إذا كان n عدداً صحيحاً، فإن n^2 ≥ n' بالحالات، الحالات هي:",
-                "options": [
-                    "n = 0, n ≥ 1, n ≤ -1",
-                    "n even, n odd",
-                    "n positive, n negative",
-                    "n rational, n irrational"
-                ],
-                "options_ar": [
-                    "n = 0, n ≥ 1, n ≤ -1",
-                    "n زوجي، n فردي",
-                    "n موجب، n سالب",
-                    "n نسبي، n غير نسبي"
-                ],
-                "correct_answer": 0,
-                "explanation": "Splitting integers into zero, positive, and negative covers the entire set effectively for inequalities.",
-                "explanation_ar": "لتغطية كل الأعداد الصحيحة بالنسبة لهذه المتباينة، أفضل تقسيم هو: الصفر، الأعداد الموجبة، والأعداد السالبة."
-            },
-            {
-                "type": "choice",
-                "question": "The statement “If n is odd then 5n+6 is odd” is proven by:",
-                "question_ar": "العبارة 'إذا كان n فردياً فإن 5n+6 فردي' يتم إثباتها بـ:",
-                "options": [
-                    "Direct proof (n = 2k+1)",
-                    "Contraposition",
-                    "Contradiction",
-                    "Exhaustive proof"
-                ],
-                "options_ar": [
-                    "البرهان المباشر (n = 2k+1)",
-                    "المعاكس الإيجابي",
-                    "التناقض",
-                    "البرهان الشامل"
-                ],
-                "correct_answer": 0,
-                "explanation": "Direct substitution of the definition of an odd number works best here.",
-                "explanation_ar": "يمكن إثباتها بسهولة بالتعويض المباشر عن n بـ 2k+1."
-            },
-            {
-                "type": "choice",
-                "question": "To prove two statements p and q are equivalent, we show:",
-                "question_ar": "لإثبات أن العبارتين p و q متكافئتان، نبين:",
-                "options": [
-                    "p → q",
-                    "q → p",
-                    "p → q and q → p",
-                    "p ∧ q"
-                ],
-                "options_ar": [
-                    "p ← q",
-                    "q ← p",
-                    "p ← q و q ← p",
-                    "p ∧ q"
-                ],
-                "correct_answer": 2,
-                "explanation": "Equivalence (iff) requires implications in both directions.",
-                "explanation_ar": "التكافؤ يعني أن p تؤدي لـ q، و q تؤدي لـ p."
-            },
-            {
-                "type": "choice",
-                "question": "In the proof by contradiction of “If 3n+2 is odd, then n is odd,” the contradiction is between:",
-                "question_ar": "في البرهان بالتناقض لـ 'إذا كان 3n+2 فردياً، فإن n فردي'، يقع التناقض بين:",
-                "options": [
-                    "n even and n odd",
-                    "3n+2 odd and 3n+2 even",
-                    "n positive and n negative",
-                    "n integer and n not integer"
-                ],
-                "options_ar": [
-                    "n زوجي و n فردي",
-                    "3n+2 فردي و 3n+2 زوجي",
-                    "n موجب و n سالب",
-                    "n صحيح و n غير صحيح"
-                ],
-                "correct_answer": 1,
-                "explanation": "We assumed 3n+2 is odd, but assuming n is even implies 3n+2 is even.",
-                "explanation_ar": "التناقض يحدث لأننا بدأنا بفرض أن (3n+2 فردي)، ولكن الخطوات أدت لنتيجة أن (3n+2 زوجي)."
-            },
-            {
-                "type": "choice",
-                "question": "An informal proof:",
-                "question_ar": "البرهان غير الرسمي:",
-                "options": [
-                    "States every rule of inference explicitly",
-                    "Skips steps and uses intuitive reasoning",
-                    "Must be done by computer",
-                    "Is invalid"
-                ],
-                "options_ar": [
-                    "يذكر كل قاعدة استنتاج بالتفصيل",
-                    "يتخطى بعض الخطوات ويستخدم الاستدلال البديهي",
-                    "يجب أن يتم بواسطة الحاسوب",
-                    "هو برهان غير صالح"
-                ],
-                "correct_answer": 1,
-                "explanation": "Informal proofs focus on the logic flow rather than rigorous step-by-step citation of rules.",
-                "explanation_ar": "البرهان غير الرسمي يركز على الفكرة والمنطق دون سرد كل قاعدة استنتاج بالتفصيل."
-            },
-            {
-                "type": "choice",
-                "question": "In proof by cases for “If n is integer, then n^2 ≥ n,” case n ≤ -1 works because:",
-                "question_ar": "في البرهان بالحالات لـ 'إذا كان n صحيحاً، فإن n^2 ≥ n'، الحالة n ≤ -1 تنجح لأن:",
-                "options": [
-                    "n^2 is positive and n is negative",
-                    "n^2 = n",
-                    "n^2 < n",
-                    "n is odd"
-                ],
-                "options_ar": [
-                    "n^2 موجب و n سالب",
-                    "n^2 = n",
-                    "n^2 < n",
-                    "n فردي"
-                ],
-                "correct_answer": 0,
-                "explanation": "A square of a negative number is positive, which is always greater than a negative number.",
-                "explanation_ar": "تربيع أي عدد سالب يعطي عدداً موجباً، والعدد الموجب دائماً أكبر من العدد السالب."
-            },
-            {
-                "type": "choice",
-                "question": "To prove “There are no integers x, y with x^2 + 3y^2 = 8”, we check combinations of x^2 ∈ {0,1,4} and 3y^2 ∈ {0,3}. This method is:",
-                "question_ar": "لإثبات 'لا توجد أعداد صحيحة x, y بحيث x^2 + 3y^2 = 8'، نتحقق من تجميعات القيم الممكنة. هذه الطريقة هي:",
-                "options": [
-                    "Proof by contradiction",
-                    "Exhaustive proof",
-                    "Direct proof",
-                    "Proof by contraposition"
-                ],
-                "options_ar": [
-                    "البرهان بالتناقض",
-                    "البرهان الشامل",
-                    "البرهان المباشر",
-                    "البرهان بالمعاكس الإيجابي"
-                ],
-                "correct_answer": 1,
-                "explanation": "Checking all possible finite combinations constitutes an exhaustive proof.",
-                "explanation_ar": "تجربة كل الاحتمالات الممكنة للمجاميع يعتبر برهاناً شاملاً."
-            },
-            {
-                "type": "choice",
-                "question": "In the proof that consecutive perfect powers ≤ 100 are only 8 and 9, we list squares, cubes, etc. This is:",
-                "question_ar": "في إثبات أن القوى الكاملة المتتالية ≤ 100 هي فقط 8 و 9، نسرد المربعات والمكعبات. هذا هو:",
-                "options": [
-                    "Proof by contradiction",
-                    "Exhaustive proof",
-                    "Proof by cases",
-                    "Direct proof"
-                ],
-                "options_ar": [
-                    "البرهان بالتناقض",
-                    "البرهان الشامل",
-                    "البرهان بالحالات",
-                    "البرهان المباشر"
-                ],
-                "correct_answer": 1,
-                "explanation": "We list and check every perfect power within the limit.",
-                "explanation_ar": "لأننا قمنا بسرد وحصر جميع القوى الكاملة تحت الـ 100 وفحصها يدوياً."
+                "explanation": "Being concise means avoiding unnecessary words and redundancy.",
+                "explanation_ar": "أن تكون موجزاً يعني تجنب الكلمات غير الضرورية والتكرار."
             }
         ]
     },
     {
-        "name": "Proofs",
-        "description": "Questions related to mathematical proof techniques including direct proof, contradiction, contraposition, and induction.",
+        "name": "Assignment 1 - Part II: True/False",
+        "description": "True or False questions covering Technical Writing concepts.",
         "questions": [
             {
-                "type": "choice",
-                "question": "Which of the following methods can only be used to disprove a universal statement?",
-                "question_ar": "أي من الطرق التالية يمكن استخدامها فقط لنفي عبارة عامة (شمولية)؟",
-                "options": ["Direct proof", "Proof by contradiction", "Counterexample", "Mathematical induction"],
-                "options_ar": ["البرهان المباشر", "البرهان بالتناقض", "المثال المضاد", "الاستقراء الرياضي"],
-                "correct_answer": 2,
-                "explanation": "A counterexample is a specific case that satisfies the hypothesis but fails the conclusion, thus disproving a universal claim.",
-                "explanation_ar": "المثال المضاد هو حالة محددة تحقق الفرضية ولكنها تخالف النتيجة، مما يكفي لنفي التعميم."
-            },
-            {
-                "type": "choice",
-                "question": "To prove a conditional statement of the form 'if p, then q' using a direct proof, we start by:",
-                "question_ar": "لإثبات عبارة شرطية من الشكل 'إذا كان p، فإن q' باستخدام البرهان المباشر، نبدأ بـ:",
-                "options": ["Assuming that q is false", "Assuming that p is true", "Assuming that p is false", "Assuming that q is true"],
-                "options_ar": ["افتراض أن q خاطئة", "افتراض أن p صحيحة", "افتراض أن p خاطئة", "افتراض أن q صحيحة"],
-                "correct_answer": 1,
-                "explanation": "Direct proof starts by assuming the hypothesis (p) is true and logically deriving the conclusion (q).",
-                "explanation_ar": "البرهان المباشر يبدأ بافتراض صحة الفرضية (p) واستنتاج النتيجة (q) منطقياً."
-            },
-            {
-                "type": "choice",
-                "question": "Which statement is logically equivalent to the statement 'if p, then q'?",
-                "question_ar": "أي عبارة تكافئ منطقياً العبارة 'إذا كان p، فإن q'؟",
-                "options": ["If q, then p", "If not p, then not q", "If not q, then not p", "p and q"],
-                "options_ar": ["إذا كان q، فإن p", "إذا لم يكن p، فإن ليس q", "إذا لم يكن q، فإن ليس p", "p و q"],
-                "correct_answer": 2,
-                "explanation": "The contrapositive (If not q, then not p) is logically equivalent to the original conditional statement.",
-                "explanation_ar": "المعاكس الإيجابي (إذا لم يكن q، فإن ليس p) يكافئ منطقياً العبارة الشرطية الأصلية."
-            },
-            {
-                "type": "choice",
-                "question": "Which proof method assumes that the statement to be proved is false and then derives a contradiction?",
-                "question_ar": "أي طريقة برهان تفترض أن العبارة المراد إثباتها خاطئة ثم تستنتج تناقضاً؟",
-                "options": ["Direct proof", "Proof by cases", "Proof by contradiction", "Exhaustive proof"],
-                "options_ar": ["البرهان المباشر", "البرهان بالحالات", "البرهان بالتناقض", "البرهان الشامل"],
-                "correct_answer": 2,
-                "explanation": "Proof by contradiction assumes the negation of the statement is true and shows this leads to a logical absurdity.",
-                "explanation_ar": "البرهان بالتناقض يفترض صحة نفي العبارة ويبين أن هذا يؤدي إلى خطأ منطقي."
-            },
-            {
-                "type": "choice",
-                "question": "A proof that verifies a statement by checking every possible case individually is called:",
-                "question_ar": "البرهان الذي يتحقق من العبارة عن طريق فحص كل حالة ممكنة بشكل فردي يسمى:",
-                "options": ["Proof by cases", "Exhaustive proof", "Mathematical induction", "Direct proof"],
-                "options_ar": ["البرهان بالحالات", "البرهان الشامل", "الاستقراء الرياضي", "البرهان المباشر"],
-                "correct_answer": 1,
-                "explanation": "Exhaustive proof involves testing every element in the domain.",
-                "explanation_ar": "البرهان الشامل يتضمن اختبار كل عنصر في المجال."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following is not a valid method for proving a mathematical statement?",
-                "question_ar": "أي مما يلي لا يعتبر طريقة صالحة لإثبات عبارة رياضية (بمعنى إثبات صحتها العامة)؟",
-                "options": ["Direct proof", "Counterexample", "Proof by induction", "Proof by contradiction"],
-                "options_ar": ["البرهان المباشر", "المثال المضاد", "البرهان بالاستقراء", "البرهان بالتناقض"],
-                "correct_answer": 1,
-                "explanation": "A counterexample is used to DISPROVE a statement, not to prove it is true for all cases.",
-                "explanation_ar": "المثال المضاد يستخدم لنفي (دحض) العبارة، وليس لإثبات صحتها في جميع الحالات."
-            },
-            {
-                "type": "choice",
-                "question": "To prove a biconditional statement 'p if and only if q', we must prove:",
-                "question_ar": "لإثبات عبارة ثنائية الشرط 'p إذا وفقط إذا كان q'، يجب أن نثبت:",
-                "options": ["p is true", "q is true", "If p, then q only", "If p, then q and if q, then p"],
-                "options_ar": ["p صحيحة", "q صحيحة", "إذا كان p فإن q فقط", "إذا كان p فإن q، وإذا كان q فإن p"],
-                "correct_answer": 3,
-                "explanation": "Biconditional statements require proof in both directions (implication and converse).",
-                "explanation_ar": "العبارات ثنائية الشرط تتطلب البرهان في كلا الاتجاهين."
-            },
-            {
-                "type": "choice",
-                "question": "Which proof technique is especially useful when a direct proof fails?",
-                "question_ar": "أي تقنية برهان تكون مفيدة بشكل خاص عندما يفشل البرهان المباشر؟",
-                "options": ["Direct proof", "Mathematical induction", "Proof by contraposition", "Exhaustive proof"],
-                "options_ar": ["البرهان المباشر", "الاستقراء الرياضي", "البرهان بالمعاكس الإيجابي", "البرهان الشامل"],
-                "correct_answer": 2,
-                "explanation": "Contraposition often provides an easier starting point when the direct hypothesis is hard to work with.",
-                "explanation_ar": "المعاكس الإيجابي يوفر غالباً نقطة بداية أسهل عندما يكون التعامل مع الفرضية المباشرة صعباً."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following statements is false?",
-                "question_ar": "أي من العبارات التالية خاطئة؟",
-                "options": ["A lemma is a less important result used to prove a theorem", "A proof is a valid logical argument", "All proofs are formal proofs", "A theorem must be proven"],
-                "options_ar": ["اللمة هي نتيجة أقل أهمية تستخدم لإثبات نظرية", "البرهان هو حجة منطقية صالحة", "كل البراهين هي براهين رسمية", "النظرية يجب إثباتها"],
-                "correct_answer": 2,
-                "explanation": "Proofs can be informal (using natural language) as long as the logic is sound; they don't have to be purely symbolic/formal.",
-                "explanation_ar": "يمكن للبراهين أن تكون غير رسمية (باستخدام اللغة الطبيعية) طالما أن المنطق سليم."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following proof methods is considered an indirect proof?",
-                "question_ar": "أي من طرق البرهان التالية يعتبر برهاناً غير مباشر؟",
-                "options": ["Direct proof", "Proof by cases", "Proof by contraposition", "Exhaustive proof"],
-                "options_ar": ["البرهان المباشر", "البرهان بالحالات", "البرهان بالمعاكس الإيجابي", "البرهان الشامل"],
-                "correct_answer": 2,
-                "explanation": "Contraposition and contradiction are types of indirect proofs.",
-                "explanation_ar": "المعاكس الإيجابي والتناقض هما نوعان من البراهين غير المباشرة."
-            },
-            {
-                "type": "choice",
-                "question": "To disprove a statement of the form 'for all x, P(x)', we need:",
-                "question_ar": "لنفي عبارة من الشكل 'لكل x، العبارة P(x) صحيحة'، نحتاج إلى:",
-                "options": ["A direct proof", "A contradiction", "A counterexample", "Mathematical induction"],
-                "options_ar": ["برهان مباشر", "تناقض", "مثال مضاد", "استقراء رياضي"],
-                "correct_answer": 2,
-                "explanation": "Finding one instance (counterexample) where P(x) is false is enough to invalidate the 'for all' claim.",
-                "explanation_ar": "إيجاد حالة واحدة (مثال مضاد) تكون فيها P(x) خاطئة يكفي لإبطال ادعاء 'لكل'."
-            },
-            {
-                "type": "choice",
-                "question": "Which proof method begins by assuming that the conclusion of the statement is false?",
-                "question_ar": "أي طريقة برهان تبدأ بافتراض أن نتيجة العبارة خاطئة؟",
-                "options": ["Direct proof", "Proof by contradiction", "Mathematical induction", "Exhaustive proof"],
-                "options_ar": ["البرهان المباشر", "البرهان بالتناقض", "الاستقراء الرياضي", "البرهان الشامل"],
-                "correct_answer": 1,
-                "explanation": "In contradiction, we assume the negation of the conclusion (and truth of hypothesis) to find a paradox.",
-                "explanation_ar": "في التناقض، نفترض نفي النتيجة (وصحة الفرضية) للوصول إلى مفارقة."
-            },
-            {
-                "type": "choice",
-                "question": "Mathematical induction is mainly used to prove statements about:",
-                "question_ar": "الاستقراء الرياضي يستخدم بشكل رئيسي لإثبات عبارات حول:",
-                "options": ["Real numbers", "Integers", "Natural numbers", "Rational numbers"],
-                "options_ar": ["الأعداد الحقيقية", "الأعداد الصحيحة", "الأعداد الطبيعية", "الأعداد النسبية"],
-                "correct_answer": 2,
-                "explanation": "Induction is designed for countable sequences, typically natural numbers.",
-                "explanation_ar": "الاستقراء مصمم للمتتاليات القابلة للعد، وعادة ما تكون الأعداد الطبيعية."
-            },
-            {
-                "type": "choice",
-                "question": "Which proof method divides the problem into several possible cases?",
-                "question_ar": "أي طريقة برهان تقسم المسألة إلى عدة حالات ممكنة؟",
-                "options": ["Proof by contraposition", "Counterexample", "Proof by cases", "Direct proof"],
-                "options_ar": ["البرهان بالمعاكس الإيجابي", "المثال المضاد", "البرهان بالحالات", "البرهان المباشر"],
-                "correct_answer": 2,
-                "explanation": "This method covers all distinct scenarios (cases) separately.",
-                "explanation_ar": "هذه الطريقة تغطي جميع السيناريوهات (الحالات) المختلفة بشكل منفصل."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following statements about counterexamples is true?",
-                "question_ar": "أي من العبارات التالية حول الأمثلة المضادة صحيحة؟",
-                "options": ["They are used to prove statements", "One counterexample is sufficient", "They require induction", "They are used only for biconditional statements"],
-                "options_ar": ["تستخدم لإثبات العبارات", "مثال مضاد واحد كافٍ", "تتطلب الاستقراء", "تستخدم فقط للعبارات ثنائية الشرط"],
-                "correct_answer": 1,
-                "explanation": "A single counterexample is enough to disprove a universal quantification.",
-                "explanation_ar": "مثال مضاد واحد يكفي لنفي التعميم الشامل."
-            },
-            {
-                "type": "choice",
-                "question": "In logic, a contradiction is a statement that is:",
-                "question_ar": "في المنطق، التناقض هو عبارة تكون:",
-                "options": ["Sometimes true", "Always true", "Always false", "Conditionally true"],
-                "options_ar": ["صحيحة أحياناً", "صحيحة دائماً", "خاطئة دائماً", "صحيحة شرطياً"],
-                "correct_answer": 2,
-                "explanation": "A contradiction is logically false regardless of the truth values of its components.",
-                "explanation_ar": "التناقض هو خطأ منطقي بغض النظر عن قيم الحقيقة لمكوناته."
-            },
-            {
-                "type": "choice",
-                "question": "Which method proves a conditional statement by proving 'if not q, then not p'?",
-                "question_ar": "أي طريقة تثبت العبارة الشرطية عن طريق إثبات 'إذا لم يكن q، فإن ليس p'؟",
-                "options": ["Proof by contradiction", "Proof by contraposition", "Direct proof", "Mathematical induction"],
-                "options_ar": ["البرهان بالتناقض", "البرهان بالمعاكس الإيجابي", "البرهان المباشر", "الاستقراء الرياضي"],
-                "correct_answer": 1,
-                "explanation": "This is the definition of proof by contraposition.",
-                "explanation_ar": "هذا هو تعريف البرهان بالمعاكس الإيجابي."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following is not normally used in constructing a proof?",
-                "question_ar": "أي مما يلي لا يستخدم عادة في بناء البرهان؟",
-                "options": ["Definitions", "Axioms", "Previously proven theorems", "Counterexamples in direct proofs"],
-                "options_ar": ["التعريفات", "المسلمات", "النظريات المثبتة سابقاً", "الأمثلة المضادة في البراهين المباشرة"],
-                "correct_answer": 3,
-                "explanation": "Counterexamples disprove, they don't construct a proof of truth.",
-                "explanation_ar": "الأمثلة المضادة تستخدم للنفي، ولا تبني برهاناً للصحة."
-            },
-            {
-                "type": "choice",
-                "question": "Which proof method is most suitable when the domain of the problem is small and finite?",
-                "question_ar": "أي طريقة برهان هي الأنسب عندما يكون مجال المسألة صغيراً ومحدوداً؟",
-                "options": ["Mathematical induction", "Exhaustive proof", "Proof by contradiction", "Proof by contraposition"],
-                "options_ar": ["الاستقراء الرياضي", "البرهان الشامل", "البرهان بالتناقض", "البرهان بالمعاكس الإيجابي"],
-                "correct_answer": 1,
-                "explanation": "You can exhaustively check all possibilities only if they are few and finite.",
-                "explanation_ar": "يمكنك التحقق بشكل شامل من جميع الاحتمالات فقط إذا كانت قليلة ومحدودة."
-            },
-            {
-                "type": "choice",
-                "question": "Which proof method proves a conditional statement by assuming both the hypothesis is true and the conclusion is false?",
-                "question_ar": "أي طريقة برهان تثبت العبارة الشرطية بافتراض أن الفرضية صحيحة وأن النتيجة خاطئة؟",
-                "options": ["Direct proof", "Proof by contraposition", "Proof by contradiction", "Proof by cases"],
-                "options_ar": ["البرهان المباشر", "البرهان بالمعاكس الإيجابي", "البرهان بالتناقض", "البرهان بالحالات"],
-                "correct_answer": 2,
-                "explanation": "This assumption creates the scenario for deriving a contradiction.",
-                "explanation_ar": "هذا الافتراض يخلق السيناريو لاستنتاج التناقض."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following mistakes makes a proof invalid?",
-                "question_ar": "أي من الأخطاء التالية يجعل البرهان غير صالح؟",
-                "options": ["Using algebraic manipulation", "Dividing by zero", "Using a definition", "Using logical reasoning"],
-                "options_ar": ["استخدام المعالجة الجبرية", "القسمة على صفر", "استخدام تعريف", "استخدام الاستدلال المنطقي"],
-                "correct_answer": 1,
-                "explanation": "Dividing by zero is mathematically undefined and invalidates the logic.",
-                "explanation_ar": "القسمة على صفر غير معرفة رياضياً وتبطل المنطق."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following best describes a mathematical proof?",
-                "question_ar": "أي مما يلي يصف البرهان الرياضي بشكل أفضل؟",
-                "options": ["A numerical example", "A logical argument", "A guess", "A definition"],
-                "options_ar": ["مثال عددي", "حجة منطقية", "تخمين", "تعريف"],
-                "correct_answer": 1,
-                "explanation": "A proof is a sequence of logical arguments leading to a conclusion.",
-                "explanation_ar": "البرهان هو سلسلة من الحجج المنطقية التي تؤدي إلى نتيجة."
-            },
-            {
-                "type": "choice",
-                "question": "An exhaustive proof is considered a special case of:",
-                "question_ar": "يعتبر البرهان الشامل حالة خاصة من:",
-                "options": ["Mathematical induction", "Proof by contradiction", "Proof by cases", "Direct proof"],
-                "options_ar": ["الاستقراء الرياضي", "البرهان بالتناقض", "البرهان بالحالات", "البرهان المباشر"],
-                "correct_answer": 2,
-                "explanation": "It treats every single item as a 'case'.",
-                "explanation_ar": "إنه يعامل كل عنصر فردي على أنه 'حالة'."
-            },
-            {
-                "type": "choice",
-                "question": "Which proof method proceeds step by step from the hypothesis to the conclusion?",
-                "question_ar": "أي طريقة برهان تسير خطوة بخطوة من الفرضية إلى النتيجة؟",
-                "options": ["Proof by contradiction", "Direct proof", "Counterexample", "Exhaustive proof"],
-                "options_ar": ["البرهان بالتناقض", "البرهان المباشر", "المثال المضاد", "البرهان الشامل"],
-                "correct_answer": 1,
-                "explanation": "This describes the flow of a direct proof.",
-                "explanation_ar": "هذا يصف مسار البرهان المباشر."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following statements is true?",
-                "question_ar": "أي من العبارات التالية صحيحة؟",
-                "options": ["Every proof is indirect", "Counterexamples are used to prove universal statements", "Mathematical induction can only be used for equations", "Proofs can be informal"],
-                "options_ar": ["كل برهان هو غير مباشر", "تستخدم الأمثلة المضادة لإثبات العبارات الشاملة", "لا يستخدم الاستقراء إلا للمعادلات", "يمكن أن تكون البراهين غير رسمية"],
-                "correct_answer": 3,
-                "explanation": "Proofs don't strictly need to follow formal symbolic logic notation to be valid.",
-                "explanation_ar": "البراهين لا تحتاج بالضرورة لاتباع تدوين المنطق الرمزي الرسمي لتكون صالحة."
-            },
-            {
                 "type": "true_false",
-                "question": "A single counterexample is enough to disprove a universal statement.",
-                "question_ar": "مثال مضاد واحد يكفي لنفي عبارة شمولية.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "One failure invalidates 'for all'.",
-                "explanation_ar": "فشل حالة واحدة يبطل 'الكل'."
-            },
-            {
-                "type": "true_false",
-                "question": "Proof by contraposition proves the original statement indirectly.",
-                "question_ar": "البرهان بالمعاكس الإيجابي يثبت العبارة الأصلية بشكل غير مباشر.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "It proves the equivalent contrapositive statement.",
-                "explanation_ar": "يثبت العبارة المكافئة (المعاكس الإيجابي)."
-            },
-            {
-                "type": "true_false",
-                "question": "Direct proof always starts by assuming the conclusion.",
-                "question_ar": "البرهان المباشر يبدأ دائماً بافتراض النتيجة.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "It starts by assuming the hypothesis (p).",
-                "explanation_ar": "يبدأ بافتراض الفرضية (p)."
-            },
-            {
-                "type": "true_false",
-                "question": "Exhaustive proof works only when all cases can be listed.",
-                "question_ar": "البرهان الشامل يعمل فقط عندما يمكن سرد جميع الحالات.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "You must be able to list and check every case.",
-                "explanation_ar": "يجب أن تكون قادراً على سرد وفحص كل حالة."
-            },
-            {
-                "type": "true_false",
-                "question": "Proof by contradiction assumes the statement is true.",
-                "question_ar": "البرهان بالتناقض يفترض أن العبارة صحيحة.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "It assumes the statement is false (assumes the negation).",
-                "explanation_ar": "يفترض أن العبارة خاطئة (يفترض النفي)."
-            },
-            {
-                "type": "true_false",
-                "question": "A biconditional statement requires two proofs.",
-                "question_ar": "العبارة ثنائية الشرط تتطلب برهانين.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "Proof for p -> q and proof for q -> p.",
-                "explanation_ar": "برهان لـ p -> q وبرهان لـ q -> p."
-            },
-            {
-                "type": "true_false",
-                "question": "Counterexamples can be used to prove statements.",
-                "question_ar": "يمكن استخدام الأمثلة المضادة لإثبات العبارات.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "They are used to disprove, not prove.",
-                "explanation_ar": "تستخدم للنفي، وليس للإثبات."
-            }
-        ]
-    },
-    {
-        "name": "Rules of Inference",
-        "description": "Questions related to logical deduction rules like Modus Ponens, Resolution, and Validity.",
-        "questions": [
-            {
-                "type": "choice",
-                "question": "If an argument uses implication and negation to reach a conclusion, the rule is likely:",
-                "question_ar": "إذا استخدمت الحجة الاستلزام والنفي للوصول إلى نتيجة، فالقاعدة هي على الأرجح:",
-                "options": ["Modus ponens", "Modus tollens", "Addition", "Conjunction"],
-                "options_ar": ["مودوس بونينز", "مودوس تولينز", "الإضافة", "الوصل"],
-                "correct_answer": 1,
-                "explanation": "Modus Tollens involves implication and negation.",
-                "explanation_ar": "مودوس تولينز يتضمن الاستلزام والنفي."
-            },
-            {
-                "type": "choice",
-                "question": "Which rule combines p and q to form a single statement?",
-                "question_ar": "أي قاعدة تدمج p و q لتكوين عبارة واحدة؟",
-                "options": ["Simplification", "Resolution", "Conjunction", "Addition"],
-                "options_ar": ["التبسيط", "القرار", "الوصل", "الإضافة"],
-                "correct_answer": 2,
-                "explanation": "Conjunction creates (p AND q).",
-                "explanation_ar": "الوصل ينشئ (p و q)."
-            },
-            {
-                "type": "choice",
-                "question": "Which rule of inference is essential for proving validity without truth tables?",
-                "question_ar": "أي قاعدة استنتاج ضرورية لإثبات الصلاحية بدون جداول الصواب؟",
-                "options": ["Counterexample", "Rules of inference", "Induction", "Exhaustive proof"],
-                "options_ar": ["المثال المضاد", "قواعد الاستنتاج", "الاستقراء", "البرهان الشامل"],
-                "correct_answer": 1,
-                "explanation": "Using rules of inference is the formal method to prove validity without testing all truth values.",
-                "explanation_ar": "استخدام قواعد الاستنتاج هو الطريقة الرسمية لإثبات الصلاحية دون اختبار جميع قيم الصواب."
-            }
-        ]
-    },
-    {
-        "name": "Discrete Math Exam",
-        "description": "Exam questions covering sets, functions, logic, and cardinality.",
-        "questions": [
-            {
-                "type": "choice",
-                "question": "Which of the following set-builder notations represents the set S={2,4,6,8,10}?",
-                "question_ar": "أي من تدوينات بناء المجموعة التالية يمثل المجموعة S={2,4,6,8,10}؟",
+                "question": "Technical writing aims to entertain and engage the reader's emotions.",
+                "question_ar": "تهدف الكتابة الفنية إلى الترفيه عن القارئ وإشراك عواطفه.",
                 "options": [
-                    "{x | x=2n, n ≤ 5, n ∈ N}",
-                    "{x | x=2n, n ≤ 5, n ∈ Z}",
-                    "{x | x=2n, 1 ≤ n ≤ 5, n ∈ R}",
-                    "{x | x=n, n ≤ 10}"
+                    "True",
+                    "False"
                 ],
                 "options_ar": [
-                    "{x | x=2n, n ≤ 5, n ∈ N}",
-                    "{x | x=2n, n ≤ 5, n ∈ Z}",
-                    "{x | x=2n, 1 ≤ n ≤ 5, n ∈ R}",
-                    "{x | x=n, n ≤ 10}"
+                    "صواب",
+                    "خطأ"
+                ],
+                "correct_answer": 1,
+                "explanation": "Its aim is to inform and instruct, not entertain.",
+                "explanation_ar": "هدفها هو الإعلام والتوجيه، وليس الترفيه."
+            },
+            {
+                "type": "true_false",
+                "question": "Texting is the most suitable method for sending detailed reports.",
+                "question_ar": "الرسائل النصية هي الطريقة الأنسب لإرسال التقارير المفصلة.",
+                "options": [
+                    "True",
+                    "False"
+                ],
+                "options_ar": [
+                    "صواب",
+                    "خطأ"
+                ],
+                "correct_answer": 1,
+                "explanation": "Texting is for short messages; reports require emails or documents.",
+                "explanation_ar": "الرسائل النصية للرسائل القصيرة؛ التقارير تتطلب رسائل بريد إلكتروني أو مستندات."
+            },
+            {
+                "type": "true_false",
+                "question": "Unlike letters, memos are used mainly for communication inside an organization (internal communication).",
+                "question_ar": "على عكس الرسائل، تستخدم المذكرات (Memos) بشكل رئيسي للتواصل داخل المنظمة (الاتصال الداخلي).",
+                "options": [
+                    "True",
+                    "False"
+                ],
+                "options_ar": [
+                    "صواب",
+                    "خطأ"
                 ],
                 "correct_answer": 0,
-                "explanation": "If we assume N starts from 1, then for n=1,2,3,4,5, the values of 2n are 2,4,6,8,10.",
-                "explanation_ar": "بافتراض أن الأعداد الطبيعية N تبدأ من 1، فعند تعويض قيم n بـ 1، 2، 3، 4، 5، نحصل على القيم الزوجية 2، 4، 6، 8، 10."
+                "explanation": "Memos are internal documents; letters are typically external.",
+                "explanation_ar": "المذكرات هي وثائق داخلية؛ الرسائل عادة ما تكون خارجية."
             },
             {
                 "type": "true_false",
-                "question": "If A={1,2} and B={0,3}, then A×B = B×A?",
-                "question_ar": "إذا كانت A={1,2} و B={0,3}، هل الضرب الديكارتي A×B يساوي B×A؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
+                "question": "The subject line of a memo should be short, general, and vague.",
+                "question_ar": "يجب أن يكون سطر الموضوع في المذكرة قصيراً وعاماً وغامضاً.",
+                "options": [
+                    "True",
+                    "False"
+                ],
+                "options_ar": [
+                    "صواب",
+                    "خطأ"
+                ],
                 "correct_answer": 1,
-                "explanation": "The Cartesian product is not commutative unless A=B. Here (1,0) is in A×B but not in B×A.",
-                "explanation_ar": "الضرب الديكارتي ليس عملية تبديلية إلا إذا كانت المجموعتان متساويتين. الزوج المرتب (1,0) موجود في A×B ولكنه غير موجود في B×A."
+                "explanation": "Subject lines should be specific and descriptive.",
+                "explanation_ar": "يجب أن تكون سطور الموضوع محددة ووصفية."
             },
             {
                 "type": "true_false",
-                "question": "Is the function f(x) = x³/(x³+1) invertible?",
-                "question_ar": "هل الدالة f(x) = x³/(x³+1) قابلة للعكس؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "The function is not surjective (onto) over the reals because it cannot equal 1, so strictly speaking, it implies it's not invertible as a bijection from R to R.",
-                "explanation_ar": "الدالة ليست شاملة (Surjective) على مجال الأعداد الحقيقية لأن قيمتها لا يمكن أن تساوي 1، وبالتالي فهي ليست تناظراً أحادياً (Bijective) ولا قابلة للعكس بهذا المعنى."
-            },
-            {
-                "type": "true_false",
-                "question": "Does there exist x ∈ Z such that (2e^x)/(1+e^x) = 1?",
-                "question_ar": "هل يوجد عدد صحيح x ∈ Z بحيث (2e^x)/(1+e^x) = 1؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "Solving the equation: 2e^x = 1 + e^x -> e^x = 1 -> x = 0. Since 0 is an integer, the statement is True.",
-                "explanation_ar": "بحل المعادلة: 2e^x = 1 + e^x ينتج e^x = 1 ومنها x = 0. وبما أن الصفر عدد صحيح، فالعبارة صحيحة."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following set logic statements is TRUE?",
-                "question_ar": "أي من عبارات منطق المجموعات التالية صحيحة؟",
+                "question": "The heading of a business letter usually contains both the sender's and recipient's addresses.",
+                "question_ar": "يحتوي رأس رسالة العمل عادة على عنوان المرسل والمستلم.",
                 "options": [
-                    "A - B = B - A",
-                    "A ∪ ∅ = A",
-                    "A ∩ U = ∅",
-                    "A ⊆ A ∩ B"
+                    "True",
+                    "False"
                 ],
                 "options_ar": [
-                    "A - B = B - A",
-                    "A ∪ ∅ = A",
-                    "A ∩ U = ∅",
-                    "A ⊆ A ∩ B"
-                ],
-                "correct_answer": 1,
-                "explanation": "The union of any set A with the empty set is A itself (Identity Law).",
-                "explanation_ar": "اتحاد أي مجموعة A مع المجموعة الخالية هو المجموعة A نفسها (قانون المحايد)."
-            },
-            {
-                "type": "true_false",
-                "question": "Is the function f(x) = x² - 1 surjective (onto)?",
-                "question_ar": "هل الدالة f(x) = x² - 1 شاملة (Surjective)؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "The range of x² - 1 is [-1, ∞), so it does not cover all real numbers (e.g., -5 is not in the range).",
-                "explanation_ar": "مدى الدالة x² - 1 هو [-1, ∞)، لذا فهي لا تغطي كل الأعداد الحقيقية (مثلاً -5 ليس ضمن المدى)، وبالتالي ليست شاملة."
-            },
-            {
-                "type": "choice",
-                "question": "Find the domain of f(x) = √(x² - 4x - 12)",
-                "question_ar": "أوجد مجال الدالة f(x) = √(x² - 4x - 12)",
-                "options": [
-                    "(-∞, ∞)",
-                    "(-∞, -2] ∪ [6, ∞)",
-                    "[-2, 6]",
-                    "(-2, 6)"
-                ],
-                "options_ar": [
-                    "(-∞, ∞)",
-                    "(-∞, -2] ∪ [6, ∞)",
-                    "[-2, 6]",
-                    "(-2, 6)"
-                ],
-                "correct_answer": 1,
-                "explanation": "We need x² - 4x - 12 ≥ 0. Factoring gives (x-6)(x+2) ≥ 0, which holds when x ≤ -2 or x ≥ 6.",
-                "explanation_ar": "يجب أن يكون ما تحت الجذر أكبر من أو يساوي الصفر. التحليل يعطي (x-6)(x+2) ≥ 0، وهو ما يتحقق عندما x ≤ -2 أو x ≥ 6."
-            },
-            {
-                "type": "true_false",
-                "question": "Is f(x) = 1/sin(x) one-to-one?",
-                "question_ar": "هل الدالة f(x) = 1/sin(x) أحادية (One-to-one)؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "Trigonometric functions are periodic, meaning different x values produce the same y value (not one-to-one).",
-                "explanation_ar": "الدوال المثلثية دورية، مما يعني أن قيماً مختلفة لـ x تعطي نفس القيمة لـ y، لذا فهي ليست أحادية."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of the set {x ∈ N : x² < 1}",
-                "question_ar": "أوجد عدد عناصر (Cardinality) المجموعة {x ∈ N : x² < 1}",
-                "options": ["0", "1", "2", "∞"],
-                "options_ar": ["0", "1", "2", "∞"],
-                "correct_answer": 0,
-                "explanation": "Assuming N starts at 1, there is no natural number whose square is less than 1. The set is empty.",
-                "explanation_ar": "بافتراض أن الأعداد الطبيعية تبدأ من 1، لا يوجد عدد طبيعي مربعه أقل من 1. المجموعة خالية."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of the set {x : x is prime number less than 2}",
-                "question_ar": "أوجد عدد عناصر المجموعة {x : x هو عدد أولي أقل من 2}",
-                "options": ["0", "1", "2", "∞"],
-                "options_ar": ["0", "1", "2", "∞"],
-                "correct_answer": 0,
-                "explanation": "The smallest prime number is 2. There are no primes less than 2.",
-                "explanation_ar": "أصغر عدد أولي هو 2. لا توجد أعداد أولية أقل من 2."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of the set {x ∈ R : 0 < x < 1}",
-                "question_ar": "أوجد عدد عناصر المجموعة {x ∈ R : 0 < x < 1}",
-                "options": ["0", "1", "∞", "2"],
-                "options_ar": ["0", "1", "∞", "2"],
-                "correct_answer": 2,
-                "explanation": "There are infinitely many real numbers between 0 and 1.",
-                "explanation_ar": "يوجد عدد لا نهائي من الأعداد الحقيقية بين 0 و 1."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of the set {x : x² = 1}",
-                "question_ar": "أوجد عدد عناصر المجموعة {x : x² = 1}",
-                "options": ["0", "1", "2", "∞"],
-                "options_ar": ["0", "1", "2", "∞"],
-                "correct_answer": 2,
-                "explanation": "The solutions are x = 1 and x = -1. The set has 2 elements.",
-                "explanation_ar": "الحلول هي x = 1 و x = -1. المجموعة تحتوي على عنصرين."
-            }
-        ]
-    },
-    {
-        "name": "Question DS",
-        "description": "Discrete Structures Midterm Exam questions covering sets, logic, functions, and cardinality.",
-        "questions": [
-            {
-                "type": "choice",
-                "question": "Which of the following is logically equivalent to (A ∪ B) - (A ∩ B)?",
-                "question_ar": "أي مما يلي يكافئ منطقياً (A ∪ B) - (A ∩ B)؟",
-                "options": [
-                    "A ∩ B",
-                    "(A - B) ∪ (B - A)",
-                    "A ∪ B",
-                    "A ∩ B"
-                ],
-                "options_ar": [
-                    "A ∩ B",
-                    "(A - B) ∪ (B - A)",
-                    "A ∪ B",
-                    "A ∩ B"
-                ],
-                "correct_answer": 1,
-                "explanation": "This operation represents the Symmetric Difference, which contains elements in A or B but not in both. It is equivalent to (A - B) ∪ (B - A).",
-                "explanation_ar": "هذه العملية تمثل الفرق التماثلي (Symmetric Difference)، وهي العناصر الموجودة في A أو B ولكن ليس في كليهما، وتكافئ (A - B) ∪ (B - A)."
-            },
-            {
-                "type": "choice",
-                "question": "Which statement is true for any sets?",
-                "question_ar": "أي عبارة صحيحة لأي مجموعات؟",
-                "options": [
-                    "A ⊆ A ∩ B",
-                    "A ∩ B ⊆ A",
-                    "A ⊂ B",
-                    "A = B"
-                ],
-                "options_ar": [
-                    "A ⊆ A ∩ B",
-                    "A ∩ B ⊆ A",
-                    "A ⊂ B",
-                    "A = B"
-                ],
-                "correct_answer": 1,
-                "explanation": "The intersection of A and B contains only elements that are in A (and B), so it must be a subset of A.",
-                "explanation_ar": "تقاطع A و B يحتوي فقط على العناصر الموجودة في A (و B)، لذا يجب أن يكون مجموعة جزئية من A."
-            },
-            {
-                "type": "choice",
-                "question": "Which statement is a tautology?",
-                "question_ar": "أي عبارة تعتبر تحصيلاً حاصلاً (Tautology)؟",
-                "options": [
-                    "p ∧ q",
-                    "p → q",
-                    "(p → q) ∨ (q → p)",
-                    "p ↔ ¬p"
-                ],
-                "options_ar": [
-                    "p ∧ q",
-                    "p → q",
-                    "(p → q) ∨ (q → p)",
-                    "p ↔ ¬p"
-                ],
-                "correct_answer": 2,
-                "explanation": "In classical logic, implications are linear; at least one direction (p->q or q->p) must be true.",
-                "explanation_ar": "في المنطق الكلاسيكي، العبارة الشرطية (p → q) ∨ (q → p) تكون دائماً صحيحة."
-            },
-            {
-                "type": "true_false",
-                "question": "If f(x) = |x|, then f is invertible.",
-                "question_ar": "إذا كانت f(x) = |x|، فإن f قابلة للعكس.",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "The absolute value function is not one-to-one (e.g., |-2| = |2| = 2), so it is not invertible.",
-                "explanation_ar": "دالة القيمة المطلقة ليست أحادية (لأن |-2| = |2|)، وبالتالي فهي ليست قابلة للعكس."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following is equivalent to p ↔ q?",
-                "question_ar": "أي مما يلي يكافئ p ↔ q؟",
-                "options": [
-                    "p ∧ q",
-                    "(p ∧ q) ∨ (¬p ∧ ¬q)",
-                    "p ∨ q",
-                    "¬p ∨ ¬q"
-                ],
-                "options_ar": [
-                    "p ∧ q",
-                    "(p ∧ q) ∨ (¬p ∧ ¬q)",
-                    "p ∨ q",
-                    "¬p ∨ ¬q"
-                ],
-                "correct_answer": 1,
-                "explanation": "The biconditional is true if both p and q are true, or if both are false.",
-                "explanation_ar": "العبارة ثنائية الشرط تكون صحيحة إذا كانت p و q كلاهما صحيح، أو كلاهما خاطئ."
-            },
-            {
-                "type": "choice",
-                "question": "Let A = {0, 1}. Which of the following is NOT an element of P(A)?",
-                "question_ar": "لتكن A = {0, 1}. أي مما يلي ليس عنصراً في مجموعة القوى P(A)؟",
-                "options": [
-                    "∅",
-                    "{0}",
-                    "{1}",
-                    "{{1}}"
-                ],
-                "options_ar": [
-                    "∅",
-                    "{0}",
-                    "{1}",
-                    "{{1}}"
-                ],
-                "correct_answer": 3,
-                "explanation": "P(A) contains subsets of A: ∅, {0}, {1}, {0,1}. The set {{1}} implies a set containing a set, which is not a subset of A (unless A contained sets, which it doesn't).",
-                "explanation_ar": "مجموعة القوى P(A) تحتوي على المجموعات الجزئية: ∅، {0}، {1}، {0,1}. العنصر {{1}} هو مجموعة تحتوي على مجموعة، وهو ليس من ضمن هذه المجموعات الجزئية."
-            },
-            {
-                "type": "choice",
-                "question": "Given f(x) = (x-3)/(x+1) and g(x) = (-2x+1)/(x+2). Find f ∘ g.",
-                "question_ar": "إذا كانت f(x) = (x-3)/(x+1) و g(x) = (-2x+1)/(x+2). أوجد f ∘ g.",
-                "options": [
-                    "(5x+5)/(x-3)",
-                    "(5x-5)/(x+3)",
-                    "(5x+5)/(x+3)",
-                    "(5x-5)/(x-3)"
-                ],
-                "options_ar": [
-                    "(5x+5)/(x-3)",
-                    "(5x-5)/(x+3)",
-                    "(5x+5)/(x+3)",
-                    "(5x-5)/(x-3)"
+                    "صواب",
+                    "خطأ"
                 ],
                 "correct_answer": 0,
-                "explanation": "Substituting g(x) into f(x) and simplifying yields (5x+5)/(x-3).",
-                "explanation_ar": "بالتعويض بـ g(x) داخل f(x) وتبسيط الكسر المركب، نحصل على (5x+5)/(x-3)."
-            },
-            {
-                "type": "choice",
-                "question": "Let A = {0, 1} and B = {2, 3}. Find A × B.",
-                "question_ar": "لتكن A = {0, 1} و B = {2, 3}. أوجد A × B.",
-                "options": [
-                    "∅",
-                    "{(0,2), (1,3)}",
-                    "{(0,2), (0,3), (1,2), (1,3)}",
-                    "{0, 1, 2, 3}"
-                ],
-                "options_ar": [
-                    "∅",
-                    "{(0,2), (1,3)}",
-                    "{(0,2), (0,3), (1,2), (1,3)}",
-                    "{0, 1, 2, 3}"
-                ],
-                "correct_answer": 2,
-                "explanation": "The Cartesian product pairs every element of A with every element of B.",
-                "explanation_ar": "الضرب الديكارتي يقرن كل عنصر من A بكل عنصر من B."
-            },
-            {
-                "type": "choice",
-                "question": "Let A = {x ∈ Z | x² < 10} and B = {-3, -2, -1, 0, 1, 2, 3}. What is the relation between A and B?",
-                "question_ar": "لتكن A = {x ∈ Z | x² < 10} و B = {-3, -2, -1, 0, 1, 2, 3}. ما هي العلاقة بين A و B؟",
-                "options": [
-                    "A = B",
-                    "A ⊂ B",
-                    "B ⊂ A",
-                    "A ∩ B = ∅"
-                ],
-                "options_ar": [
-                    "A = B",
-                    "A ⊂ B",
-                    "B ⊂ A",
-                    "A ∩ B = ∅"
-                ],
-                "correct_answer": 0,
-                "explanation": "Integers squared less than 10 are 0, ±1, ±2, ±3. Thus A contains exactly the same elements as B.",
-                "explanation_ar": "الأعداد الصحيحة التي مربعها أقل من 10 هي 0، ±1، ±2، ±3. إذن A تحتوي بالضبط على نفس عناصر B."
-            },
-            {
-                "type": "choice",
-                "question": "\"If it rains then the match is canceled.\" What is the converse?",
-                "question_ar": "\"إذا أمطرت، ستلغى المباراة.\" ما هو العكس (Converse)؟",
-                "options": [
-                    "If the match is canceled then it rains",
-                    "If it does not rain then the match is canceled",
-                    "If it rains then the match is not canceled",
-                    "Same statement"
-                ],
-                "options_ar": [
-                    "إذا ألغيت المباراة، فإنها تمطر",
-                    "إذا لم تمطر، ستلغى المباراة",
-                    "إذا أمطرت، لن تلغى المباراة",
-                    "نفس العبارة"
-                ],
-                "correct_answer": 0,
-                "explanation": "The converse of p → q is q → p.",
-                "explanation_ar": "عكس العبارة الشرطية (p → q) هو (q → p)."
+                "explanation": "This is a standard requirement for formal business letters.",
+                "explanation_ar": "هذا متطلب قياسي لرسائل العمل الرسمية."
             },
             {
                 "type": "true_false",
-                "question": "Let P(x) = ln(x) > 0. Find the truth value of ∀x > 1, P(x).",
-                "question_ar": "لتكن P(x) = ln(x) > 0. ما هي قيمة الصواب لـ ∀x > 1, P(x)؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
+                "question": "Maintaining accuracy and objectivity are key conventions in technical writing.",
+                "question_ar": "الحفاظ على الدقة والموضوعية من الاتفاقيات الرئيسية في الكتابة الفنية.",
+                "options": [
+                    "True",
+                    "False"
+                ],
+                "options_ar": [
+                    "صواب",
+                    "خطأ"
+                ],
                 "correct_answer": 0,
-                "explanation": "The natural logarithm function ln(x) is positive for all x > 1.",
-                "explanation_ar": "دالة اللوغاريتم الطبيعي ln(x) تكون موجبة لكل قيم x الأكبر من 1."
+                "explanation": "These are fundamental principles of the field.",
+                "explanation_ar": "هذه مبادئ أساسية في المجال."
             },
             {
                 "type": "true_false",
-                "question": "Let P(x) = x² - 2x + 1 = 0. Does there exist x ∈ R that satisfies P(x)?",
-                "question_ar": "لتكن P(x) = x² - 2x + 1 = 0. هل يوجد x ∈ R يحقق P(x)؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "Factoring gives (x-1)² = 0, so x = 1 exists in R.",
-                "explanation_ar": "التحليل يعطي (x-1)² = 0، لذا x = 1 موجود في الأعداد الحقيقية."
-            },
-            {
-                "type": "choice",
-                "question": "Let S = {x ∈ Z | -2 < x ≤ 3}. What is S?",
-                "question_ar": "لتكن S = {x ∈ Z | -2 < x ≤ 3}. ما هي S؟",
+                "question": "Personal opinions and subjectivity are essential conventions in professional reports.",
+                "question_ar": "الآراء الشخصية والذاتية هي اتفاقيات أساسية في التقارير المهنية.",
                 "options": [
-                    "{-2, -1, 0, 1, 2, 3}",
-                    "{-1, 0, 1, 2, 3}",
-                    "{0, 1, 2, 3}",
-                    "{-2, -1, 0}"
+                    "True",
+                    "False"
                 ],
                 "options_ar": [
-                    "{-2, -1, 0, 1, 2, 3}",
-                    "{-1, 0, 1, 2, 3}",
-                    "{0, 1, 2, 3}",
-                    "{-2, -1, 0}"
+                    "صواب",
+                    "خطأ"
                 ],
                 "correct_answer": 1,
-                "explanation": "Integers strictly greater than -2 and less than or equal to 3 are -1, 0, 1, 2, 3.",
-                "explanation_ar": "الأعداد الصحيحة الأكبر تماماً من -2 والأصغر من أو تساوي 3 هي -1، 0، 1، 2، 3."
-            },
-            {
-                "type": "choice",
-                "question": "If f(x) = √(9 - x²), what is the domain of f?",
-                "question_ar": "إذا كانت f(x) = √(9 - x²)، ما هو مجال f؟",
-                "options": [
-                    "R",
-                    "(-3, 3)",
-                    "[-3, 3]",
-                    "x > 0"
-                ],
-                "options_ar": [
-                    "R",
-                    "(-3, 3)",
-                    "[-3, 3]",
-                    "x > 0"
-                ],
-                "correct_answer": 2,
-                "explanation": "The term under the square root must be non-negative: 9 - x² ≥ 0, which means x² ≤ 9.",
-                "explanation_ar": "ما تحت الجذر يجب أن يكون غير سالب: 9 - x² ≥ 0، مما يعني x² ≤ 9."
+                "explanation": "Professional reports emphasize facts and objectivity.",
+                "explanation_ar": "تؤكد التقارير المهنية على الحقائق والموضوعية."
             },
             {
                 "type": "true_false",
-                "question": "If f(x) = (x-2)³, is f one-to-one?",
-                "question_ar": "إذا كانت f(x) = (x-2)³، هل f أحادية؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "Cubic functions are monotonic and pass the horizontal line test, so they are one-to-one.",
-                "explanation_ar": "الدوال التكعيبية رتيبة وتجتاز اختبار الخط الأفقي، لذا فهي أحادية."
-            },
-            {
-                "type": "choice",
-                "question": "Solve x² - 5x + 6 = 0.",
-                "question_ar": "حل المعادلة x² - 5x + 6 = 0.",
+                "question": "Conciseness means using the least number of words without losing meaning.",
+                "question_ar": "الإيجاز يعني استخدام أقل عدد من الكلمات دون فقدان المعنى.",
                 "options": [
-                    "1 solution",
-                    "2",
-                    "2 solutions",
-                    "3"
+                    "True",
+                    "False"
                 ],
                 "options_ar": [
-                    "حل واحد",
-                    "2",
-                    "حلين",
-                    "3"
-                ],
-                "correct_answer": 2,
-                "explanation": "Factoring (x-2)(x-3)=0 gives two solutions: x=2 and x=3.",
-                "explanation_ar": "التحليل (x-2)(x-3)=0 يعطي حلين: x=2 و x=3."
-            },
-            {
-                "type": "true_false",
-                "question": "If f(x) = 1/(x²-1), is f surjective on R?",
-                "question_ar": "إذا كانت f(x) = 1/(x²-1)، هل f شاملة على R؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "The function cannot take values between -1 and 0 (exclusive of 0), so it does not cover all of R.",
-                "explanation_ar": "الدالة لا يمكن أن تأخذ قيماً في الفترة بين -1 و 0 (باستثناء 0)، لذا فهي لا تغطي كل R."
-            },
-            {
-                "type": "choice",
-                "question": "Which set-builder notation represents {2, 4, 6, 8, 10}?",
-                "question_ar": "أي تدوين بناء مجموعة يمثل {2, 4, 6, 8, 10}؟",
-                "options": [
-                    "{x | x=2n, n ≤ 5, n ∈ N}",
-                    "{x | x=2n, n ≤ 5, n ∈ Z+}",
-                    "{x | x=2n, 1 ≤ n ≤ 5, n ∈ R}",
-                    "Other"
-                ],
-                "options_ar": [
-                    "{x | x=2n, n ≤ 5, n ∈ N}",
-                    "{x | x=2n, n ≤ 5, n ∈ Z+}",
-                    "{x | x=2n, 1 ≤ n ≤ 5, n ∈ R}",
-                    "أخرى"
+                    "صواب",
+                    "خطأ"
                 ],
                 "correct_answer": 0,
-                "explanation": "Assuming N starts at 1, n=1,2,3,4,5 gives 2,4,6,8,10.",
-                "explanation_ar": "بافتراض أن N تبدأ من 1، فإن القيم n=1,2,3,4,5 تعطي 2,4,6,8,10."
+                "explanation": "This is the correct definition of conciseness.",
+                "explanation_ar": "هذا هو التعريف الصحيح للإيجاز."
             },
             {
                 "type": "true_false",
-                "question": "If A = {1, 2} and B = {0, 3}, is A × B = B × A?",
-                "question_ar": "إذا كانت A = {1, 2} و B = {0, 3}، هل A × B = B × A؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
+                "question": "Using terms like 'big,' 'good,' or 'nice' supports concrete writing.",
+                "question_ar": "استخدام مصطلحات مثل 'كبير'، 'جيد'، أو 'لطيف' يدعم الكتابة الملموسة.",
+                "options": [
+                    "True",
+                    "False"
+                ],
+                "options_ar": [
+                    "صواب",
+                    "خطأ"
+                ],
                 "correct_answer": 1,
-                "explanation": "Cartesian product is not commutative for different sets. (1,0) is in A×B but not B×A.",
-                "explanation_ar": "الضرب الديكارتي ليس تبديلياً للمجموعات المختلفة."
+                "explanation": "These are vague, abstract terms. Concrete writing uses specific metrics.",
+                "explanation_ar": "هذه مصطلحات غامضة ومجردة. تستخدم الكتابة الملموسة مقاييس محددة."
             },
             {
                 "type": "true_false",
-                "question": "Is f(x) = x³/(x³+1) invertible?",
-                "question_ar": "هل f(x) = x³/(x³+1) قابلة للعكس؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
+                "question": "Courteous writing focuses only on grammar, not tone or politeness.",
+                "question_ar": "تركز الكتابة المهذبة (Courteous) فقط على القواعد، وليس النبرة أو الأدب.",
+                "options": [
+                    "True",
+                    "False"
+                ],
+                "options_ar": [
+                    "صواب",
+                    "خطأ"
+                ],
                 "correct_answer": 1,
-                "explanation": "Although one-to-one, it is not surjective on R (range excludes 1), thus usually considered false in such exams unless codomain is restricted.",
-                "explanation_ar": "على الرغم من أنها أحادية، إلا أنها ليست شاملة على R (المدى لا يشمل 1)، لذا تعتبر عادة خطأ في مثل هذه الامتحانات."
+                "explanation": "Courteous writing is specifically about tone, respect, and politeness.",
+                "explanation_ar": "الكتابة المهذبة تتعلق تحديداً بالنبرة والاحترام والأدب."
             },
             {
                 "type": "true_false",
-                "question": "Does there exist x ∈ Z such that (2e^x)/(1+e^x) = 1?",
-                "question_ar": "هل يوجد x ∈ Z بحيث (2e^x)/(1+e^x) = 1؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 0,
-                "explanation": "Solving yields e^x = 1, so x = 0. Since 0 is an integer, it is True.",
-                "explanation_ar": "حل المعادلة يعطي e^x = 1، أي x = 0. بما أن الصفر عدد صحيح، فالعبارة صحيحة."
-            },
-            {
-                "type": "choice",
-                "question": "Which of the following statements is TRUE?",
-                "question_ar": "أي من العبارات التالية صحيحة؟",
+                "question": "The 7 Cs apply only to academic writing and not to technical or business communication.",
+                "question_ar": "تنطبق الـ '7 Cs' فقط على الكتابة الأكاديمية وليس على الاتصالات الفنية أو التجارية.",
                 "options": [
-                    "A - B = B - A",
-                    "A ∪ ∅ = A",
-                    "A ∩ U = ∅",
-                    "A ⊆ A ∩ B"
+                    "True",
+                    "False"
                 ],
                 "options_ar": [
-                    "A - B = B - A",
-                    "A ∪ ∅ = A",
-                    "A ∩ U = ∅",
-                    "A ⊆ A ∩ B"
+                    "صواب",
+                    "خطأ"
                 ],
                 "correct_answer": 1,
-                "explanation": "The Identity Law states that the union of any set with the empty set is the set itself.",
-                "explanation_ar": "قانون المحايد ينص على أن اتحاد أي مجموعة مع المجموعة الخالية هو المجموعة نفسها."
-            },
-            {
-                "type": "true_false",
-                "question": "Is f(x) = x² - 1 surjective on R?",
-                "question_ar": "هل f(x) = x² - 1 شاملة على R؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "The range is [-1, ∞), so it does not cover all negative numbers < -1.",
-                "explanation_ar": "المدى هو [-1, ∞)، لذا لا يغطي الأعداد السالبة الأصغر من -1."
-            },
-            {
-                "type": "choice",
-                "question": "Find the domain of f(x) = √(x² - 4x - 12).",
-                "question_ar": "أوجد مجال f(x) = √(x² - 4x - 12).",
-                "options": [
-                    "R",
-                    "(-∞, -2] ∪ [6, ∞)",
-                    "[-2, 6]",
-                    "(-2, 6)"
-                ],
-                "options_ar": [
-                    "R",
-                    "(-∞, -2] ∪ [6, ∞)",
-                    "[-2, 6]",
-                    "(-2, 6)"
-                ],
-                "correct_answer": 1,
-                "explanation": "We solve x² - 4x - 12 ≥ 0. Roots are -2 and 6. The parabola opens upwards, so it's positive outside the roots.",
-                "explanation_ar": "نحل المتباينة x² - 4x - 12 ≥ 0. الجذران هما -2 و 6. القطع المكافئ مفتوح لأعلى، لذا تكون موجبة خارج الجذرين."
-            },
-            {
-                "type": "true_false",
-                "question": "Is f(x) = 1/sin(x) one-to-one?",
-                "question_ar": "هل f(x) = 1/sin(x) أحادية؟",
-                "options": ["True", "False"],
-                "options_ar": ["صواب", "خطأ"],
-                "correct_answer": 1,
-                "explanation": "Trigonometric functions are periodic and repeat values, so they fail the horizontal line test.",
-                "explanation_ar": "الدوال المثلثية دورية وتكرر قيمها، لذا تفشل في اختبار الخط الأفقي."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of {x ∈ N : x² < 1}.",
-                "question_ar": "أوجد عدد عناصر {x ∈ N : x² < 1}.",
-                "options": [
-                    "0",
-                    "1",
-                    "2",
-                    "∞"
-                ],
-                "options_ar": [
-                    "0",
-                    "1",
-                    "2",
-                    "∞"
-                ],
-                "correct_answer": 0,
-                "explanation": "Assuming N = {1, 2, ...}, no element squared is less than 1.",
-                "explanation_ar": "بافتراض N = {1, 2, ...}، لا يوجد عنصر مربعه أقل من 1."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of the set of prime numbers less than 2.",
-                "question_ar": "أوجد عدد عناصر مجموعة الأعداد الأولية الأقل من 2.",
-                "options": [
-                    "0",
-                    "1",
-                    "2",
-                    "∞"
-                ],
-                "options_ar": [
-                    "0",
-                    "1",
-                    "2",
-                    "∞"
-                ],
-                "correct_answer": 0,
-                "explanation": "The smallest prime is 2. There are no primes less than 2.",
-                "explanation_ar": "أصغر عدد أولي هو 2. لا توجد أعداد أولية أقل من 2."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of {x ∈ R : 0 < x < 1}.",
-                "question_ar": "أوجد عدد عناصر {x ∈ R : 0 < x < 1}.",
-                "options": [
-                    "0",
-                    "1",
-                    "∞",
-                    "2"
-                ],
-                "options_ar": [
-                    "0",
-                    "1",
-                    "∞",
-                    "2"
-                ],
-                "correct_answer": 2,
-                "explanation": "There are infinitely many real numbers in any interval.",
-                "explanation_ar": "يوجد عدد لا نهائي من الأعداد الحقيقية في أي فترة."
-            },
-            {
-                "type": "choice",
-                "question": "Find the cardinality of {x : x² = 1}.",
-                "question_ar": "أوجد عدد عناصر {x : x² = 1}.",
-                "options": [
-                    "0",
-                    "1",
-                    "2",
-                    "∞"
-                ],
-                "options_ar": [
-                    "0",
-                    "1",
-                    "2",
-                    "∞"
-                ],
-                "correct_answer": 2,
-                "explanation": "The set is {-1, 1}, which has 2 elements.",
-                "explanation_ar": "المجموعة هي {-1, 1}، وتحتوي على عنصرين."
+                "explanation": "The 7 Cs are universally applicable to effective communication, especially technical/business.",
+                "explanation_ar": "تنطبق الـ 7 Cs عالمياً على التواصل الفعال، وخاصة الفني/التجاري."
             }
         ]
     }
