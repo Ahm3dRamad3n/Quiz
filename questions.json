@@ -546,5 +546,1383 @@
                 "explanation_ar": "تنطبق الـ 7 Cs عالمياً على التواصل الفعال، وخاصة الفني/التجاري."
             }
         ]
-    }
+    }،
+  {
+    "name": "Assignment (2) - Technical Writing",
+    "description": "Questions on Lecture 4: Titles, Headings, and Paragraphs",
+    "questions": [
+      {
+        "type": "choice",
+        "question": "In a technical report, the main function of a title is",
+        "question_ar": "في التقرير الفني، الوظيفة الأساسية للعنوان هي",
+        "options": [
+          "to attract readers with creative phrasing",
+          "to summarize every paragraph",
+          "to define the subject and purpose for readers"
+        ],
+        "options_ar": [
+          "جذب القراء بعبارات إبداعية",
+          "تلخيص كل فقرة",
+          "تحديد الموضوع والغرض للقراء"
+        ],
+        "correct_answer": 2,
+        "explanation": "The title must clearly define what the document is about (subject) and why it was written (purpose).",
+        "explanation_ar": "يجب أن يحدد العنوان بوضوح موضوع المستند والغرض من كتابته."
+      },
+      {
+        "type": "choice",
+        "question": "The title of the technical document is crucial because",
+        "question_ar": "عنوان المستند الفني حاسم لأنه",
+        "options": [
+          "it is your first chance to define your subject only",
+          "it is your first chance to define purpose for your readers only",
+          "it is your first chance to define your subject and purpose for your readers"
+        ],
+        "options_ar": [
+          "فرصتك الأولى لتحديد الموضوع فقط",
+          "فرصتك الأولى لتحديد الغرض للقراء فقط",
+          "فرصتك الأولى لتحديد الموضوع والغرض معاً للقراء"
+        ],
+        "correct_answer": 2,
+        "explanation": "It creates the first impression and sets the scope for the reader.",
+        "explanation_ar": "لأنه يخلق الانطباع الأول ويحدد النطاق للقارئ."
+      },
+      {
+        "type": "choice",
+        "question": "Choose the clearest and most informative heading:",
+        "question_ar": "اختر العنوان الأكثر وضوحاً وفائدة:",
+        "options": [
+          "Proposed Production Enhancement Strategies Analysis Techniques",
+          "Three Techniques for Analyzing the Proposed Strategies for Enhancing Production",
+          "Advantages and Disadvantages of the Three Techniques for Analyzing the Proposed Strategies for Enhancing Production"
+        ],
+        "options_ar": [
+          "تقنيات تحليل استراتيجيات تحسين الإنتاج المقترحة",
+          "ثلاث تقنيات لتحليل الاستراتيجيات المقترحة لتحسين الإنتاج",
+          "مزايا وعيوب التقنيات الثلاث لتحليل الاستراتيجيات المقترحة لتحسين الإنتاج"
+        ],
+        "correct_answer": 2,
+        "explanation": "This option provides the most detail about the content (Advantages and Disadvantages).",
+        "explanation_ar": "هذا الخيار يوفر أكبر قدر من التفاصيل حول المحتوى (المزايا والعيوب)."
+      },
+      {
+        "type": "choice",
+        "question": "In technical writing, ______ are lower-level titles for the sections and subsections in a document.",
+        "question_ar": "في الكتابة الفنية، ______ هي عناوين من مستوى أدنى للأقسام والأقسام الفرعية في المستند.",
+        "options": [
+          "headings",
+          "titles",
+          "coherent Paragraphs"
+        ],
+        "options_ar": [
+          "العناوين الجانبية (Headings)",
+          "العناوين الرئيسية (Titles)",
+          "الفقرات المترابطة"
+        ],
+        "correct_answer": 0,
+        "explanation": "Headings are used to divide the text into smaller sections within the document.",
+        "explanation_ar": "تستخدم العناوين الجانبية لتقسيم النص إلى أقسام أصغر داخل المستند."
+      },
+      {
+        "type": "choice",
+        "question": "In technical writing, to make your headings more effective you have to",
+        "question_ar": "في الكتابة الفنية، لجعل عناوينك أكثر فاعلية عليك أن",
+        "options": [
+          "use long noun strings",
+          "be informative",
+          "both a and b"
+        ],
+        "options_ar": [
+          "تستخدم سلاسل أسماء طويلة",
+          "تكون غنياً بالمعلومات (Informative)",
+          "كلاً من أ و ب"
+        ],
+        "correct_answer": 1,
+        "explanation": "Headings should provide clear information about the section's content without being confusing.",
+        "explanation_ar": "يجب أن توفر العناوين معلومات واضحة حول محتوى القسم دون أن تكون مربكة."
+      },
+      {
+        "type": "choice",
+        "question": "For discussions and descriptions of processes in technical writing, we better use",
+        "question_ar": "للمناقشات ووصف العمليات في الكتابة الفنية، يفضل استخدام",
+        "options": [
+          "the 'question' form",
+          "the 'how-to' form",
+          "the 'gerund' form"
+        ],
+        "options_ar": [
+          "صيغة السؤال",
+          "صيغة 'كيفية العمل'",
+          "صيغة المصدر (Gerund -ing)"
+        ],
+        "correct_answer": 2,
+        "explanation": "The gerund form (e.g., 'Analyzing...', 'Testing...') is standard for process descriptions.",
+        "explanation_ar": "صيغة المصدر (مثل 'Analyzing'، 'Testing') هي المعيار لوصف العمليات."
+      },
+      {
+        "type": "choice",
+        "question": "A ______ is the basic unit for communicating information in a technical report.",
+        "question_ar": "______ هي الوحدة الأساسية لتوصيل المعلومات في التقرير الفني.",
+        "options": [
+          "topic sentence",
+          "body paragraph",
+          "transitional paragraph"
+        ],
+        "options_ar": [
+          "الجملة الافتتاحية",
+          "فقرة المتن (Body paragraph)",
+          "الفقرة الانتقالية"
+        ],
+        "correct_answer": 1,
+        "explanation": "The body paragraph contains the core information and supporting details.",
+        "explanation_ar": "تحتوي فقرة المتن على المعلومات الأساسية والتفاصيل الداعمة."
+      },
+      {
+        "type": "choice",
+        "question": "Which type of paragraph provides logical flow between sections?",
+        "question_ar": "أي نوع من الفقرات يوفر تدفقاً منطقياً بين الأقسام؟",
+        "options": [
+          "Introduction paragraph",
+          "Transitional paragraph",
+          "Descriptive paragraph"
+        ],
+        "options_ar": [
+          "فقرة المقدمة",
+          "الفقرة الانتقالية",
+          "الفقرة الوصفية"
+        ],
+        "correct_answer": 1,
+        "explanation": "Transitional paragraphs connect ideas and ensure smooth reading flow.",
+        "explanation_ar": "تقوم الفقرات الانتقالية بربط الأفكار وضمان تدفق القراءة بسلاسة."
+      },
+      {
+        "type": "choice",
+        "question": "One key function of headings is to",
+        "question_ar": "إحدى الوظائف الرئيسية للعناوين الجانبية هي",
+        "options": [
+          "make the text vivid",
+          "divide the document into sections and subsections",
+          "replace topic sentences"
+        ],
+        "options_ar": [
+          "جعل النص حيوياً",
+          "تقسيم المستند إلى أقسام وأقسام فرعية",
+          "استبدال الجمل الافتتاحية"
+        ],
+        "correct_answer": 1,
+        "explanation": "Headings break up long text and organize it hierarchically.",
+        "explanation_ar": "تقوم العناوين بتجزئة النصوص الطويلة وتنظيمها بشكل هرمي."
+      },
+      {
+        "type": "choice",
+        "question": "Coherent headings help readers",
+        "question_ar": "تساعد العناوين المترابطة القراء على",
+        "options": [
+          "identify graphics",
+          "recognize the hierarchy of ideas",
+          "Skip secondary points"
+        ],
+        "options_ar": [
+          "التعرف على الرسومات",
+          "إدراك تسلسل/هرمية الأفكار",
+          "تخطي النقاط الثانوية"
+        ],
+        "correct_answer": 1,
+        "explanation": "They show which points are main ideas and which are subordinate.",
+        "explanation_ar": "توضح العناوين أي النقاط هي أفكار رئيسية وأيها تابعة."
+      },
+      {
+        "type": "choice",
+        "question": "Main headings represent",
+        "question_ar": "تمثل العناوين الرئيسية",
+        "options": [
+          "detailed examples",
+          "secondary ideas",
+          "broad, primary sections"
+        ],
+        "options_ar": [
+          "أمثلة مفصلة",
+          "أفكار ثانوية",
+          "أقسام واسعة وأساسية"
+        ],
+        "correct_answer": 2,
+        "explanation": "Main headings cover the major topics of the document.",
+        "explanation_ar": "تغطي العناوين الرئيسية الموضوعات الكبرى في المستند."
+      },
+      {
+        "type": "choice",
+        "question": "Subheadings usually present",
+        "question_ar": "تقدم العناوين الفرعية عادةً",
+        "options": [
+          "broader concepts",
+          "specific, secondary points",
+          "irrelevant data"
+        ],
+        "options_ar": [
+          "مفاهيم أوسع",
+          "نقاط محددة وثانوية",
+          "بيانات غير ذات صلة"
+        ],
+        "correct_answer": 1,
+        "explanation": "Subheadings break down the main headings into specific details.",
+        "explanation_ar": "تقوم العناوين الفرعية بتفصيل العناوين الرئيسية إلى تفاصيل محددة."
+      },
+      {
+        "type": "choice",
+        "question": "The main goal of using both main and subheadings is",
+        "question_ar": "الهدف الرئيسي من استخدام كل من العناوين الرئيسية والفرعية هو",
+        "options": [
+          "to make the document look longer",
+          "to ensure coherence and logical flow",
+          "to reduce paragraph length"
+        ],
+        "options_ar": [
+          "جعل المستند يبدو أطول",
+          "ضمان الترابط والتدفق المنطقي",
+          "تقليل طول الفقرات"
+        ],
+        "correct_answer": 1,
+        "explanation": "They create a structured map for the reader to follow.",
+        "explanation_ar": "فهي تخلق خريطة هيكلية ليتبعها القارئ."
+      },
+      {
+        "type": "choice",
+        "question": "Which of the following headings is ambiguous?",
+        "question_ar": "أي من العناوين التالية يعتبر غامضاً؟",
+        "options": [
+          "Techniques for Analyzing the Proposed Strategies for Enhancing Production",
+          "Proposed Production Enhancement Strategies Analysis Techniques",
+          "How to Analyze the Proposed Strategies for Enhancing Production"
+        ],
+        "options_ar": [
+          "تقنيات لتحليل الاستراتيجيات المقترحة...",
+          "Proposed Production Enhancement Strategies Analysis Techniques (سلسلة أسماء)",
+          "كيفية تحليل الاستراتيجيات المقترحة..."
+        ],
+        "correct_answer": 1,
+        "explanation": "Long noun strings (stacked nouns) are hard to interpret.",
+        "explanation_ar": "سلاسل الأسماء الطويلة (الأسماء المتراكمة) يصعب تفسيرها وفهمها."
+      },
+      {
+        "type": "choice",
+        "question": "______ is more important than conciseness in headings",
+        "question_ar": "______ أهم من الإيجاز في العناوين",
+        "options": [
+          "Clarity",
+          "Creativity",
+          "Brevity"
+        ],
+        "options_ar": [
+          "الوضوح (Clarity)",
+          "الإبداع",
+          "الاختصار"
+        ],
+        "correct_answer": 0,
+        "explanation": "Being clear is the priority; a short heading that is unclear is useless.",
+        "explanation_ar": "الوضوح هو الأولوية؛ العنوان القصير وغير الواضح لا فائدة منه."
+      },
+      {
+        "type": "choice",
+        "question": "In writing headings, ______ works best for less-knowledgeable and non-native readers.",
+        "question_ar": "عند كتابة العناوين، ______ تعمل بشكل أفضل للقراء الأقل معرفة وغير الناطقين باللغة.",
+        "options": [
+          "gerund form",
+          "question form",
+          "how-to form"
+        ],
+        "options_ar": [
+          "صيغة المصدر",
+          "صيغة السؤال",
+          "صيغة 'كيفية العمل'"
+        ],
+        "correct_answer": 1,
+        "explanation": "Questions directly address what the reader is looking for.",
+        "explanation_ar": "الأسئلة تخاطب مباشرة ما يبحث عنه القارئ."
+      },
+      {
+        "type": "choice",
+        "question": "Which heading type is ideal for instructional materials like manuals?",
+        "question_ar": "أي نوع من العناوين يعتبر مثالياً للمواد التعليمية مثل الكتيبات (Manuals)؟",
+        "options": [
+          "Gerund form",
+          "How-to form",
+          "Question form"
+        ],
+        "options_ar": [
+          "صيغة المصدر",
+          "صيغة 'كيفية العمل' (How-to)",
+          "صيغة السؤال"
+        ],
+        "correct_answer": 1,
+        "explanation": "Manuals teach users to do things, so 'How-to' is most appropriate.",
+        "explanation_ar": "الكتيبات تعلم المستخدمين فعل الأشياء، لذا 'How-to' هي الأنسب."
+      },
+      {
+        "type": "choice",
+        "question": "The gerund (-ing) form of a heading is best used for",
+        "question_ar": "صيغة المصدر (-ing) في العناوين تستخدم بشكل أفضل لـ",
+        "options": [
+          "summaries",
+          "descriptions of processes",
+          "definitions"
+        ],
+        "options_ar": [
+          "الملخصات",
+          "وصف العمليات",
+          "التعريفات"
+        ],
+        "correct_answer": 1,
+        "explanation": "Example: 'Configuring the System' or 'Installing the Software'.",
+        "explanation_ar": "مثال: 'تهيئة النظام' أو 'تثبيت البرنامج'."
+      },
+      {
+        "type": "choice",
+        "question": "Transitional paragraphs help readers",
+        "question_ar": "تساعد الفقرات الانتقالية القراء على",
+        "options": [
+          "move from one major point to another",
+          "read faster without comprehension",
+          "skip difficult sections"
+        ],
+        "options_ar": [
+          "الانتقال من نقطة رئيسية إلى أخرى",
+          "القراءة أسرع دون فهم",
+          "تخطي الأقسام الصعبة"
+        ],
+        "correct_answer": 0,
+        "explanation": "They bridge the gap between distinct topics.",
+        "explanation_ar": "إنها تسد الفجوة بين الموضوعات المختلفة."
+      },
+      {
+        "type": "choice",
+        "question": "A transitional paragraph often",
+        "question_ar": "غالباً ما تقوم الفقرة الانتقالية بـ",
+        "options": [
+          "lists references",
+          "summarizes the previous and introduces the next point",
+          "gives examples only"
+        ],
+        "options_ar": [
+          "سرد المراجع",
+          "تلخيص النقطة السابقة وتقديم النقطة التالية",
+          "إعطاء أمثلة فقط"
+        ],
+        "correct_answer": 1,
+        "explanation": "This dual function ensures coherence.",
+        "explanation_ar": "هذه الوظيفة المزدوجة تضمن الترابط."
+      },
+      {
+        "type": "true_false",
+        "question": "The title of a technical report is only used to attract readers.",
+        "question_ar": "عنوان التقرير الفني يستخدم فقط لجذب القراء.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. Its main function is to define subject and purpose.",
+        "explanation_ar": "خطأ. وظيفته الأساسية هي تحديد الموضوع والغرض."
+      },
+      {
+        "type": "true_false",
+        "question": "A good title should clearly express both subject and purpose.",
+        "question_ar": "يجب أن يعبر العنوان الجيد بوضوح عن الموضوع والغرض.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. This helps readers decide if the document is relevant.",
+        "explanation_ar": "صحيح. هذا يساعد القراء على تحديد ما إذا كان المستند ذا صلة."
+      },
+      {
+        "type": "true_false",
+        "question": "In technical writing, the title does not necessarily reflect the content of a report.",
+        "question_ar": "في الكتابة الفنية، لا يلزم أن يعكس العنوان محتوى التقرير.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. The title MUST reflect the content accurately.",
+        "explanation_ar": "خطأ. يجب أن يعكس العنوان المحتوى بدقة."
+      },
+      {
+        "type": "true_false",
+        "question": "Headings are lower-level titles that organize content in a technical report.",
+        "question_ar": "العناوين الجانبية هي عناوين من مستوى أدنى تنظم المحتوى في التقرير الفني.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. They structure the document.",
+        "explanation_ar": "صحيح. إنها تهيكل المستند."
+      },
+      {
+        "type": "true_false",
+        "question": "In a technical report, subheadings usually represent broader ideas than main headings.",
+        "question_ar": "في التقرير الفني، تمثل العناوين الفرعية عادةً أفكاراً أوسع من العناوين الرئيسية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. Subheadings are more specific, not broader.",
+        "explanation_ar": "خطأ. العناوين الفرعية أكثر تحديداً وليست أوسع."
+      },
+      {
+        "type": "true_false",
+        "question": "Headings make it easier for readers to understand a document's structure.",
+        "question_ar": "تجعل العناوين من السهل على القراء فهم هيكل المستند.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. They act as signposts.",
+        "explanation_ar": "صحيح. تعمل كعلامات إرشادية."
+      },
+      {
+        "type": "true_false",
+        "question": "Clarity in headings is less important than conciseness.",
+        "question_ar": "الوضوح في العناوين أقل أهمية من الإيجاز.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. Clarity is the most important quality.",
+        "explanation_ar": "خطأ. الوضوح هو أهم صفة."
+      },
+      {
+        "type": "true_false",
+        "question": "Using 'how-to' form in headings is suitable for instructional documents.",
+        "question_ar": "استخدام صيغة 'كيفية العمل' في العناوين مناسب للمستندات التعليمية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. It guides the user on performing tasks.",
+        "explanation_ar": "صحيح. إنها توجه المستخدم لأداء المهام."
+      },
+      {
+        "type": "true_false",
+        "question": "A body paragraph can discuss various ideas at the same time.",
+        "question_ar": "يمكن لفقرة المتن مناقشة أفكار متنوعة في نفس الوقت.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. A paragraph should focus on ONE main idea.",
+        "explanation_ar": "خطأ. يجب أن تركز الفقرة على فكرة رئيسية واحدة."
+      },
+      {
+        "type": "true_false",
+        "question": "A body paragraph helps readers move between points smoothly.",
+        "question_ar": "تساعد فقرة المتن القراء على الانتقال بين النقاط بسلاسة.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. That is the function of a 'Transitional Paragraph'.",
+        "explanation_ar": "خطأ. تلك هي وظيفة 'الفقرة الانتقالية'."
+      },
+      {
+        "type": "true_false",
+        "question": "In a technical report, every effective paragraph should relate logically to what precedes it.",
+        "question_ar": "في التقرير الفني، يجب أن ترتبط كل فقرة فعالة منطقياً بما يسبقها.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. Coherence is essential.",
+        "explanation_ar": "صحيح. الترابط ضروري."
+      },
+      {
+        "type": "true_false",
+        "question": "Headings and subheadings contribute to the document's coherence.",
+        "question_ar": "تساهم العناوين والعناوين الفرعية في ترابط المستند.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. They maintain the logical structure.",
+        "explanation_ar": "صحيح. تحافظ على الهيكل المنطقي."
+      },
+      {
+        "type": "true_false",
+        "question": "Transitional paragraphs appear only in the introduction.",
+        "question_ar": "تظهر الفقرات الانتقالية فقط في المقدمة.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. They appear between major sections throughout the document.",
+        "explanation_ar": "خطأ. تظهر بين الأقسام الرئيسية في جميع أنحاء المستند."
+      },
+      {
+        "type": "true_false",
+        "question": "In technical writing, clarity and coherence are key goals.",
+        "question_ar": "في الكتابة الفنية، الوضوح والترابط هما أهداف رئيسية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "The title of a document is crucial because it is your first chance to introduce yourself.",
+        "question_ar": "عنوان المستند حاسم لأنه فرصتك الأولى لتقديم نفسك.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. It introduces the SUBJECT and PURPOSE, not you personally.",
+        "explanation_ar": "خطأ. إنه يقدم الموضوع والغرض، وليس أنت شخصياً."
+      },
+      {
+        "type": "true_false",
+        "question": "In technical writing, the title of the document gives the readers their first clue in deciding if the document contains the information they need.",
+        "question_ar": "في الكتابة الفنية، يعطي عنوان المستند القراء دليلهم الأول لتقرير ما إذا كان المستند يحتوي على المعلومات التي يحتاجونها.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "Headings create a hierarchy of information, dividing the technical document into major sections.",
+        "question_ar": "تخلق العناوين تسلسلاً هرمياً للمعلومات، وتقسم المستند الفني إلى أقسام رئيسية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "The question form in technical writing works for non-native speakers.",
+        "question_ar": "صيغة السؤال في الكتابة الفنية تصلح لغير الناطقين باللغة.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. It is direct and easy to understand.",
+        "explanation_ar": "صحيح. إنها مباشرة وسهلة الفهم."
+      },
+      {
+        "type": "true_false",
+        "question": "Both body paragraph and transitional paragraph can consist of a group of sentences or be a single sentence.",
+        "question_ar": "يمكن أن تتكون كل من فقرة المتن والفقرة الانتقالية من مجموعة جمل أو تكون جملة واحدة.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "'Proposed Production Enhancement Strategies Analysis Techniques' is considered a clear title for a technical document.",
+        "question_ar": "'Proposed Production Enhancement Strategies Analysis Techniques' يعتبر عنواناً واضحاً لمستند فني.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. It is a long noun string and is ambiguous.",
+        "explanation_ar": "خطأ. إنها سلسلة أسماء طويلة وغامضة."
+      }
+    ]
+  },
+  {
+    "name": "Assignment (3) - Technical Writing",
+    "description": "Questions on Lecture 5: Paragraphs, Topic Sentences, and Transitions",
+    "questions": [
+      {
+        "type": "choice",
+        "question": "In a paragraph, the topic sentence is essential to",
+        "question_ar": "في الفقرة، الجملة الافتتاحية (Topic Sentence) ضرورية لـ",
+        "options": [
+          "provide examples",
+          "elaborate the main idea of the paragraph",
+          "introduce the main idea of the paragraph",
+          "provide convincing evidence"
+        ],
+        "options_ar": [
+          "تقديم أمثلة",
+          "توضيح الفكرة الرئيسية للفقرة",
+          "تقديم الفكرة الرئيسية للفقرة",
+          "تقديم أدلة مقنعة"
+        ],
+        "correct_answer": 2,
+        "explanation": "The primary function of a topic sentence is to introduce the main idea.",
+        "explanation_ar": "الوظيفة الأساسية للجملة الافتتاحية هي تقديم الفكرة الرئيسية."
+      },
+      {
+        "type": "choice",
+        "question": "In writing a paragraph, providing supporting details is essential to",
+        "question_ar": "عند كتابة فقرة، توفير التفاصيل الداعمة ضروري لـ",
+        "options": [
+          "shorten the paragraph",
+          "introduce the topic sentence",
+          "explain and elaborate the main idea",
+          "provide unnecessary information"
+        ],
+        "options_ar": [
+          "اختصار الفقرة",
+          "تقديم الجملة الافتتاحية",
+          "شرح وتوضيح الفكرة الرئيسية",
+          "تقديم معلومات غير ضرورية"
+        ],
+        "correct_answer": 2,
+        "explanation": "Supporting details expand upon the topic sentence.",
+        "explanation_ar": "التفاصيل الداعمة تتوسع في شرح الجملة الافتتاحية."
+      },
+      {
+        "type": "choice",
+        "question": "Which of the following is not a function of supporting details in a paragraph?",
+        "question_ar": "أي مما يلي ليس من وظائف التفاصيل الداعمة في الفقرة؟",
+        "options": [
+          "give examples",
+          "provide convincing evidence",
+          "introduce the main idea",
+          "explain the topic sentence"
+        ],
+        "options_ar": [
+          "إعطاء أمثلة",
+          "تقديم أدلة مقنعة",
+          "تقديم الفكرة الرئيسية",
+          "شرح الجملة الافتتاحية"
+        ],
+        "correct_answer": 2,
+        "explanation": "Introducing the main idea is the job of the topic sentence, not the supporting details.",
+        "explanation_ar": "تقديم الفكرة الرئيسية هو وظيفة الجملة الافتتاحية، وليس التفاصيل الداعمة."
+      },
+      {
+        "type": "choice",
+        "question": "A recommended paragraph length is",
+        "question_ar": "طول الفقرة الموصى به هو",
+        "options": [
+          "20-40 words",
+          "150-200 words",
+          "75-125 words",
+          "200-250 words"
+        ],
+        "options_ar": [
+          "20-40 كلمة",
+          "150-200 كلمة",
+          "75-125 كلمة",
+          "200-250 كلمة"
+        ],
+        "correct_answer": 2,
+        "explanation": "75-125 words is generally considered a readable length for technical paragraphs.",
+        "explanation_ar": "75-125 كلمة يعتبر طواًل مناسباً للقراءة في الفقرات الفنية."
+      },
+      {
+        "type": "choice",
+        "question": "One technique for dividing a long paragraph is to",
+        "question_ar": "إحدى تقنيات تقسيم الفقرة الطويلة هي",
+        "options": [
+          "remove supporting details",
+          "add unrelated ideas",
+          "break the discussion at a logical point",
+          "avoid transitional words"
+        ],
+        "options_ar": [
+          "إزالة التفاصيل الداعمة",
+          "إضافة أفكار غير مترابطة",
+          "قطع المناقشة عند نقطة منطقية",
+          "تجنب الكلمات الانتقالية"
+        ],
+        "correct_answer": 2,
+        "explanation": "You should find a logical break point to split the paragraph.",
+        "explanation_ar": "يجب أن تجد نقطة توقف منطقية لتقسيم الفقرة."
+      },
+      {
+        "type": "choice",
+        "question": "In writing a paragraph, it is recommended to use transitional words in order to",
+        "question_ar": "في كتابة الفقرة، يوصى باستخدام الكلمات الانتقالية من أجل",
+        "options": [
+          "introduce the main idea",
+          "indicate logical relationships among sentences",
+          "increase paragraph length",
+          "add unrelated ideas"
+        ],
+        "options_ar": [
+          "تقديم الفكرة الرئيسية",
+          "الإشارة إلى العلاقات المنطقية بين الجمل",
+          "زيادة طول الفقرة",
+          "إضافة أفكار غير مترابطة"
+        ],
+        "correct_answer": 1,
+        "explanation": "Transitions show how ideas relate to one another.",
+        "explanation_ar": "الروابط تظهر كيفية ارتباط الأفكار ببعضها البعض."
+      },
+      {
+        "type": "choice",
+        "question": "The transitional word 'however' indicates",
+        "question_ar": "الكلمة الانتقالية 'however' (مع ذلك) تشير إلى",
+        "options": [
+          "cause",
+          "sequence",
+          "contrast",
+          "addition"
+        ],
+        "options_ar": [
+          "السبب",
+          "التسلسل",
+          "التناقض",
+          "الإضافة"
+        ],
+        "correct_answer": 2,
+        "explanation": "'However' introduces a contrasting idea.",
+        "explanation_ar": "'However' تقدم فكرة متناقضة."
+      },
+      {
+        "type": "choice",
+        "question": "The transitional word 'moreover' indicates",
+        "question_ar": "الكلمة الانتقالية 'moreover' (علاوة على ذلك) تشير إلى",
+        "options": [
+          "time",
+          "addition",
+          "cause",
+          "example"
+        ],
+        "options_ar": [
+          "الزمن",
+          "الإضافة",
+          "السبب",
+          "المثال"
+        ],
+        "correct_answer": 1,
+        "explanation": "'Moreover' adds information to the previous point.",
+        "explanation_ar": "'Moreover' تضيف معلومات للنقطة السابقة."
+      },
+      {
+        "type": "choice",
+        "question": "The transitional phrase 'as a result' expresses",
+        "question_ar": "العبارة الانتقالية 'as a result' (نتيجة لذلك) تعبر عن",
+        "options": [
+          "comparison",
+          "sequence",
+          "effect or consequence",
+          "contrast"
+        ],
+        "options_ar": [
+          "المقارنة",
+          "التسلسل",
+          "الأثر أو العاقبة",
+          "التناقض"
+        ],
+        "correct_answer": 2,
+        "explanation": "It introduces the outcome of a previous action.",
+        "explanation_ar": "إنها تقدم نتيجة إجراء سابق."
+      },
+      {
+        "type": "choice",
+        "question": "The transitional phrase 'furthermore' expresses",
+        "question_ar": "العبارة الانتقالية 'furthermore' تعبر عن",
+        "options": [
+          "comparison",
+          "addition",
+          "effect or consequence",
+          "contrast"
+        ],
+        "options_ar": [
+          "المقارنة",
+          "الإضافة",
+          "الأثر أو العاقبة",
+          "التناقض"
+        ],
+        "correct_answer": 1,
+        "explanation": "It is used to add more information.",
+        "explanation_ar": "تستخدم لإضافة المزيد من المعلومات."
+      },
+      {
+        "type": "choice",
+        "question": "All of the following transitional phrases indicate 'conclusion' except",
+        "question_ar": "كل العبارات الانتقالية التالية تشير إلى 'الخاتمة' ما عدا",
+        "options": [
+          "finally",
+          "to conclude",
+          "on the other hand",
+          "at last"
+        ],
+        "options_ar": [
+          "أخيراً",
+          "للختام",
+          "من ناحية أخرى",
+          "في النهاية"
+        ],
+        "correct_answer": 2,
+        "explanation": "'On the other hand' indicates contrast, not conclusion.",
+        "explanation_ar": "'On the other hand' تشير إلى التناقض وليس الخاتمة."
+      },
+      {
+        "type": "choice",
+        "question": "All of the following transitional phrases indicate 'cause' except",
+        "question_ar": "كل العبارات الانتقالية التالية تشير إلى 'السبب' ما عدا",
+        "options": [
+          "due to",
+          "because",
+          "but",
+          "because of"
+        ],
+        "options_ar": [
+          "بسبب (due to)",
+          "لأن (because)",
+          "لكن (but)",
+          "بسبب (because of)"
+        ],
+        "correct_answer": 2,
+        "explanation": "'But' indicates contrast.",
+        "explanation_ar": "'But' تشير إلى التناقض."
+      },
+      {
+        "type": "choice",
+        "question": "The transitional phrase 'on the other hand' expresses",
+        "question_ar": "العبارة الانتقالية 'on the other hand' تعبر عن",
+        "options": [
+          "contrast",
+          "sequence",
+          "effect or consequence",
+          "conclusion"
+        ],
+        "options_ar": [
+          "التناقض",
+          "التسلسل",
+          "الأثر أو العاقبة",
+          "الخاتمة"
+        ],
+        "correct_answer": 0,
+        "explanation": "It introduces a contrasting point.",
+        "explanation_ar": "تقدم نقطة متناقضة."
+      },
+      {
+        "type": "choice",
+        "question": "The transitional phrase 'thus' expresses",
+        "question_ar": "العبارة الانتقالية 'thus' (وهكذا/وبالتالي) تعبر عن",
+        "options": [
+          "addition",
+          "sequence",
+          "effect or consequence",
+          "contrast"
+        ],
+        "options_ar": [
+          "الإضافة",
+          "التسلسل",
+          "الأثر أو العاقبة",
+          "التناقض"
+        ],
+        "correct_answer": 2,
+        "explanation": "It indicates a result.",
+        "explanation_ar": "إنها تشير إلى نتيجة."
+      },
+      {
+        "type": "choice",
+        "question": "A paragraph becomes more convincing when",
+        "question_ar": "تصبح الفقرة أكثر إقناعاً عندما",
+        "options": [
+          "it lacks examples",
+          "it contains clear, developed supporting details",
+          "it lacks transitions",
+          "it is extremely long"
+        ],
+        "options_ar": [
+          "تفتقر للأمثلة",
+          "تحتوي على تفاصيل داعمة واضحة ومطورة",
+          "تفتقر للروابط",
+          "تكون طويلة جداً"
+        ],
+        "correct_answer": 1,
+        "explanation": "Supporting details provide the evidence needed to convince the reader.",
+        "explanation_ar": "التفاصيل الداعمة توفر الأدلة اللازمة لإقناع القارئ."
+      },
+      {
+        "type": "true_false",
+        "question": "A topic sentence usually appears at the end of the paragraph.",
+        "question_ar": "تظهر الجملة الافتتاحية عادة في نهاية الفقرة.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. It usually appears at the beginning.",
+        "explanation_ar": "خطأ. تظهر عادة في البداية."
+      },
+      {
+        "type": "true_false",
+        "question": "Supporting details help clarify and expand the main idea.",
+        "question_ar": "تساعد التفاصيل الداعمة في توضيح وتوسيع الفكرة الرئيسية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "All paragraphs must contain the same number of supporting sentences.",
+        "question_ar": "يجب أن تحتوي جميع الفقرات على نفس العدد من الجمل الداعمة.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. It depends on the complexity of the idea.",
+        "explanation_ar": "خطأ. يعتمد ذلك على تعقيد الفكرة."
+      },
+      {
+        "type": "true_false",
+        "question": "Audience and purpose influence how many supporting details a writer should include.",
+        "question_ar": "يؤثر الجمهور والغرض على عدد التفاصيل الداعمة التي يجب أن يضمنها الكاتب.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "Transitional words show relationships between ideas, maintaining coherence.",
+        "question_ar": "تظهر الكلمات الانتقالية العلاقات بين الأفكار، مما يحافظ على الترابط.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "Long paragraphs are generally easier for readers to follow.",
+        "question_ar": "الفقرات الطويلة تكون عموماً أسهل للمتابعة من قبل القراء.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. They can be visually overwhelming and hard to follow.",
+        "explanation_ar": "خطأ. يمكن أن تكون مرهقة بصرياً وصعبة المتابعة."
+      },
+      {
+        "type": "true_false",
+        "question": "In writing paragraphs, examples can be used as supporting information.",
+        "question_ar": "في كتابة الفقرات، يمكن استخدام الأمثلة كمعلومات داعمة.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "Breaking a long paragraph at a logical point improves readability.",
+        "question_ar": "تقسيم الفقرة الطويلة عند نقطة منطقية يحسن المقروئية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "Supporting details can include evidence, reasons, and explanations.",
+        "question_ar": "يمكن أن تتضمن التفاصيل الداعمة أدلة وأسباباً وتفسيرات.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "Transitional words contribute to the smooth flow of ideas.",
+        "question_ar": "تساهم الكلمات الانتقالية في التدفق السلس للأفكار.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      }
+    ]
+  },
+  {
+    "name": "Assignment (4) - Technical Writing",
+    "description": "Questions on Lecture 6: Sentences, Parallelism, and Conciseness",
+    "questions": [
+      {
+        "type": "choice",
+        "question": "Good technical communication should be",
+        "question_ar": "يجب أن يكون التواصل الفني الجيد",
+        "options": [
+          "long, descriptive, and complex",
+          "clear, correct, and informative",
+          "brief but unclear",
+          "highly emotional and persuasive"
+        ],
+        "options_ar": [
+          "طويلاً، وصفياً، ومعقداً",
+          "واضحاً، صحيحاً، وغنياً بالمعلومات",
+          "مختصراً ولكن غير واضح",
+          "عاطفياً جداً ومقنعاً"
+        ],
+        "correct_answer": 1,
+        "explanation": "Clarity and accuracy are the pillars of technical writing.",
+        "explanation_ar": "الوضوح والدقة هما ركائز الكتابة الفنية."
+      },
+      {
+        "type": "choice",
+        "question": "For good technical communication, new and important information should typically appear",
+        "question_ar": "للتواصل الفني الجيد، يجب أن تظهر المعلومات الجديدة والمهمة عادة",
+        "options": [
+          "at the beginning of the sentence",
+          "in the middle",
+          "at the end",
+          "nowhere"
+        ],
+        "options_ar": [
+          "في بداية الجملة",
+          "في المنتصف",
+          "في النهاية",
+          "لا مكان"
+        ],
+        "correct_answer": 2,
+        "explanation": "Placing important info at the end (stress position) gives it emphasis.",
+        "explanation_ar": "وضع المعلومات المهمة في النهاية (موضع التشديد) يعطيها تأكيداً."
+      },
+      {
+        "type": "choice",
+        "question": "In technical writing, overly long sentences usually:",
+        "question_ar": "في الكتابة الفنية، الجمل الطويلة جداً عادة ما:",
+        "options": [
+          "improve clarity",
+          "help emphasize ideas",
+          "confuse readers",
+          "sound more professional"
+        ],
+        "options_ar": [
+          "تحسن الوضوح",
+          "تساعد في تأكيد الأفكار",
+          "تربك القراء",
+          "تبدو أكثر احترافية"
+        ],
+        "correct_answer": 2,
+        "explanation": "Long sentences are harder to process and retain.",
+        "explanation_ar": "الجمل الطويلة يصعب معالجتها وحفظها."
+      },
+      {
+        "type": "choice",
+        "question": "Parallel structure means that",
+        "question_ar": "البنية المتوازية (Parallel structure) تعني أن",
+        "options": [
+          "all sentences must be only passive",
+          "all coordinate elements follow the same grammatical form",
+          "verbs must match subject",
+          "conjunctions should be avoided"
+        ],
+        "options_ar": [
+          "كل الجمل يجب أن تكون مبنية للمجهول فقط",
+          "جميع العناصر المتعاطفة تتبع نفس الصيغة النحوية",
+          "الأفعال يجب أن تطابق الفاعل",
+          "يجب تجنب أدوات العطف"
+        ],
+        "correct_answer": 1,
+        "explanation": "e.g., all nouns, all verbs, or all adjectives.",
+        "explanation_ar": "على سبيل المثال، كلها أسماء، أو كلها أفعال، أو كلها صفات."
+      },
+      {
+        "type": "choice",
+        "question": "Which sentence uses correct parallel structure?",
+        "question_ar": "أي جملة تستخدم بنية متوازية صحيحة؟",
+        "options": [
+          "She likes reading, to write, and painting.",
+          "She likes reading, writing, and painting.",
+          "She likes to read, writing, and paint.",
+          "She likes reading, writing, and to paint."
+        ],
+        "options_ar": [
+          "تحب القراءة، أن تكتب، والرسم.",
+          "تحب القراءة، الكتابة، والرسم.",
+          "تحب أن تقرأ، الكتابة، وترسم.",
+          "تحب القراءة، الكتابة، وأن ترسم."
+        ],
+        "correct_answer": 1,
+        "explanation": "All items are gerunds (-ing form): Reading, Writing, Painting.",
+        "explanation_ar": "جميع العناصر في صيغة المصدر (-ing): Reading, Writing, Painting."
+      },
+      {
+        "type": "choice",
+        "question": "Which of the following is a parallel pair?",
+        "question_ar": "أي مما يلي يعتبر زوجاً متوازياً؟",
+        "options": [
+          "The manager reviewed the report, the changes were approved, and sent it to the team.",
+          "The manager reviewed the report, the changes will be approved, and sent it to the team.",
+          "The manager has reviewed the report, the changes were approved, and sent it to the team.",
+          "The manager reviewed the report, approved the changes, and sent it to the team."
+        ],
+        "options_ar": [
+          "راجع المدير التقرير، تمت الموافقة على التغييرات، وأرسله للفريق.",
+          "راجع المدير التقرير، ستتم الموافقة على التغييرات، وأرسله للفريق.",
+          "قام المدير بمراجعة التقرير، تمت الموافقة على التغييرات، وأرسله للفريق.",
+          "راجع المدير التقرير، وافق على التغييرات، وأرسله للفريق."
+        ],
+        "correct_answer": 3,
+        "explanation": "Past tense verbs: Reviewed, Approved, Sent.",
+        "explanation_ar": "أفعال ماضية: Reviewed, Approved, Sent."
+      },
+      {
+        "type": "choice",
+        "question": "Which sentence uses correct parallel structure?",
+        "question_ar": "أي جملة تستخدم بنية متوازية صحيحة؟",
+        "options": [
+          "Our present system is costing us profits and our productivity is reduced",
+          "Our present system is costing us profits and reduces our productivity.",
+          "Our present system is costing us profits and reducing our productivity",
+          "Our present system is costing us profits and reduced our productivity."
+        ],
+        "options_ar": [
+          "نظامنا الحالي يكلفنا أرباحاً وإنتاجيتنا منخفضة",
+          "نظامنا الحالي يكلفنا أرباحاً ويقلل إنتاجيتنا.",
+          "نظامنا الحالي يكلفنا أرباحاً ويقلل (صيغة المستمر) إنتاجيتنا",
+          "نظامنا الحالي يكلفنا أرباحاً وقلل إنتاجيتنا."
+        ],
+        "correct_answer": 2,
+        "explanation": "Matching -ing forms: Costing... and Reducing...",
+        "explanation_ar": "تطابق صيغ الاستمرار (-ing): Costing... and Reducing..."
+      },
+      {
+        "type": "choice",
+        "question": "In a technical writing, providing adequate detail means",
+        "question_ar": "في الكتابة الفنية، توفير تفاصيل كافية يعني",
+        "options": [
+          "giving unnecessary information",
+          "explaining everything in extreme length",
+          "providing the necessary details for clarity",
+          "avoiding examples"
+        ],
+        "options_ar": [
+          "إعطاء معلومات غير ضرورية",
+          "شرح كل شيء بطول مفرط",
+          "توفير التفاصيل اللازمة للوضوح",
+          "تجنب الأمثلة"
+        ],
+        "correct_answer": 2,
+        "explanation": "Details should be enough to understand, neither too much nor too little.",
+        "explanation_ar": "يجب أن تكون التفاصيل كافية للفهم، لا كثيرة جداً ولا قليلة جداً."
+      },
+      {
+        "type": "choice",
+        "question": "Which of the following statements is the clearest and most informative?",
+        "question_ar": "أي من العبارات التالية هي الأكثر وضوحاً وفائدة؟",
+        "options": [
+          "An engine on the plane experienced some difficulties",
+          "The left engine on the plane experienced some difficulties",
+          "An engine on the Cessna 310 experienced some difficulties",
+          "The left engine on the Cessna 310 temporarily lost power during flight"
+        ],
+        "options_ar": [
+          "محرك بالطائرة واجه بعض الصعوبات",
+          "المحرك الأيسر بالطائرة واجه بعض الصعوبات",
+          "محرك بطائرة سيسنا 310 واجه بعض الصعوبات",
+          "المحرك الأيسر بطائرة سيسنا 310 فقد الطاقة مؤقتاً أثناء الطيران"
+        ],
+        "correct_answer": 3,
+        "explanation": "It specifies WHICH engine, WHICH plane, and WHAT happened exactly.",
+        "explanation_ar": "تحدد أي محرك، وأي طائرة، وماذا حدث بالضبط."
+      },
+      {
+        "type": "choice",
+        "question": "All of the following use a positive construction except",
+        "question_ar": "كل ما يلي يستخدم صياغة إيجابية ما عدا",
+        "options": [
+          "I am pleased with the results.",
+          "I am not satisfied with the results.",
+          "The team completed the task.",
+          "The project was successful."
+        ],
+        "options_ar": [
+          "أنا مسرور بالنتائج.",
+          "أنا غير راضٍ عن النتائج.",
+          "أكمل الفريق المهمة.",
+          "كان المشروع ناجحاً."
+        ],
+        "correct_answer": 1,
+        "explanation": "'Not satisfied' is a negative construction. Positive would be 'dissatisfied'.",
+        "explanation_ar": "'Not satisfied' صياغة سلبية."
+      },
+      {
+        "type": "choice",
+        "question": "In technical writing, wordy phrases should be replaced with",
+        "question_ar": "في الكتابة الفنية، يجب استبدال العبارات المطولة بـ",
+        "options": [
+          "more adjectives",
+          "longer synonyms",
+          "concise alternatives",
+          "passive forms"
+        ],
+        "options_ar": [
+          "المزيد من الصفات",
+          "مرادفات أطول",
+          "بدائل موجزة",
+          "صيغ المبني للمجهول"
+        ],
+        "correct_answer": 2,
+        "explanation": "Conciseness (brevity) is a key goal.",
+        "explanation_ar": "الإيجاز (الاختصار) هدف رئيسي."
+      },
+      {
+        "type": "choice",
+        "question": "In technical writing, parallel structure helps",
+        "question_ar": "في الكتابة الفنية، تساعد البنية المتوازية على",
+        "options": [
+          "confuse the reader",
+          "make sentences balanced and clear",
+          "increase sentence length",
+          "remove transitions"
+        ],
+        "options_ar": [
+          "إرباك القارئ",
+          "جعل الجمل متوازنة وواضحة",
+          "زيادة طول الجملة",
+          "إزالة الروابط"
+        ],
+        "correct_answer": 1,
+        "explanation": "Parallelism creates rhythm and balance.",
+        "explanation_ar": "التوازي يخلق إيقاعاً وتوازناً."
+      },
+      {
+        "type": "choice",
+        "question": "Adequate detail is important in a technical report because",
+        "question_ar": "التفاصيل الكافية مهمة في التقرير الفني لأن",
+        "options": [
+          "readers always know more than the writer",
+          "readers may know less about the subject",
+          "details make the writing longer",
+          "details replace transitions"
+        ],
+        "options_ar": [
+          "القراء يعرفون دائماً أكثر من الكاتب",
+          "القراء قد يعرفون أقل عن الموضوع",
+          "التفاصيل تجعل الكتابة أطول",
+          "التفاصيل تستبدل الروابط"
+        ],
+        "correct_answer": 1,
+        "explanation": "You must write with the audience's knowledge level in mind.",
+        "explanation_ar": "يجب أن تكتب مع وضع مستوى معرفة الجمهور في الاعتبار."
+      },
+      {
+        "type": "true_false",
+        "question": "To write an effective sentence, new and important information should appear at the beginning of sentences.",
+        "question_ar": "لكتابة جملة فعالة، يجب أن تظهر المعلومات الجديدة والمهمة في بداية الجمل.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. It should appear at the END for emphasis.",
+        "explanation_ar": "خطأ. يجب أن تظهر في النهاية للتأكيد."
+      },
+      {
+        "type": "true_false",
+        "question": "In a technical report, overly long sentences can confuse readers.",
+        "question_ar": "في التقرير الفني، الجمل الطويلة جداً يمكن أن تربك القراء.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "In technical writing, parallel structure makes sentences harder to understand.",
+        "question_ar": "في الكتابة الفنية، البنية المتوازية تجعل الجمل أصعب في الفهم.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. It makes them EASIER to understand.",
+        "explanation_ar": "خطأ. تجعلها أسهل في الفهم."
+      },
+      {
+        "type": "true_false",
+        "question": "In a technical report, non-parallel sentences sound unbalanced which may cause confusion.",
+        "question_ar": "في التقرير الفني، الجمل غير المتوازية تبدو غير متزنة مما قد يسبب ارتباكاً.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "The sentence 'she likes reading, writing, and painting' maintains a parallel structure.",
+        "question_ar": "الجملة 'هي تحب القراءة والكتابة والرسم' تحافظ على بنية متوازية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. All are gerunds.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "In technical writing, it is recommended to use positive constructions rather than negative forms.",
+        "question_ar": "في الكتابة الفنية، يوصى باستخدام الصياغات الإيجابية بدلاً من الأشكال السلبية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. They are more direct.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "Negative constructions are always the best choice in technical writing.",
+        "question_ar": "الصياغات السلبية هي دائماً الخيار الأفضل في الكتابة الفنية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. Positive constructions are usually preferred.",
+        "explanation_ar": "خطأ. الصياغات الإيجابية مفضلة عادة."
+      },
+      {
+        "type": "true_false",
+        "question": "Using wordy phrases can make a technical report long and boring.",
+        "question_ar": "استخدام العبارات المطولة يمكن أن يجعل التقرير الفني طويلاً ومملاً.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "In technical writing, dividing long sentences improves readability.",
+        "question_ar": "في الكتابة الفنية، تقسيم الجمل الطويلة يحسن المقروئية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "The phrase 'not satisfied' is an example of a positive construction.",
+        "question_ar": "عبارة 'not satisfied' (غير راضٍ) هي مثال على صياغة إيجابية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. It uses the negative word 'not'.",
+        "explanation_ar": "خطأ. تستخدم كلمة النفي 'not'."
+      },
+      {
+        "type": "true_false",
+        "question": "In technical writing, writers better assume that readers know less about the subject.",
+        "question_ar": "في الكتابة الفنية، من الأفضل للكتاب افتراض أن القراء يعرفون أقل عن الموضوع.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. This ensures you provide adequate detail.",
+        "explanation_ar": "صحيح. هذا يضمن توفير التفاصيل الكافية."
+      },
+      {
+        "type": "true_false",
+        "question": "Concise writing eliminates unnecessary words.",
+        "question_ar": "الكتابة الموجزة تزيل الكلمات غير الضرورية.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True.",
+        "explanation_ar": "صحيح."
+      },
+      {
+        "type": "true_false",
+        "question": "In a technical report, it is recommended to use a phrase like 'failed' rather than 'did not succeed'.",
+        "question_ar": "في التقرير الفني، يوصى باستخدام عبارة مثل 'failed' بدلاً من 'did not succeed'.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. It is more concise and positive (direct).",
+        "explanation_ar": "صحيح. إنها أكثر إيجازاً ومباشرة."
+      },
+      {
+        "type": "true_false",
+        "question": "In a technical report, it is recommended to use the phrase 'it is our opinion that' rather than 'we think that'.",
+        "question_ar": "في التقرير الفني، يوصى باستخدام عبارة 'it is our opinion that' بدلاً من 'we think that'.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. 'We think' is more concise.",
+        "explanation_ar": "خطأ. 'We think' أكثر إيجازاً."
+      }
+    ]
+  }
 ]
