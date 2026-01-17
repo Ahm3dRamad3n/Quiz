@@ -282,16 +282,16 @@
 
             // إظهار/إخفاء زر التأكيد
             const submitBtn = document.getElementById('submitBtn');
-            if (question.type === 'multiple_choice') {
+            const isAnswered = submitted[currentQuestionIndex];
+
+            if (question.type === 'multiple_choice' && !isAnswered) {
                 submitBtn.style.display = 'inline-block';
-                submitBtn.disabled = true;
             } else {
                 submitBtn.style.display = 'none';
             }
 
             // إخفاء الملاحظات إذا لم يكن السؤال محلول
             const feedbackElement = document.getElementById('feedback');
-            const isAnswered = submitted[currentQuestionIndex];
             
             if (!isAnswered) {
                 feedbackElement.innerHTML = '';
@@ -353,7 +353,8 @@
                         const checkboxes = document.querySelectorAll(`input[name="${groupName}"]:checked`);
                         answers[currentQuestionIndex] = Array.from(checkboxes).map(cb => parseInt(cb.value));
                         updateOptionSelection(groupName);
-                        updateSubmitButton();
+
+                        // لا تقم بتقديم الإجابة فوراً في حالة الاختيارات المتعددة
                     } else {
                         document.querySelectorAll(`input[name="${groupName}"]`).forEach(inp => {
                             inp.parentElement.classList.remove('selected');
@@ -432,17 +433,6 @@
             });
         }
 
-        function updateSubmitButton() {
-            const submitBtn = document.getElementById('submitBtn');
-            const question = currentQuiz.questions[currentQuestionIndex];
-            
-            if (question.type === 'multiple_choice') {
-                const hasAnswer = answers[currentQuestionIndex] && answers[currentQuestionIndex].length > 0;
-                const isSubmitted = submitted[currentQuestionIndex];
-                submitBtn.disabled = !hasAnswer || isSubmitted;
-            }
-        }
-
         // ===== الترجمة =====
         function toggleTranslate() {
             isTranslated = !isTranslated;
@@ -509,14 +499,50 @@
             const userAnswer = answers[currentQuestionIndex];
 
             if (!userAnswer || userAnswer.length === 0) {
-                alert('الرجاء اختيار إجابة واحدة على الأقل');
+                const options = document.getElementById('optionsContainer');
+                // وميض ينير ويختفي بنفس لون الثيم الحالي حول الخيارات 
+                options.classList.add('no-answer');
+                // اظهار نص الرحاء اختيار إجابة واحدة على الأقل لفترة قصيرة
+                const warningText = document.createElement('div');
+                warningText.textContent = isTranslated ? 'الرجاء اختيار إجابة واحدة على الأقل' : 'Please select at least one answer';
+                warningText.classList.add('warning-text');
+                options.appendChild(warningText);
+
+                setTimeout(() => {
+                    options.classList.remove('no-answer');
+                    options.removeChild(warningText);
+                }, 2000);
                 return;
             }
 
             submitted[currentQuestionIndex] = true;
             skipped.delete(currentQuestionIndex);
+            submitBtn.style.display = 'none';
+
             // تجميد فوري
             freezeQuestion();
+
+            const isCorrect = JSON.stringify(userAnswer.sort((a, b) => a - b)) === 
+                           JSON.stringify(question.correct_answers.sort((a, b) => a - b));
+            
+            if (isCorrect) {
+                correctCount++;
+            } else {
+                incorrectCount++;
+            }
+
+            // تطبيق ألوان التصحيح
+            document.querySelectorAll('.option').forEach((div, idx) => { 
+                const input = div.querySelector('input');
+                const optionIdx = parseInt(input.value);
+                const isOptionCorrect = checkIfCorrect(optionIdx);
+                if (isOptionCorrect) {
+                    div.classList.add('correct');
+                } else if (userAnswer.includes(optionIdx)) {
+                    div.classList.add('incorrect');
+                }
+            });
+
             showFeedback();
         }
 
