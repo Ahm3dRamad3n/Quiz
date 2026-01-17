@@ -1,1 +1,152 @@
-
+[
+  {
+    "name": "General Knowledge - Animals",
+    "description": "Simple quiz about animals / اختبار بسيط عن الحيوانات",
+    "questions": [
+      {
+        "type": "choice",
+        "question": "Which animal is known as the 'King of the Jungle'?",
+        "question_ar": "أي حيوان يُعرف بلقب 'ملك الغابة'؟",
+        "options": [
+          "The Elephant",
+          "The Lion",
+          "The Rabbit"
+        ],
+        "options_ar": [
+          "الفيل",
+          "الأسد",
+          "الأرنب"
+        ],
+        "correct_answer": 1,
+        "explanation": "Lions are famous for being the leaders of the wild.",
+        "explanation_ar": "الأسود مشهورة بأنها قادة البرية."
+      },
+      {
+        "type": "choice",
+        "question": "Which animal produces honey?",
+        "question_ar": "أي حيوان ينتج العسل؟",
+        "options": [
+          "The Bee",
+          "The Fly",
+          "The Mosquito"
+        ],
+        "options_ar": [
+          "النحلة",
+          "الذبابة",
+          "البعوضة"
+        ],
+        "correct_answer": 0,
+        "explanation": "Bees collect nectar to make honey.",
+        "explanation_ar": "يجمع النحل الرحيق لصنع العسل."
+      },
+      {
+        "type": "choice",
+        "question": "How many legs does a spider have?",
+        "question_ar": "كم عدد أرجل العنكبوت؟",
+        "options": [
+          "4 legs",
+          "6 legs",
+          "8 legs"
+        ],
+        "options_ar": [
+          "4 أرجل",
+          "6 أرجل",
+          "8 أرجل"
+        ],
+        "correct_answer": 2,
+        "explanation": "All spiders have 8 legs.",
+        "explanation_ar": "تمتلك جميع العناكب 8 أرجل."
+      },
+      {
+        "type": "multiple_choice",
+        "question": "Select the animals that live in the water (Choose 2):",
+        "question_ar": "اختر الحيوانات التي تعيش في الماء (اختر إجابتين):",
+        "options": [
+          "Fish",
+          "Cat",
+          "Whale",
+          "Lion"
+        ],
+        "options_ar": [
+          "السمكة",
+          "القطة",
+          "الحوت",
+          "الأسد"
+        ],
+        "correct_answers": [0, 2],
+        "explanation": "Fish and Whales live in the ocean.",
+        "explanation_ar": "الأسماك والحيتان تعيش في المحيط."
+      },
+      {
+        "type": "multiple_choice",
+        "question": "Which of these are birds that CANNOT fly? (Choose 2)",
+        "question_ar": "أي من هؤلاء طيور لا تستطيع الطيران؟ (اختر إجابتين)",
+        "options": [
+          "Eagle",
+          "Penguin",
+          "Sparrow",
+          "Ostrich"
+        ],
+        "options_ar": [
+          "النسر",
+          "البطريق",
+          "العصفور",
+          "النعامة"
+        ],
+        "correct_answers": [1, 3],
+        "explanation": "Penguins and Ostriches are birds but they cannot fly.",
+        "explanation_ar": "البطاريق والنعام طيور لكنها لا تستطيع الطيران."
+      },
+      {
+        "type": "multiple_choice",
+        "question": "Select the colors found in a rainbow:",
+        "question_ar": "اختر الألوان الموجودة في قوس قزح:",
+        "options": [
+          "Red",
+          "Black",
+          "Green",
+          "Brown"
+        ],
+        "options_ar": [
+          "أحمر",
+          "أسود",
+          "أخضر",
+          "بني"
+        ],
+        "correct_answers": [0, 2],
+        "explanation": "Red and Green are rainbow colors. Black and Brown are not.",
+        "explanation_ar": "الأحمر والأخضر من ألوان قوس قزح. الأسود والبني ليسا كذلك."
+      },
+      {
+        "type": "true_false",
+        "question": "The sun rises from the West.",
+        "question_ar": "تشرق الشمس من الغرب.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. The sun rises from the East.",
+        "explanation_ar": "خطأ. تشرق الشمس من الشرق."
+      },
+      {
+        "type": "true_false",
+        "question": "Dogs bark.",
+        "question_ar": "الكلاب تنبح.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 0,
+        "explanation": "True. Barking is the sound dogs make.",
+        "explanation_ar": "صحيح. النباح هو الصوت الذي تصدره الكلاب."
+      },
+      {
+        "type": "true_false",
+        "question": "Cows eat meat.",
+        "question_ar": "الأبقار تأكل اللحوم.",
+        "options": ["True", "False"],
+        "options_ar": ["صحيح", "خطأ"],
+        "correct_answer": 1,
+        "explanation": "False. Cows are herbivores (they eat plants).",
+        "explanation_ar": "خطأ. الأبقار حيوانات عاشبة (تأكل النباتات)."
+      }
+    ]
+  }
+]
