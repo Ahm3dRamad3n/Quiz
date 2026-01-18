@@ -551,10 +551,10 @@
             const question = currentQuiz.questions[currentQuestionIndex];
 
             // التحقق من وجود إجابة
-            if (!submitted[currentQuestionIndex]) {
+            if (!submitted[currentQuestionIndex] && !skipped.has(currentQuestionIndex)) {
                 // إذا لم يكن هناك إجابة، اعتبره متخطى
                 skipped.add(currentQuestionIndex);
-                submitted[currentQuestionIndex] = true;
+                submitted[currentQuestionIndex] = question.type !== 'multiple_choice';
             }
 
             if (currentQuestionIndex < currentQuiz.questions.length - 1) {
