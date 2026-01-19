@@ -1,7 +1,7 @@
 [
   {
     "name": "Final Exam 2026 - Data Communication",
-    "description": "Comprehensive Quiz covering Digital/Analog Transmission, Switching, and Multiplexing.",
+    "description": "Comprehensive Quiz covering Digital/Analog Transmission, Switching, and Multiplexing (Full 42 Questions).",
     "questions": [
       {
         "type": "true_false",
@@ -36,8 +36,8 @@
           "16 مرحلة"
         ],
         "correct_answer": 1,
-        "explanation": "The number of stages is calculated as log2(n). log2(16) = 4.",
-        "explanation_ar": "يتم حساب عدد المراحل بالمعادلة log2(n)، وبالتالي log2(16) = 4."
+        "explanation": "Stages = log2(16) = 4.",
+        "explanation_ar": "عدد المراحل يحسب باللوغاريتم الثنائي لعدد المدخلات: log2(16) = 4."
       },
       {
         "type": "true_false",
@@ -236,20 +236,24 @@
         "explanation_ar": "إجمالي الزيادة = 25. الحجم الكلي = 125. الكفاءة = 100/125 = 80%."
       },
       {
-        "type": "true_false",
-        "question": "Broadband transmission preserving a digital signal shape is possible only with a low-pass channel having infinite bandwidth.",
-        "question_ar": "نقل النطاق العريض الذي يحافظ على شكل الإشارة الرقمية ممكن فقط مع قناة تمرير منخفض ذات نطاق ترددي لا نهائي.",
+        "type": "choice",
+        "question": "Broadband transmission preserving a digital signal shape is possible only with:",
+        "question_ar": "نقل النطاق العريض الذي يحافظ على شكل الإشارة الرقمية ممكن فقط مع:",
         "options": [
-          "True",
-          "False"
+          "A low-pass channel with limited bandwidth",
+          "A low-pass channel with infinite bandwidth",
+          "A band-pass channel",
+          "A high-pass channel"
         ],
         "options_ar": [
-          "صحيح",
-          "خطأ"
+          "قناة تمرير منخفض ذات نطاق ترددي محدود",
+          "قناة تمرير منخفض ذات نطاق ترددي لا نهائي",
+          "قناة تمرير نطاق",
+          "قناة تمرير عالي"
         ],
-        "correct_answer": 0,
-        "explanation": "True. Preserving the exact shape requires theoretical infinite bandwidth.",
-        "explanation_ar": "صحيح. الحفاظ على الشكل الدقيق يتطلب نطاقاً ترددياً لا نهائياً نظرياً."
+        "correct_answer": 1,
+        "explanation": "True preservation of a digital signal's shape requires infinite bandwidth.",
+        "explanation_ar": "الحفاظ الحقيقي على شكل الإشارة الرقمية يتطلب نطاقاً ترددياً لا نهائياً."
       },
       {
         "type": "choice",
@@ -290,6 +294,26 @@
         "correct_answer": 2,
         "explanation": "Frequency and Period are inversely related. Higher frequency means shorter period.",
         "explanation_ar": "التردد والزمن الدوري يتناسبان عكسياً. التردد الأعلى يعني زمناً دورياً أقصر."
+      },
+      {
+        "type": "choice",
+        "question": "In using the Clos criteria, what is the total number of crosspoints in the FIRST STAGE of a three-stage space-division switch if N=162?",
+        "question_ar": "باستخدام معايير Clos، ما هو إجمالي عدد نقاط التقاطع في المرحلة الأولى لمفتاح تقسيم الفراغ ثلاثي المراحل إذا كان N=162؟",
+        "options": [
+          "2000",
+          "2754",
+          "3500",
+          "5000"
+        ],
+        "options_ar": [
+          "2000",
+          "2754",
+          "3500",
+          "5000"
+        ],
+        "correct_answer": 1,
+        "explanation": "n = sqrt(N/2) = 9. k = 2n-1 = 17. Number of crossbars = N/n = 18. Crosspoints in 1st stage = 18 * (9*17) = 2754.",
+        "explanation_ar": "حساب المرحلة الأولى: 18 محول، كل محول 9x17، المجموع 2754."
       },
       {
         "type": "choice",
@@ -521,8 +545,8 @@
       },
       {
         "type": "choice",
-        "question": "How long does it take to transmit 1000 bits (Transmission + Propagation) over 5000km at 10kbps with prop speed 2*10^8 m/s?",
-        "question_ar": "كم يستغرق إرسال 1000 بت (إرسال + انتشار) عبر 5000 كم بسرعة 10kbps وسرعة انتشار 2*10^8 م/ث؟",
+        "question": "How long does it take to transmit 1000 bits over 5000km at 10kbps with prop speed 2*10^8 m/s?",
+        "question_ar": "كم يستغرق إرسال 1000 بت عبر 5000 كم بسرعة 10kbps وسرعة انتشار 2*10^8 م/ث؟",
         "options": [
           "0.100 s",
           "0.125 s",
@@ -538,6 +562,26 @@
         "correct_answer": 1,
         "explanation": "Prop = 0.025s, Trans = 0.1s. Total = 0.125s.",
         "explanation_ar": "الانتشار = 0.025 ثانية، الإرسال = 0.1 ثانية. الإجمالي = 0.125 ثانية."
+      },
+      {
+        "type": "choice",
+        "question": "Five sources (3 at 50 kbps, 2 at 100 kbps) are multiplexed. If unit of data is 2 bits, what is the frame rate?",
+        "question_ar": "خمسة مصادر (3 بقدرة 50 kbps و 2 بقدرة 100 kbps) تم دمجها. إذا كانت وحدة البيانات 2 بت، فما هو معدل الإطار؟",
+        "options": [
+          "10000 frame/s",
+          "25000 frame/s",
+          "50000 frame/s",
+          "100000 frame/s"
+        ],
+        "options_ar": [
+          "10000 frame/s",
+          "25000 frame/s",
+          "50000 frame/s",
+          "100000 frame/s"
+        ],
+        "correct_answer": 1,
+        "explanation": "Using Multilevel Multiplexing, the rate becomes 50kbps per stream. Frame rate = 50000 / 2 = 25000 frames/sec.",
+        "explanation_ar": "باستخدام التجميع متعدد المستويات، المعدل هو 50kbps. معدل الإطار = 50000 / 2 = 25000."
       },
       {
         "type": "choice",
