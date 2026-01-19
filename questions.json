@@ -1,18 +1,23 @@
-
 [
   {
-    "name": "Data Communication Final Exam 2026",
-    "description": "Comprehensive quiz based on Final 2026 document covering Digital/Analog transmission, Multiplexing, and Switching.",
+    "name": "Final Exam 2026 - Data Communication",
+    "description": "Comprehensive Quiz covering Digital/Analog Transmission, Switching, and Multiplexing.",
     "questions": [
       {
         "type": "true_false",
-        "question": "Digital-to-analog Conversion is the process of changing one of the Characteristics of an analog signal based on the information in digital data.",
+        "question": "Digital-to-analog conversion is the process of changing one of the characteristics of an analog signal based on the information in digital data.",
         "question_ar": "التحويل من رقمي إلى تناظري هو عملية تغيير إحدى خصائص الإشارة التناظرية بناءً على المعلومات الموجودة في البيانات الرقمية.",
-        "options": ["True", "False"],
-        "options_ar": ["صحيح", "خطأ"],
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
         "correct_answer": 0,
-        [span_0](start_span)"explanation": "This is the literal definition of D-to-A conversion (changing Amplitude, Frequency, or Phase)[span_0](end_span).",
-        [span_1](start_span)"explanation_ar": "هذا هو التعريف الحرفي حيث يتم تغيير السعة أو التردد أو الطور[span_1](end_span)."
+        "explanation": "This is the correct definition, involving changes to Amplitude, Frequency, or Phase.",
+        "explanation_ar": "هذا هو التعريف الصحيح، حيث يتضمن تغيير السعة أو التردد أو الطور."
       },
       {
         "type": "choice",
@@ -31,48 +36,54 @@
           "16 مرحلة"
         ],
         "correct_answer": 1,
-        [span_2](start_span)"explanation": "Stages = log2(n) = log2(16) = 4[span_2](end_span).",
-        [span_3](start_span)"explanation_ar": "عدد المراحل يحسب باللوغاريتم الثنائي لعدد المدخلات: log2(16) = 4[span_3](end_span)."
+        "explanation": "The number of stages is calculated as log2(n). log2(16) = 4.",
+        "explanation_ar": "يتم حساب عدد المراحل بالمعادلة log2(n)، وبالتالي log2(16) = 4."
       },
       {
         "type": "true_false",
         "question": "ISO is the organization; OSI is the model.",
         "question_ar": "ISO هي المنظمة؛ OSI هو النموذج.",
-        "options": ["True", "False"],
-        "options_ar": ["صحيح", "خطأ"],
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
         "correct_answer": 0,
-        [span_4](start_span)"explanation": "ISO is the organization that developed the OSI reference model[span_4](end_span).",
-        [span_5](start_span)"explanation_ar": "منظمة ISO هي التي طورت نموذج OSI[span_5](end_span)."
+        "explanation": "ISO is the organization that developed the Open Systems Interconnection (OSI) model.",
+        "explanation_ar": "ISO هي المنظمة التي طورت نموذج ربط الأنظمة المفتوحة (OSI)."
       },
       {
         "type": "choice",
         "question": "In Circuit switching, when are the resources reserved?",
         "question_ar": "في تبديل الدوائر (Circuit switching)، متى يتم حجز الموارد؟",
         "options": [
-          "During the data transfer phase",
+          "During data transfer",
           "During the teardown phase",
           "During the setup phase",
-          "After the connection is established"
+          "Randomly"
         ],
         "options_ar": [
-          "أثناء مرحلة نقل البيانات",
+          "أثناء نقل البيانات",
           "أثناء مرحلة إنهاء الاتصال",
-          "أثناء مرحلة الإعداد (Setup phase)",
-          "بعد إنشاء الاتصال"
+          "أثناء مرحلة الإعداد",
+          "بشكل عشوائي"
         ],
         "correct_answer": 2,
-        [span_6](start_span)"explanation": "Resources must be reserved before data transmission begins, specifically during the setup phase[span_6](end_span).",
-        [span_7](start_span)"explanation_ar": "يجب حجز الموارد والقنوات قبل بدء نقل البيانات[span_7](end_span)."
+        "explanation": "Resources must be reserved before transmission begins, specifically during the setup phase.",
+        "explanation_ar": "يجب حجز الموارد قبل بدء الإرسال، وتحديداً أثناء مرحلة الإعداد."
       },
       {
         "type": "choice",
-        "question": "Which of the following is NOT a digital-to-analog Conversion technique?",
+        "question": "Which of the following is NOT a digital-to-analog conversion technique?",
         "question_ar": "أي مما يلي لا يعتبر تقنية تحويل من رقمي إلى تناظري؟",
         "options": [
-          "ASK (Amplitude Shift Keying)",
-          "FSK (Frequency Shift Keying)",
-          "AM (Amplitude Modulation)",
-          "QAM (Quadrature Amplitude Modulation)"
+          "ASK",
+          "FSK",
+          "AM",
+          "QAM"
         ],
         "options_ar": [
           "ASK",
@@ -81,48 +92,54 @@
           "QAM"
         ],
         "correct_answer": 2,
-        "explanation": "AM is Analog-to-Analog conversion. [span_8](start_span)ASK, FSK, PSK, and QAM are Digital-to-Analog[span_8](end_span).",
-        [span_9](start_span)"explanation_ar": "تعديل السعة (AM) هو تحويل تناظري لتناظري، بينما البقية رقمي لتناظري[span_9](end_span)."
+        "explanation": "AM (Amplitude Modulation) is Analog-to-Analog conversion.",
+        "explanation_ar": "تعديل السعة (AM) هو تحويل من تناظري إلى تناظري."
       },
       {
         "type": "choice",
-        "question": "A Voice Channel occupies 4 KHz. We need to multiplex 6 voice channels with guard bands of 0.5 KHz using FDM. What is the required bandwidth?",
-        "question_ar": "قناة صوتية تشغل 4 كيلو هرتز. نحتاج لدمج 6 قنوات مع فواصل حماية 0.5 كيلو هرتز باستخدام FDM. ما هو النطاق المطلوب؟",
+        "question": "Calculate the required bandwidth to multiplex 6 voice channels (4 KHz each) with guard bands of 0.5 KHz using FDM.",
+        "question_ar": "احسب النطاق الترددي المطلوب لدمج 6 قنوات صوتية (4 كيلو هرتز لكل منها) مع فواصل حماية 0.5 كيلو هرتز باستخدام FDM.",
         "options": [
           "24 KHz",
           "26.5 KHz",
-          "27 KHz",
-          "30 KHz"
+          "28 KHz",
+          "30.5 KHz"
         ],
         "options_ar": [
           "24 KHz",
           "26.5 KHz",
-          "27 KHz",
-          "30 KHz"
+          "28 KHz",
+          "30.5 KHz"
         ],
         "correct_answer": 1,
-        [span_10](start_span)"explanation": "Calculation: (6 channels * 4 KHz) + (5 guard bands * 0.5 KHz) = 24 + 2.5 = 26.5 KHz[span_10](end_span).",
-        [span_11](start_span)"explanation_ar": "الحساب: (6 * 4) + (5 * 0.5) = 24 + 2.5 = 26.5 كيلو هرتز[span_11](end_span)."
+        "explanation": "(6 * 4) + (5 * 0.5) = 24 + 2.5 = 26.5 KHz.",
+        "explanation_ar": "(6 * 4) + (5 * 0.5) = 24 + 2.5 = 26.5 كيلو هرتز."
       },
       {
         "type": "true_false",
-        "question": "Wavelength-division multiplexing (WDM) is designed to use the high-rate capability of fiber-optic cable.",
-        "question_ar": "تم تصميم WDM لاستخدام القدرة العالية لكابلات الألياف الضوئية.",
-        "options": ["True", "False"],
-        "options_ar": ["صحيح", "خطأ"],
+        "question": "Wavelength-division multiplexing (WDM) is designed to use the high-rate capability of fiber-optic cables.",
+        "question_ar": "تم تصميم تقسيم الطول الموجي (WDM) لاستخدام القدرة العالية لكابلات الألياف الضوئية.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
         "correct_answer": 0,
-        [span_12](start_span)"explanation": "WDM is an analog technique for combining optical signals in fiber optics[span_12](end_span).",
-        [span_13](start_span)"explanation_ar": "هي تقنية تناظرية لدمج الإشارات الضوئية[span_13](end_span)."
+        "explanation": "WDM is specifically designed for fiber optics.",
+        "explanation_ar": "WDM مصمم خصيصاً للألياف الضوئية."
       },
       {
         "type": "choice",
         "question": "Which multiplexing technique transmits digital signals?",
         "question_ar": "أي تقنية دمج (Multiplexing) تقوم بنقل الإشارات الرقمية؟",
         "options": [
-          "FDM (Frequency-Division Multiplexing)",
-          "WDM (Wavelength-Division Multiplexing)",
-          "TDM (Time-Division Multiplexing)",
-          "AM (Amplitude Modulation)"
+          "FDM",
+          "WDM",
+          "TDM",
+          "AM"
         ],
         "options_ar": [
           "FDM",
@@ -131,74 +148,155 @@
           "AM"
         ],
         "correct_answer": 2,
-        [span_14](start_span)"explanation": "TDM is for digital signals, while FDM and WDM are for analog signals[span_14](end_span).",
-        [span_15](start_span)"explanation_ar": "الـ TDM مخصص للإشارات الرقمية، بينما FDM و WDM للتناظرية[span_15](end_span)."
+        "explanation": "Time-Division Multiplexing (TDM) is used for digital signals.",
+        "explanation_ar": "يستخدم تقسيم الوقت (TDM) للإشارات الرقمية."
       },
       {
         "type": "true_false",
         "question": "In TDM, each connection occupies a portion of bandwidth, while in FDM each connection occupies a portion of time.",
         "question_ar": "في TDM، يشغل كل اتصال جزءاً من النطاق الترددي، بينما في FDM يشغل كل اتصال جزءاً من الوقت.",
-        "options": ["True", "False"],
-        "options_ar": ["صحيح", "خطأ"],
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
         "correct_answer": 1,
-        "explanation": "False. [span_16](start_span)It is the opposite: FDM splits bandwidth (frequency), and TDM splits time[span_16](end_span).",
-        "explanation_ar": "خطأ. [span_17](start_span)العكس صحيح: FDM تقسم التردد، و TDM تقسم الوقت[span_17](end_span)."
+        "explanation": "False. It is the opposite: FDM splits frequency (bandwidth), TDM splits time.",
+        "explanation_ar": "خطأ. العكس صحيح: FDM يقسم التردد، و TDM يقسم الوقت."
       },
       {
         "type": "true_false",
-        "question": "In ASK (Amplitude Shift Keying), the frequency of the carrier signal is varied to create signal elements.",
-        "question_ar": "في ASK، يتم تغيير تردد الإشارة الحاملة لإنشاء عناصر الإشارة.",
-        "options": ["True", "False"],
-        "options_ar": ["صحيح", "خطأ"],
+        "question": "Frequency-division multiplexing is applied when the bandwidth of the link is less than the combined bandwidths of the signals.",
+        "question_ar": "يتم تطبيق FDM عندما يكون عرض نطاق الرابط أقل من مجموع نطاقات الإشارات.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
         "correct_answer": 1,
-        "explanation": "False. [span_18](start_span)In ASK, the Amplitude is varied, while frequency remains constant[span_18](end_span).",
-        "explanation_ar": "خطأ. [span_19](start_span)في ASK يتم تغيير السعة (Amplitude) فقط[span_19](end_span)."
+        "explanation": "False. The link bandwidth must be GREATER than the combined signals.",
+        "explanation_ar": "خطأ. يجب أن يكون عرض نطاق الرابط أكبر من مجموع الإشارات."
+      },
+      {
+        "type": "true_false",
+        "question": "In ASK, the frequency of the carrier signal is varied to create signal elements.",
+        "question_ar": "في ASK، يتم تغيير تردد الإشارة الحاملة لإنشاء عناصر الإشارة.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
+        "correct_answer": 1,
+        "explanation": "False. In ASK, the Amplitude is varied, not frequency.",
+        "explanation_ar": "خطأ. في ASK يتم تغيير السعة وليس التردد."
+      },
+      {
+        "type": "true_false",
+        "question": "B8ZS substitutes eight consecutive zeros with 000BVOBV.",
+        "question_ar": "تقنية B8ZS تستبدل ثمانية أصفار متتالية بـ 000BVOBV.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
+        "correct_answer": 1,
+        "explanation": "False. The correct pattern is 000VB0VB.",
+        "explanation_ar": "خطأ. النمط الصحيح هو 000VB0VB."
       },
       {
         "type": "choice",
-        "question": "Assume a system uses 5 protocol layers. If the application creates a 100-byte message and each layer adds a 5-byte header, what is the efficiency?",
-        "question_ar": "نظام يستخدم 5 طبقات. إذا أنشأ التطبيق رسالة بحجم 100 بايت وأضافت كل طبقة ترويسة (Header) بحجم 5 بايت، فما هي الكفاءة؟",
+        "question": "A system uses 5 layers. If a 100-byte message gets a 5-byte header at each layer, what is the system efficiency?",
+        "question_ar": "نظام يستخدم 5 طبقات. إذا حصلت رسالة بحجم 100 بايت على ترويسة 5 بايت في كل طبقة، فما هي كفاءة النظام؟",
         "options": [
+          "50%",
           "75%",
           "80%",
-          "85%",
           "90%"
         ],
         "options_ar": [
+          "50%",
           "75%",
           "80%",
-          "85%",
           "90%"
         ],
-        "correct_answer": 1,
-        [span_20](start_span)"explanation": "Total Headers = 5 layers * 5 bytes = 25. Total Size = 100 + 25 = 125. Efficiency = 100/125 = 0.8 (80%)[span_20](end_span).",
-        [span_21](start_span)"explanation_ar": "حجم الرؤوس = 25. الحجم الكلي = 125. الكفاءة = 100/125 = 80%[span_21](end_span)."
+        "correct_answer": 2,
+        "explanation": "Total overhead = 5*5=25. Total size = 125. Efficiency = 100/125 = 0.8 (80%).",
+        "explanation_ar": "إجمالي الزيادة = 25. الحجم الكلي = 125. الكفاءة = 100/125 = 80%."
+      },
+      {
+        "type": "true_false",
+        "question": "Broadband transmission preserving a digital signal shape is possible only with a low-pass channel having infinite bandwidth.",
+        "question_ar": "نقل النطاق العريض الذي يحافظ على شكل الإشارة الرقمية ممكن فقط مع قناة تمرير منخفض ذات نطاق ترددي لا نهائي.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
+        "correct_answer": 0,
+        "explanation": "True. Preserving the exact shape requires theoretical infinite bandwidth.",
+        "explanation_ar": "صحيح. الحفاظ على الشكل الدقيق يتطلب نطاقاً ترددياً لا نهائياً نظرياً."
       },
       {
         "type": "choice",
-        "question": "Given two sine waves A and B, if the frequency of A is half that of B, then the Period of B is ______ that of A.",
-        "question_ar": "لديك موجتان جيبيتان A و B. إذا كان تردد A نصف تردد B، فإن الزمن الدوري لـ B هو ______ الزمن الدوري لـ A.",
+        "question": "Based on the switching table, if a packet arrives at Port 3 with VCI 58, what is the outgoing Port and VCI?",
+        "question_ar": "بناءً على جدول التبديل، إذا وصلت حزمة إلى المنفذ 3 بـ VCI 58، فما هو المنفذ والـ VCI للمخرج؟",
+        "options": [
+          "Port 1, VCI 45",
+          "Port 2, VCI 43",
+          "Port 3, VCI 11",
+          "Port 2, VCI 70"
+        ],
+        "options_ar": [
+          "Port 1, VCI 45",
+          "Port 2, VCI 43",
+          "Port 3, VCI 11",
+          "Port 2, VCI 70"
+        ],
+        "correct_answer": 1,
+        "explanation": "Looking up the table row for Incoming [3, 58] gives Outgoing [2, 43].",
+        "explanation_ar": "بالنظر في صف الجدول للداخل [3, 58] نجد الخارج [2, 43]."
+      },
+      {
+        "type": "choice",
+        "question": "If frequency of A is half that of B, then the Period of B is ______ that of A.",
+        "question_ar": "إذا كان تردد A نصف تردد B، فإن الزمن الدوري لـ B هو ______ الزمن الدوري لـ A.",
         "options": [
           "Double",
-          "The same as",
+          "Same",
           "Half",
           "Quarter"
         ],
         "options_ar": [
           "ضعف",
-          "مساوي لـ",
+          "نفس",
           "نصف",
           "ربع"
         ],
         "correct_answer": 2,
-        "explanation": "Frequency and Period are inversely related. If F_A = 0.5 F_B, then T_A = 2 T_B. [span_22](start_span)Thus, T_B is half T_A[span_22](end_span)."
+        "explanation": "Frequency and Period are inversely related. Higher frequency means shorter period.",
+        "explanation_ar": "التردد والزمن الدوري يتناسبان عكسياً. التردد الأعلى يعني زمناً دورياً أقصر."
       },
       {
         "type": "choice",
-        "question": "The minimum bandwidth of Manchester and Differential Manchester encoding is ______ that of NRZ.",
-        "question_ar": "الحد الأدنى للنطاق الترددي لترميز مانشستر ومانشستر التفاضلي هو ______ مقارنة بـ NRZ.",
+        "question": "The minimum bandwidth of Manchester encoding is ______ that of NRZ.",
+        "question_ar": "الحد الأدنى للنطاق الترددي لترميز مانشستر هو ______ مقارنة بـ NRZ.",
         "options": [
-          "The same as",
+          "The same",
           "Half",
           "Two times",
           "Four times"
@@ -210,144 +308,236 @@
           "أربعة أضعاف"
         ],
         "correct_answer": 2,
-        [span_23](start_span)"explanation": "Manchester requires a transition in the middle of each bit, doubling the required bandwidth[span_23](end_span).",
-        [span_24](start_span)"explanation_ar": "يتطلب مانشستر انتقالاً في منتصف كل بت، مما يضاعف التردد المطلوب[span_24](end_span)."
+        "explanation": "Manchester has a transition in the middle of the bit, doubling the bandwidth requirement.",
+        "explanation_ar": "مانشستر لديه انتقال في منتصف البت، مما يضاعف متطلبات النطاق الترددي."
       },
       {
         "type": "choice",
-        "question": "In a datagram network, what happens to the destination address in a packet header?",
-        "question_ar": "في شبكة البيانات (Datagram network)، ماذا يحدث لعنوان الوجهة في رأس الحزمة؟",
+        "question": "In a datagram network, the destination address in a packet header:",
+        "question_ar": "في شبكة البيانات (Datagram)، عنوان الوجهة في رأس الحزمة:",
         "options": [
-          "It changes at every hop",
-          "It is removed after the first switch",
-          "It remains the same during the entire journey",
-          "It is replaced by a VCI"
+          "Changes at every hop",
+          "Remains the same during the entire journey",
+          "Is removed after the first switch",
+          "Is encrypted"
         ],
         "options_ar": [
           "يتغير عند كل قفزة",
-          "تتم إزالته بعد أول محول",
           "يظل كما هو طوال الرحلة بأكملها",
-          "يتم استبداله بـ VCI"
+          "تتم إزالته بعد أول محول",
+          "يتم تشفيره"
+        ],
+        "correct_answer": 1,
+        "explanation": "The destination address must remain constant for routing.",
+        "explanation_ar": "يجب أن يظل عنوان الوجهة ثابتاً للتوجيه."
+      },
+      {
+        "type": "choice",
+        "question": "How many bits per baud do we send if the signal constellation has 64 points?",
+        "question_ar": "كم عدد البتات لكل بود نرسلها إذا كانت كوكبة الإشارة تحتوي على 64 نقطة؟",
+        "options": [
+          "4 bits",
+          "6 bits",
+          "8 bits",
+          "64 bits"
+        ],
+        "options_ar": [
+          "4 بت",
+          "6 بت",
+          "8 بت",
+          "64 بت"
+        ],
+        "correct_answer": 1,
+        "explanation": "log2(64) = 6 bits.",
+        "explanation_ar": "log2(64) = 6 بت."
+      },
+      {
+        "type": "choice",
+        "question": "If we modulate 6 KHz voice using AM, what is the required bandwidth?",
+        "question_ar": "إذا قمنا بتعديل صوت 6 كيلو هرتز باستخدام AM، فما هو النطاق الترددي المطلوب؟",
+        "options": [
+          "6 KHz",
+          "12 KHz",
+          "18 KHz",
+          "24 KHz"
+        ],
+        "options_ar": [
+          "6 KHz",
+          "12 KHz",
+          "18 KHz",
+          "24 KHz"
+        ],
+        "correct_answer": 1,
+        "explanation": "AM Bandwidth = 2 x Signal Bandwidth = 2 x 6 = 12 KHz.",
+        "explanation_ar": "نطاق AM = 2 × نطاق الإشارة = 2 × 6 = 12 كيلو هرتز."
+      },
+      {
+        "type": "choice",
+        "question": "If 5 digital sources (50 kbps each) are combined using synchronous TDM with 1 extra sync bit per frame (each slot = 1 bit), what is the output data rate?",
+        "question_ar": "إذا تم دمج 5 مصادر رقمية (50 kbps لكل منها) باستخدام TDM متزامن مع بت تزامن واحد إضافي لكل إطار (كل فتحة = 1 بت)، فما هو معدل البيانات الناتج؟",
+        "options": [
+          "250 kbps",
+          "300 kbps",
+          "500 kbps",
+          "1000 kbps"
+        ],
+        "options_ar": [
+          "250 kbps",
+          "300 kbps",
+          "500 kbps",
+          "1000 kbps"
+        ],
+        "correct_answer": 1,
+        "explanation": "Frame size = 5 bits + 1 bit = 6 bits. Rate = 50000 * 6 = 300 kbps.",
+        "explanation_ar": "حجم الإطار = 5 بت + 1 بت = 6 بت. المعدل = 50000 * 6 = 300 kbps."
+      },
+      {
+        "type": "choice",
+        "question": "What is the uneven delay in the delivery of audio or video packets called?",
+        "question_ar": "ماذا يسمى التأخير غير المنتظم في تسليم حزم الصوت أو الفيديو؟",
+        "options": [
+          "Attenuation",
+          "Jitter",
+          "Distortion",
+          "Latency"
+        ],
+        "options_ar": [
+          "توهين",
+          "Jitter",
+          "تشويش",
+          "كمون"
+        ],
+        "correct_answer": 1,
+        "explanation": "Jitter refers to the variation in packet arrival time.",
+        "explanation_ar": "يشير Jitter إلى التباين في وقت وصول الحزمة."
+      },
+      {
+        "type": "choice",
+        "question": "Which coding scheme has an average bandwidth of N/3?",
+        "question_ar": "أي نظام ترميز لديه متوسط نطاق ترددي N/3؟",
+        "options": [
+          "NRZ",
+          "Manchester",
+          "MLT-3",
+          "AMI"
+        ],
+        "options_ar": [
+          "NRZ",
+          "Manchester",
+          "MLT-3",
+          "AMI"
         ],
         "correct_answer": 2,
-        [span_25](start_span)"explanation": "The destination address remains constant so switches can route the packet correctly[span_25](end_span).",
-        [span_26](start_span)"explanation_ar": "يبقى العنوان كما هو ليقرر المحول مسار الحزمة[span_26](end_span)."
-      },
-      {
-        "type": "choice",
-        "question": "If we modulate 6 KHz Voice by using AM, what will be the required bandwidth?",
-        "question_ar": "إذا قمنا بتعديل صوت بتردد 6 كيلو هرتز باستخدام AM، فما هو النطاق الترددي المطلوب؟",
-        "options": [
-          "6 KHz",
-          "12 KHz",
-          "18 KHz",
-          "24 KHz"
-        ],
-        "options_ar": [
-          "6 KHz",
-          "12 KHz",
-          "18 KHz",
-          "24 KHz"
-        ],
-        "correct_answer": 1,
-        [span_27](start_span)"explanation": "Bandwidth of AM = 2 * Bandwidth of signal = 2 * 6 = 12 KHz[span_27](end_span).",
-        [span_28](start_span)"explanation_ar": "عرض نطاق AM هو ضعف عرض نطاق الإشارة الأصلية: 2 * 6 = 12[span_28](end_span)."
-      },
-      {
-        "type": "choice",
-        "question": "What is the term for the uneven delay in the delivery of audio or video packets?",
-        "question_ar": "ما هو المصطلح الذي يطلق على التأخير غير المنتظم في وصول حزم الصوت أو الفيديو؟",
-        "options": [
-          "Latency",
-          "Jitter",
-          "Attenuation",
-          "Distortion"
-        ],
-        "options_ar": [
-          "Latency",
-          "Jitter",
-          "Attenuation",
-          "Distortion"
-        ],
-        "correct_answer": 1,
-        [span_29](start_span)"explanation": "Jitter is defined as the uneven delay in packet delivery[span_29](end_span)."
+        "explanation": "MLT-3 uses three levels and transitions to reduce bandwidth requirements.",
+        "explanation_ar": "يستخدم MLT-3 ثلاثة مستويات وانتقالات لتقليل متطلبات النطاق الترددي."
       },
       {
         "type": "true_false",
         "question": "Infrared is a guided media.",
-        "question_ar": "الأشعة تحت الحمراء (Infrared) هي وسائط موجهة (Guided media).",
-        "options": ["True", "False"],
-        "options_ar": ["صحيح", "خطأ"],
+        "question_ar": "الأشعة تحت الحمراء هي وسائط موجهة (Guided media).",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
         "correct_answer": 1,
-        "explanation": "False. [span_30](start_span)Infrared is wireless, which is Unguided media[span_30](end_span).",
-        "explanation_ar": "خطأ. [span_31](start_span)الأشعة تحت الحمراء لاسلكية، أي وسائط غير موجهة[span_31](end_span)."
+        "explanation": "False. Infrared is unguided (wireless).",
+        "explanation_ar": "خطأ. الأشعة تحت الحمراء غير موجهة (لاسلكية)."
       },
       {
         "type": "choice",
         "question": "Which layer provides the interface between the hardware transmission medium and higher-layer protocols?",
         "question_ar": "أي طبقة توفر الواجهة بين وسط النقل المادي وبروتوكولات الطبقات العليا؟",
         "options": [
-          "Network Layer",
-          "Data Link Layer",
           "Physical Layer",
-          "Transport Layer"
+          "Data Link Layer",
+          "Network Layer",
+          "Application Layer"
         ],
         "options_ar": [
-          "Network Layer",
-          "Data Link Layer",
           "Physical Layer",
-          "Transport Layer"
+          "Data Link Layer",
+          "Network Layer",
+          "Application Layer"
         ],
-        "correct_answer": 2,
-        [span_32](start_span)"explanation": "The Physical Layer is responsible for the interface with hardware media[span_32](end_span)."
+        "correct_answer": 0,
+        "explanation": "The Physical Layer handles the mechanical and electrical specifications.",
+        "explanation_ar": "تتعامل الطبقة الفيزيائية مع المواصفات الميكانيكية والكهربائية."
       },
       {
         "type": "choice",
-        "question": "Analog-to-Analog Conversion can be accomplished in three ways. Which are they?",
-        "question_ar": "يمكن إنجاز التحويل من تناظري لتناظري بثلاث طرق. ما هي؟",
+        "question": "Analog-to-Analog conversion can be accomplished in which three ways?",
+        "question_ar": "يمكن إنجاز التحويل من تناظري لتناظري بأي طرق ثلاثة؟",
         "options": [
           "AM, FM, PM",
           "ASK, FSK, PSK",
-          "NRZ, RZ, AMI",
+          "NRZ, AMI, B8ZS",
           "PCM, DM, QAM"
         ],
         "options_ar": [
           "AM, FM, PM",
           "ASK, FSK, PSK",
-          "NRZ, RZ, AMI",
+          "NRZ, AMI, B8ZS",
           "PCM, DM, QAM"
         ],
         "correct_answer": 0,
-        [span_33](start_span)"explanation": "The three methods are Amplitude Modulation (AM), Frequency Modulation (FM), and Phase Modulation (PM)[span_33](end_span)."
+        "explanation": "Amplitude, Frequency, and Phase Modulation.",
+        "explanation_ar": "تعديل السعة، التردد، والطور."
       },
       {
         "type": "true_false",
         "question": "In a Packet switched network, resources are reserved before data transmission begins.",
-        "question_ar": "في شبكات تبديل الحزم (Packet switched)، يتم حجز الموارد قبل بدء نقل البيانات.",
-        "options": ["True", "False"],
-        "options_ar": ["صحيح", "خطأ"],
+        "question_ar": "في شبكة تبديل الحزم (Packet switched)، يتم حجز الموارد قبل بدء نقل البيانات.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
         "correct_answer": 1,
-        "explanation": "False. [span_34](start_span)Resource reservation happens in Circuit Switching, not Packet Switching[span_34](end_span).",
-        "explanation_ar": "خطأ. [span_35](start_span)حجز الموارد يتم في Circuit Switching فقط[span_35](end_span)."
+        "explanation": "False. Reservation is a feature of Circuit Switching.",
+        "explanation_ar": "خطأ. الحجز هو ميزة لتبديل الدوائر."
+      },
+      {
+        "type": "true_false",
+        "question": "The 4B/5B Coding scheme was designed to be used in combination with NRZ.",
+        "question_ar": "تم تصميم ترميز 4B/5B ليتم استخدامه مع NRZ.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
+        "correct_answer": 1,
+        "explanation": "False. It is usually combined with NRZ-I.",
+        "explanation_ar": "خطأ. عادة ما يتم دمجه مع NRZ-I."
       },
       {
         "type": "choice",
-        "question": "A path in a circuit-switched network is 5000 km long with a data rate of 10 kbps. If propagation speed is 2*10^8 m/s, how long does it take to transmit 1000 bits (Transmission + Propagation)?",
-        "question_ar": "مسار طوله 5000 كم بمعدل 10 kbps. سرعة الانتشار 2*10^8 م/ث. كم يستغرق إرسال 1000 بت؟",
+        "question": "How long does it take to transmit 1000 bits (Transmission + Propagation) over 5000km at 10kbps with prop speed 2*10^8 m/s?",
+        "question_ar": "كم يستغرق إرسال 1000 بت (إرسال + انتشار) عبر 5000 كم بسرعة 10kbps وسرعة انتشار 2*10^8 م/ث؟",
         "options": [
-          "0.025 s",
           "0.100 s",
           "0.125 s",
-          "1.25 s"
+          "0.250 s",
+          "1.000 s"
         ],
         "options_ar": [
-          "0.025 ثانية",
-          "0.100 ثانية",
-          "0.125 ثانية",
-          "1.25 ثانية"
+          "0.100 s",
+          "0.125 s",
+          "0.250 s",
+          "1.000 s"
         ],
-        "correct_answer": 2,
-        "explanation": "Prop Time = 5000km / 2*10^8 = 0.025s. Trans Time = 1000/10000 = 0.1s. [span_36](start_span)Total = 0.125s[span_36](end_span)."
+        "correct_answer": 1,
+        "explanation": "Prop = 0.025s, Trans = 0.1s. Total = 0.125s.",
+        "explanation_ar": "الانتشار = 0.025 ثانية، الإرسال = 0.1 ثانية. الإجمالي = 0.125 ثانية."
       },
       {
         "type": "choice",
@@ -356,74 +546,210 @@
         "options": [
           "Until data transfer starts",
           "Until the teardown phase",
-          "For a fixed 5 minutes",
-          "They are released randomly"
+          "For a fixed duration",
+          "Until the first packet arrives"
         ],
         "options_ar": [
           "حتى يبدأ نقل البيانات",
-          "حتى مرحلة إنهاء الاتصال (Teardown phase)",
-          "لمدة 5 دقائق ثابتة",
-          "يتم تحريرها عشوائياً"
+          "حتى مرحلة إنهاء الاتصال",
+          "لمدة محددة",
+          "حتى وصول أول حزمة"
         ],
         "correct_answer": 1,
-        [span_37](start_span)"explanation": "Resources remain dedicated until the connection is terminated (teardown phase)[span_37](end_span)."
+        "explanation": "Resources stay reserved until the connection is explicitly terminated.",
+        "explanation_ar": "تظل الموارد محجوزة حتى يتم إنهاء الاتصال صراحة."
       },
       {
         "type": "choice",
-        "question": "Which Line Coding scheme combines the idea of RZ and NRZ-L?",
+        "question": "What is the packet name at the Transport layer?",
+        "question_ar": "ما هو اسم الحزمة في طبقة النقل (Transport layer)؟",
+        "options": [
+          "Frame",
+          "Segment or User Datagram",
+          "Packet",
+          "Bit"
+        ],
+        "options_ar": [
+          "Frame",
+          "Segment or User Datagram",
+          "Packet",
+          "Bit"
+        ],
+        "correct_answer": 1,
+        "explanation": "It is called a Segment (TCP) or User Datagram (UDP).",
+        "explanation_ar": "تسمى Segment (في TCP) أو User Datagram (في UDP)."
+      },
+      {
+        "type": "choice",
+        "question": "Which line coding scheme combines the idea of RZ and NRZ-L?",
         "question_ar": "أي نظام ترميز خطي يجمع بين فكرة RZ و NRZ-L؟",
         "options": [
           "AMI",
           "Manchester",
-          "Differential Manchester",
-          "B8ZS"
+          "B8ZS",
+          "HDB3"
         ],
         "options_ar": [
           "AMI",
           "Manchester",
-          "Differential Manchester",
-          "B8ZS"
+          "B8ZS",
+          "HDB3"
         ],
         "correct_answer": 1,
-        [span_38](start_span)"explanation": "Manchester coding combines the transition at the middle (RZ idea) with level representation (NRZ-L)[span_38](end_span)."
+        "explanation": "Manchester coding uses the transition at the middle (RZ) and levels (NRZ).",
+        "explanation_ar": "يستخدم ترميز مانشستر الانتقال في المنتصف (RZ) والمستويات (NRZ)."
       },
       {
         "type": "choice",
-        "question": "What describes a situation where two devices are connected but not communicating due to missing rules?",
-        "question_ar": "ما الذي يصف حالة جهازين متصلين لكن لا يتواصلان بسبب غياب القواعد؟",
+        "question": "Transmission media are usually categorized as:",
+        "question_ar": "تُصنف وسائط النقل عادةً إلى:",
         "options": [
-          "Missing Cables",
-          "Missing Protocols",
-          "Missing Power",
-          "Missing Addresses"
+          "Guided and Unguided",
+          "Fast and Slow",
+          "Analog and Digital",
+          "Local and Global"
         ],
         "options_ar": [
-          "نقص الكابلات",
-          "غياب البروتوكولات (Missing Protocols)",
-          "نقص الطاقة",
-          "نقص العناوين"
+          "موجهة وغير موجهة",
+          "سريعة وبطيئة",
+          "تناظرية ورقمية",
+          "محلية وعالمية"
         ],
-        "correct_answer": 1,
-        [span_39](start_span)"explanation": "Without protocols (rules), connected devices cannot communicate[span_39](end_span)."
+        "correct_answer": 0,
+        "explanation": "Guided (wired) and Unguided (wireless).",
+        "explanation_ar": "موجهة (سلكية) وغير موجهة (لاسلكية)."
       },
       {
         "type": "choice",
-        "question": "If a Communication System (ASK) transmits 8 bits per baud and the baud rate is 100, what is the bit rate?",
-        "question_ar": "نظام اتصال (ASK) يرسل 8 بت لكل بود، ومعدل البود هو 100. ما هو معدل البت؟",
+        "question": "How many bits can fit on a link with 1.5s delay if bandwidth is 150 Mbps?",
+        "question_ar": "كم عدد البتات التي يمكن أن تسعها وصلة بتأخير 1.5 ثانية ونطاق ترددي 150 Mbps؟",
         "options": [
-          "100 bps",
-          "400 bps",
-          "800 bps",
-          "1600 bps"
+          "100 Megabits",
+          "150 Megabits",
+          "225 Megabits",
+          "300 Megabits"
         ],
         "options_ar": [
-          "100 bps",
-          "400 bps",
-          "800 bps",
-          "1600 bps"
+          "100 ميجابت",
+          "150 ميجابت",
+          "225 ميجابت",
+          "300 ميجابت"
         ],
         "correct_answer": 2,
-        [span_40](start_span)"explanation": "Bit rate = Baud rate * bits_per_baud = 100 * 8 = 800 bps[span_40](end_span)."
+        "explanation": "Bits = Bandwidth * Delay = 150 * 1.5 = 225 Mbits.",
+        "explanation_ar": "البتات = النطاق الترددي * التأخير = 150 * 1.5 = 225 ميجابت."
+      },
+      {
+        "type": "choice",
+        "question": "A typical example of ______ communication is the telephone network.",
+        "question_ar": "مثال نموذجي للاتصال ______ هو شبكة الهاتف.",
+        "options": [
+          "Simplex",
+          "Half-duplex",
+          "Full-duplex",
+          "One-way"
+        ],
+        "options_ar": [
+          "Simplex",
+          "Half-duplex",
+          "Full-duplex",
+          "One-way"
+        ],
+        "correct_answer": 2,
+        "explanation": "Telephone networks allow simultaneous two-way communication (Full-duplex).",
+        "explanation_ar": "تسمح شبكات الهاتف بالاتصال ثنائي الاتجاه المتزامن."
+      },
+      {
+        "type": "choice",
+        "question": "Without ______, two devices connected can not communicate.",
+        "question_ar": "بدون ______، لا يمكن لجهازين متصلين التواصل.",
+        "options": [
+          "Cables",
+          "Protocols",
+          "Screens",
+          "Keyboards"
+        ],
+        "options_ar": [
+          "كابلات",
+          "بروتوكولات",
+          "شاشات",
+          "لوحات مفاتيح"
+        ],
+        "correct_answer": 1,
+        "explanation": "Protocols define the rules for communication.",
+        "explanation_ar": "تحدد البروتوكولات قواعد الاتصال."
+      },
+      {
+        "type": "choice",
+        "question": "Which modulation scheme combines changing amplitude and phase?",
+        "question_ar": "أي نظام تعديل يجمع بين تغيير السعة والطور؟",
+        "options": [
+          "ASK",
+          "FSK",
+          "QAM",
+          "Manchester"
+        ],
+        "options_ar": [
+          "ASK",
+          "FSK",
+          "QAM",
+          "Manchester"
+        ],
+        "correct_answer": 2,
+        "explanation": "Quadrature Amplitude Modulation (QAM) combines amplitude and phase changes.",
+        "explanation_ar": "يجمع تعديل السعة التربيعي (QAM) بين تغييرات السعة والطور."
+      },
+      {
+        "type": "true_false",
+        "question": "A digital signal is composite analog with infinity bandwidth.",
+        "question_ar": "الإشارة الرقمية هي إشارة تناظرية مركبة ذات نطاق ترددي لا نهائي.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
+        "correct_answer": 0,
+        "explanation": "True. Square waves (digital) are composed of infinite harmonics.",
+        "explanation_ar": "صحيح. الموجات المربعة (الرقمية) تتكون من توافقيات لا نهائية."
+      },
+      {
+        "type": "choice",
+        "question": "If an ASK system transmits 8 bits per baud at a baud rate of 100, what is the bit rate?",
+        "question_ar": "إذا كان نظام ASK يرسل 8 بت لكل بود بمعدل بود 100، فما هو معدل البت؟",
+        "options": [
+          "100 bps",
+          "400 bps",
+          "800 bps",
+          "1000 bps"
+        ],
+        "options_ar": [
+          "100 bps",
+          "400 bps",
+          "800 bps",
+          "1000 bps"
+        ],
+        "correct_answer": 2,
+        "explanation": "Bit rate = Baud rate * bits per baud = 100 * 8 = 800 bps.",
+        "explanation_ar": "معدل البت = معدل البود * بت لكل بود = 100 * 8 = 800 bps."
+      },
+      {
+        "type": "true_false",
+        "question": "Radio waves are unguided media.",
+        "question_ar": "موجات الراديو هي وسائط غير موجهة.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "options_ar": [
+          "صحيح",
+          "خطأ"
+        ],
+        "correct_answer": 0,
+        "explanation": "True. They are wireless.",
+        "explanation_ar": "صحيح. إنها لاسلكية."
       }
     ]
   }
