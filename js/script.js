@@ -255,9 +255,8 @@
 
         function markRemainingAsSkipped() {
             for (let i = currentQuestionIndex; i < currentQuiz.questions.length; i++) {
-                if (!submitted[i]) {
+                if (!skipped.has(i)) {
                     skipped.add(i);
-                    submitted[i] = true;
                 }
             }
         }
@@ -280,9 +279,20 @@
             let questionText = isTranslated && question.question_ar ? question.question_ar : question.question;
             document.getElementById('questionText').textContent = questionText;
 
+            // عرض الصورة إذا وجدت
+            const questionImage = document.getElementById('questionImage');
+            if (question.image) {
+                questionImage.src = question.image;
+                questionImage.style.display = 'block';
+            } else {
+                questionImage.src = '';
+                questionImage.style.display = 'none';
+            }
+
             // إظهار/إخفاء زر التأكيد
             const submitBtn = document.getElementById('submitBtn');
-            const isAnswered = submitted[currentQuestionIndex];
+
+            const isAnswered = submitted[currentQuestionIndex] === true;
 
             if (question.type === 'multiple_choice' && !isAnswered) {
                 submitBtn.style.display = 'inline-block';
@@ -305,13 +315,12 @@
             const groupName = `question_${currentQuestionIndex}`;
             let options = isTranslated && question.options_ar ? question.options_ar : question.options;
 
-            const isSkippedQuestion = skipped.has(currentQuestionIndex);
 
             options.forEach((option, idx) => {
                 const div = document.createElement('div');
                 div.className = 'option';
 
-                if (isAnswered && !isSkippedQuestion) {
+                if (isAnswered) {
                     div.classList.add('disabled');
                 }
 
@@ -322,7 +331,7 @@
                 input.name = groupName;
                 input.value = idx;
                 input.id = id;
-                input.disabled = isAnswered && !isSkippedQuestion;
+                input.disabled = isAnswered;
 
                 if (question.type === 'multiple_choice') {
                     if (answers[currentQuestionIndex] && answers[currentQuestionIndex].includes(idx)) {
@@ -337,7 +346,7 @@
                 }
 
                 // تطبيق ألوان التصحيح إذا تم الإجابة
-                if (isAnswered && !isSkippedQuestion) {
+                if (isAnswered) {
                     const isCorrect = checkIfCorrect(idx);
                     if (isCorrect) {
                         div.classList.add('correct');
@@ -347,7 +356,7 @@
                 }
 
                 input.onchange = () => {
-                    if (isAnswered && !isSkippedQuestion) return;
+                    if (isAnswered) return;
 
                     if (question.type === 'multiple_choice') {
                         const checkboxes = document.querySelectorAll(`input[name="${groupName}"]:checked`);
@@ -398,7 +407,7 @@
             });
 
             // إظهار الملاحظات إذا كان السؤال محلول
-            if (isAnswered && !isSkippedQuestion) {
+            if (isAnswered) {
                 feedbackElement.classList.add('show');
                 showFeedback();
             }
@@ -554,7 +563,6 @@
             if (!submitted[currentQuestionIndex] && !skipped.has(currentQuestionIndex)) {
                 // إذا لم يكن هناك إجابة، اعتبره متخطى
                 skipped.add(currentQuestionIndex);
-                submitted[currentQuestionIndex] = question.type !== 'multiple_choice';
             }
 
             if (currentQuestionIndex < currentQuiz.questions.length - 1) {
