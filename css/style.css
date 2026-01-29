@@ -238,10 +238,15 @@
             border-radius: 15px;
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex;             /* تفعيل الفليكس بدلاً من الجريد */
+            justify-content: space-between; /* توزيع العناصر (واحد يمين، وواحد شمال، وواحد وسط) */
             gap: 20px;
             align-items: center;
+        }
+
+        .quiz-header > * {
+            flex: 1; /* يجعل العناصر تتمدد لتملأ الفراغ بالتساوي */
+            text-align: center; /* توسيط النص داخل كل عنصر */
         }
 
         .quiz-title {
@@ -251,7 +256,7 @@
         }
 
         .quiz-stats {
-            display: flex;
+            display: inherit;
             gap: 15px;
             justify-content: center;
         }
@@ -585,8 +590,117 @@
             color: var(--primary);
         }
 
+        .lang-switch-container {
+            position: fixed;       /* التثبيت فوق أي محتوى */
+            top: 20px;            
+            left: 20px;           
+            z-index: 9999;        /* رقم كبير عشان يظهر فوق أي عنصر تاني */
+            
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            color: var(--primary); 
+            
+            /* خلفية نصف شفافة اختيارية للنص عشان لو جه فوق كلام */
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 5px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px); /* تأثير ضبابي جميل للخلفية */
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        /* إخفاء الشيك بوكس الأصلي */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* السلايدر (الجزء المتحرك والخلفية) */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--primary);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            border: 2px solid #fff; /* بوردر أبيض */
+        }
+
+        /* الدائرة المتحركة (الزرار نفسه) */
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* ظل للدائرة عشان تبرز */
+            z-index: 2;
+            transform: translateX(30px); 
+        }
+
+        /* حالة التفعيل (لما يتحول لإنجليزي) */
+        input:checked + .slider {
+            background-color: #ccc;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(0); 
+        }
+
+        /* تنسيق حروف AR و EN جوه الزرار */
+        .lang-label {
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            z-index: 1;
+            user-select: none;
+        }
+
+        .lang-label.ar {
+            margin-left: 25px;
+            display: none; /* مخفي */
+        }
+
+        /* كلمة الإنجليزي (ظاهرة افتراضياً) */
+        .lang-label.en {
+            margin-right: 5px;
+            margin-left: 5px;
+            display: inline; /* ظاهر */
+        }
+
+        /* عند الضغط (التحويل لعربي) */
+        input:checked + .slider .lang-label.ar {
+            display: inline; /* إظهار العربي */
+            margin-left: 25px;
+            color: #555;
+        }
+
+        input:checked + .slider .lang-label.en {
+            display: none; /* إخفاء الإنجليزي */
+        }
+
         .wrong-answers {
-            text-align: right;
             margin-top: 50px;
             padding-top: 30px;
             border-top: 2px solid var(--border);
@@ -596,12 +710,14 @@
             color: var(--danger);
             margin-bottom: 25px;
             font-size: 1.5em;
+            text-align: right;
         }
 
         .skipped-answers h3 {
             color: var(--warning);
             margin-bottom: 25px;
             font-size: 1.5em;
+            text-align: right;
         }
 
         .answer-item {
@@ -610,7 +726,6 @@
             padding: 20px;
             margin-bottom: 15px;
             border-radius: 8px;
-            text-align: right;
         }
 
         .skipped-item {
@@ -619,7 +734,6 @@
             padding: 20px;
             margin-bottom: 15px;
             border-radius: 8px;
-            text-align: right;
         }
 
         .answer-item .question,
@@ -745,4 +859,3 @@
             background: #f57c00;
             transform: translateY(-2px);
         }
-

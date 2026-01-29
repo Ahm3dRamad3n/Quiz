@@ -128,10 +128,10 @@
                 card.innerHTML = `
                     <h3>${quiz.name}</h3>
                     <p>${quiz.description || 'كويز تفاعلي'}</p>
-                    <div class="quiz-info">
+                    <div class="quiz-info" dir="rtl">
                         <span class="question-count">${questionCount} أسئلة</span>
                     </div>
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 15px;" dir="rtl">
                         <div class="timer-option">
                             <input type="radio" name="timer_${index}" value="none" id="timer_none_${index}" checked>
                             <label for="timer_none_${index}">بدون وقت</label>
@@ -182,7 +182,6 @@
             skipped = new Set();
             correctCount = 0;
             incorrectCount = 0;
-            isTranslated = false;
             timeExpired = false;
 
             const timerRadios = document.getElementsByName(`timer_${index}`);
@@ -445,6 +444,8 @@
         // ===== الترجمة =====
         function toggleTranslate() {
             isTranslated = !isTranslated;
+            document.getElementById('quizPage').dir = isTranslated ? 'rtl' : 'ltr';
+            document.getElementById('langToggle').checked = isTranslated;
             displayQuestion();
             showFeedback();
         }
@@ -465,33 +466,34 @@
                 isCorrect = userAnswer === question.correct_answer;
             }
 
+            const IncorrectAnswerText = isTranslated ? 'إجابة خاطئة' : 'Incorrect Answer';
+            const CorrectAnswerText = isTranslated ? 'الإجابة الصحيحة' : 'Correct Answer';
+            const ExplanationText = isTranslated ? 'الشرح' : 'Explanation';
+
             if (isCorrect) {
                 feedback.className = 'feedback show correct';
                 const explanation = isTranslated && question.explanation_ar ? question.explanation_ar : question.explanation;
                 feedback.innerHTML = `
-                    <div class="feedback-title">✓ إجابة صحيحة!</div>
+                    <div class="feedback-title">✓ ${CorrectAnswerText}</div>
                     <div class="feedback-text">${explanation}</div>
                 `;
             } else {
                 let correctAnswerText = '';
+                const correctOptions = isTranslated && question.options_ar ? question.options_ar : question.options;
 
                 if (question.type === 'multiple_choice') {
-                    const correctOptions = isTranslated && question.options_ar ? question.options_ar : question.options;
-                    correctAnswerText = question.correct_answers.map(idx => correctOptions[idx]).join(' و ');
+                    correctAnswerText = question.correct_answers.map(idx => correctOptions[idx]).join(' & ');
                 } else {
-                    const correctOptions = isTranslated && question.options_ar ? question.options_ar : question.options;
-                    correctAnswerText = question.type === 'true_false' 
-                        ? (question.correct_answer === 0 ? 'صحيح' : 'خطأ')
-                        : correctOptions[question.correct_answer];
+                    correctAnswerText = correctOptions[question.correct_answer];
                 }
 
                 feedback.className = 'feedback show incorrect';
                 const explanation = isTranslated && question.explanation_ar ? question.explanation_ar : question.explanation;
                 feedback.innerHTML = `
-                    <div class="feedback-title">✗ إجابة خاطئة</div>
+                    <div class="feedback-title">✗ ${IncorrectAnswerText}</div>
                     <div class="feedback-text">
-                        <strong>الإجابة الصحيحة:</strong> ${correctAnswerText}<br>
-                        <strong>الشرح:</strong> ${explanation}
+                        <strong>${CorrectAnswerText}:</strong> ${correctAnswerText}<br>
+                        <strong>${ExplanationText}:</strong> ${explanation}
                     </div>
                 `;
             }
@@ -585,6 +587,23 @@
             document.getElementById('nextBtn').disabled = false;
         }
 
+        function toggleLanguage() {
+            const langToggle = document.getElementById('langToggle');
+
+             if (langToggle.checked) {
+                isTranslated = true;
+                document.getElementById('quizPage').dir = 'rtl';
+                document.getElementById('resultsPage').dir = 'rtl';
+            } else {
+                
+                isTranslated = false;  
+                document.getElementById('quizPage').dir = 'ltr';
+                document.getElementById('resultsPage').dir = 'ltr';
+            }
+
+            ShowWrongAndSkipped();
+        }
+
         // ===== عرض النتائج =====
         function showResults() {
             clearInterval(timerInterval);
@@ -606,7 +625,7 @@
             document.getElementById('finalIncorrect').textContent = incorrectCount;
             document.getElementById('finalSkipped').textContent = skippedCount;
 
-            // حذف الاخطاء السابقة وليس اخفائها
+            // حذف الاخطاء السابقة
             document.getElementById('wrongAnswersList').innerHTML = '';
             document.getElementById('wrongAnswersContainer').style.display = 'none';
             document.getElementById('skippedAnswersList').innerHTML = '';
@@ -621,9 +640,29 @@
                 document.getElementById('totalTime').textContent = 
                     `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
             }
+            
+            // عرض الأخطاء في الصفحة
+            ShowWrongAndSkipped();
+
+            const downloadBtn = document.getElementById('downloadPdfBtn');
+            const langSwitchContainer = document.getElementById('langSwitchContainer');
+            const IsFoundWrongAnswers = document.getElementById('wrongAnswersList').children.length > 0;
+            const IsFoundSkippedAnswers = document.getElementById('skippedAnswersList').children.length > 0;
+            if (IsFoundWrongAnswers || IsFoundSkippedAnswers) {
+                downloadBtn.style.display = 'inline-block';
+                langSwitchContainer.style.display = 'block';
+            } else {
+                downloadBtn.style.display = 'none';
+                langSwitchContainer.style.display = 'none';
+            }
+
+        }
+
+        function ShowWrongAndSkipped() {
+            const wrongAnswers = [];
+            const skippedAnswers = [];
 
             // الأسئلة الخاطئة
-            const wrongAnswers = [];
             Object.keys(answers).forEach(index => {
                 const question = currentQuiz.questions[index];
                 let isCorrect = false;
@@ -638,27 +677,53 @@
                 if (!isCorrect) {
                     let correctAnswerText = '';
                     if (question.type === 'multiple_choice') {
-                        correctAnswerText = question.correct_answers.map(idx => question.options[idx]).join(' و ');
+                        correctAnswerText = isTranslated && question.options_ar ? question.correct_answers.map(idx => question.options_ar[idx]).join(' & ') : question.correct_answers.map(idx => question.options[idx]).join(' & ');
                     } else {
-                        correctAnswerText = question.type === 'true_false' 
-                            ? (question.correct_answer === 0 ? 'صحيح' : 'خطأ')
-                            : question.options[question.correct_answer];
+                        correctAnswerText = isTranslated && question.options_ar ? question.options_ar[question.correct_answer] : question.options[question.correct_answer];
                     }
 
+                    let qImage = question.image || "";
+
                     wrongAnswers.push({
-                        question: question.question,
+                        question: isTranslated && question.question_ar ? question.question_ar : question.question,
+                        image: qImage,
                         userAnswer: question.type === 'multiple_choice' 
-                            ? answers[index].map(idx => question.options[idx]).join(' و ')
-                            : question.options[answers[index]],
+                            ? answers[index].map(idx => isTranslated && question.options_ar ? question.options_ar[idx] : question.options[idx]).join(' & ')
+                            : isTranslated && question.options_ar ? question.options_ar[answers[index]] : question.options[answers[index]],
                         correctAnswer: correctAnswerText,
-                        explanation: question.explanation
+                        explanation: isTranslated && question.explanation_ar ? question.explanation_ar : question.explanation
                     });
                 }
             });
 
+            // الأسئلة المتخطاة
+            skipped.forEach(index => {
+                const question = currentQuiz.questions[index];
+                let correctAnswerText = '';
+
+                if (question.type === 'multiple_choice') {
+                    correctAnswerText = isTranslated && question.options_ar ? question.correct_answers.map(idx => question.options_ar[idx]).join(' & ') : question.correct_answers.map(idx => question.options[idx]).join(' & ');
+                } else {
+                    correctAnswerText = isTranslated && question.options_ar ? question.options_ar[question.correct_answer] : question.options[question.correct_answer];
+                }
+
+                skippedAnswers.push({
+                    question: isTranslated && question.question_ar ? question.question_ar : question.question,
+                    correctAnswer: correctAnswerText,
+                    explanation: isTranslated && question.explanation_ar ? question.explanation_ar : question.explanation,
+                    image: question.image || ""
+                });
+            });
+            
+            const YourWrongAnswersText = isTranslated ? 'إجاباتك' : 'Your Answer';
+            const TheCorrectAnswerText = isTranslated ? 'الإجابة الصحيحة' : 'Correct Answer';
+            const TheExplanationText = isTranslated ? 'الشرح' : 'Explanation';
+
             if (wrongAnswers.length > 0) {
                 document.getElementById('wrongAnswersContainer').style.display = 'block';
                 const list = document.getElementById('wrongAnswersList');
+                list.dir = isTranslated ? 'rtl' : 'ltr';
+                list.style.textAlign = isTranslated ? 'right' : 'left';
                 list.innerHTML = '';
 
                 wrongAnswers.forEach((item, idx) => {
@@ -666,39 +731,30 @@
                     div.className = 'answer-item';
                     div.innerHTML = `
                         <div class="question"><strong>${idx + 1}. ${item.question}</strong></div>
-                        <div class="your-answer">إجابتك: <strong>${item.userAnswer}</strong></div>
-                        <div class="correct-answer">الإجابة الصحيحة: <strong>${item.correctAnswer}</strong></div>
-                        <div class="explanation">الشرح: ${item.explanation}</div>
+                    `;
+                    if (item.image) {
+                        const img = document.createElement('img');
+                        img.src = item.image;
+                        img.className = "question-image";
+                        img.alt = "Question Image";
+                        img.style.maxWidth = "100%";
+                        img.style.marginTop = "10px";
+                        div.appendChild(img);
+                    }
+                    div.innerHTML += `
+                        <div class="your-answer">${YourWrongAnswersText}: <strong>${item.userAnswer}</strong></div>
+                        <div class="correct-answer">${TheCorrectAnswerText}: <strong>${item.correctAnswer}</strong></div>
+                        <div class="explanation">${TheExplanationText}: ${item.explanation}</div>
                     `;
                     list.appendChild(div);
                 });
             }
-            
-
-            // الأسئلة المتخطاة
-            const skippedAnswers = [];
-            skipped.forEach(index => {
-                const question = currentQuiz.questions[index];
-                let correctAnswerText = '';
-
-                if (question.type === 'multiple_choice') {
-                    correctAnswerText = question.correct_answers.map(idx => question.options[idx]).join(' و ');
-                } else {
-                    correctAnswerText = question.type === 'true_false' 
-                        ? (question.correct_answer === 0 ? 'صحيح' : 'خطأ')
-                        : question.options[question.correct_answer];
-                }
-
-                skippedAnswers.push({
-                    question: question.question,
-                    correctAnswer: correctAnswerText,
-                    explanation: question.explanation
-                });
-            });
 
             if (skippedAnswers.length > 0) {
                 document.getElementById('skippedAnswersContainer').style.display = 'block';
                 const list = document.getElementById('skippedAnswersList');
+                list.dir = isTranslated ? 'rtl' : 'ltr';
+                list.style.textAlign = isTranslated ? 'right' : 'left';
                 list.innerHTML = '';
 
                 skippedAnswers.forEach((item, idx) => {
@@ -706,267 +762,199 @@
                     div.className = 'skipped-item';
                     div.innerHTML = `
                         <div class="question"><strong>${idx + 1}. ${item.question}</strong></div>
-                        <div class="correct-answer">الإجابة الصحيحة: <strong>${item.correctAnswer}</strong></div>
-                        <div class="explanation">الشرح: ${item.explanation}</div>
+                    `;
+                    if (item.image) {
+                        const img = document.createElement('img');
+                        img.src = item.image;
+                        img.className = "question-image";
+                        img.alt = "Question Image";
+                        img.style.maxWidth = "100%";
+                        img.style.marginTop = "10px";
+                        div.appendChild(img);
+                    }
+                    div.innerHTML += `
+                        <div class="correct-answer">${TheCorrectAnswerText}: <strong>${item.correctAnswer}</strong></div>
+                        <div class="explanation">${TheExplanationText}: ${item.explanation}</div>
                     `;
                     list.appendChild(div);
                 });
             }
-
-            // إظهار زر تحميل PDF إذا كانت هناك أخطاء
-            const downloadBtn = document.getElementById('downloadPdfBtn');
-            if (wrongAnswers.length > 0 || skippedAnswers.length > 0) {
-                downloadBtn.style.display = 'inline-block';
-            } else {
-                downloadBtn.style.display = 'none';
-            }
-
         }
 
-        // دالة مساعدة لتحميل الخط المحلي
-        async function loadLocalFont(url) {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error();
-                const blob = await response.blob();
-                return new Promise((resolve) => {
-                    const reader = new FileReader();
-                    reader.onload = () => resolve(reader.result.split(',')[1]);
-                    reader.readAsDataURL(blob);
-                });
-            } catch (e) {
-                console.error(e);
-                alert("تأكد من وجود ملف Cairo.ttf بجوار ملف HTML");
-                throw e;
-            }
-        }
 
-        // دالة عكس الكلمات العربية (الحل المعتمد للمشكلة)
-        function fixArabic(text) {
-            if (!text) return "";
-            const IsContainingArabic = /[\u0600-\u06FF]/.test(text);    
-            if (!IsContainingArabic) return text;
-            const startindexenglish = text.search(/[A-Za-z0-9]/);
-            if (startindexenglish === -1) {
-                return text.split(' ').reverse().join(' ');
-            }
-            return  text.substring(startindexenglish - 1) + " "
-            + text.substring(0, startindexenglish - 1).split(' ').reverse().join(' ') ;
-        }
-
-        // ===== تحميل تقرير الأخطاء كملف PDF =====
         async function downloadErrorsPDF() {
             const btn = document.getElementById('downloadPdfBtn');
-            if (!btn) return;
-
             const originalText = btn.innerHTML;
-            btn.innerHTML = '⏳ جاري التصميم...';
+            btn.innerHTML = '⏳ جاري التجهيز...';
             btn.disabled = true;
 
+            // 1. تجميع المحتوى
+            const wrongContent = document.getElementById('wrongAnswersList')?.innerHTML || '';
+            const skippedContent = document.getElementById('skippedAnswersList')?.innerHTML || '';
+            
+            if (!wrongContent && !skippedContent) {
+                alert("لا توجد أخطاء لطباعتها!");
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                return;
+            }
+
+            const percentage = Math.round((correctCount / currentQuiz.questions.length) * 100);
+            const direction = isTranslated ? 'rtl' : 'ltr';
+
+            // 2. تجهيز الـ HTML والـ CSS (هنا سر التنسيق)
+            const reportHTML = `
+                <div class="print-container" dir="${direction}">
+                    <div class="header">
+                        <h1>تقرير مراجعه الاخطاء</h1>
+                        <h2>${currentQuiz.name}</h2>
+                        <div class="score-box">
+                            النتيجة: <span style="color: ${correctCount >= (currentQuiz.questions.length/2) ? 'green' : '#cf1322'}">
+                            ${correctCount} من ${currentQuiz.questions.length} (${percentage}%)
+                            </span>
+                        </div>
+                    </div>
+
+                    ${wrongContent ? `
+                        <div class="section-title error-title" dir="rtl">
+                            ❌ إجابات خاطئة
+                        </div>
+                        <div class="cards-wrapper wrong-wrapper">
+                            ${wrongContent}
+                        </div>
+                    ` : ''}
+
+                    ${skippedContent ? `
+                        <div class="section-title skip-title" dir="rtl">
+                            ⚠️ أسئلة تم تخطيها
+                        </div>
+                        <div class="cards-wrapper skip-wrapper">
+                            ${skippedContent}
+                        </div>
+                    ` : ''}
+                </div>
+
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+                    
+                    /* إجبار المتصفح على طباعة الألوان */
+                    * {
+                        -webkit-print-color-adjust: exact !important;
+                        print-color-adjust: exact !important;
+                        box-sizing: border-box;
+                    }
+
+                    body {
+                        font-family: 'Cairo', sans-serif;
+                        margin: 0;
+                        padding: 20px;
+                        background: white;
+                    }
+
+                    .header {
+                        text-align: center;
+                        margin-bottom: 30px;
+                        border-bottom: 2px solid #eee;
+                        padding-bottom: 20px;
+                    }
+                    .header h1 { 
+                        margin: 0 0 10px 0; 
+                        color: ${getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#070707'}; 
+                        font-size: 24px; 
+                    }
+                    .header h2 { margin: 0 0 10px 0; color: #666; font-size: 18px; }
+                    .score-box { font-size: 20px; font-weight: bold; }
+
+                    .section-title {
+                        font-size: 18px;
+                        font-weight: bold;
+                        margin: 30px 0 15px 0;
+                        padding-bottom: 5px;
+                        border-bottom: 2px solid #ccc;
+                    }
+                    .error-title { color: #cf1322; border-color: #cf1322; }
+                    .skip-title { color: #faad14; border-color: #faad14; }
+
+                    /* تنسيق الكروت */
+                    .cards-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+                    }
+
+                    /* استهداف الكروت بناءً على الكلاسات الموجودة في HTML موقعك */
+                    /* افترضت أن الكارت واخد كلاس generic، لكن هنا هنسق أي div جوه الرابر */
+                    .cards-wrapper > div {
+                        border: 1px solid #e0e0e0;
+                        border-radius: 8px;
+                        padding: 15px;
+                        background-color: #f9f9f9; /* لون خلفية خفيف */
+                        page-break-inside: avoid; /* ممنوع قص الكارت نصين */
+                        position: relative;
+                        
+                        /* البوردر الجانبي الملون */
+                        border-right: 5px solid #ccc; 
+                    }
+
+                    /* تخصيص لون البوردر الجانبي والخلفية للأخطاء */
+                    .wrong-wrapper > div {
+                        border-right-color: #cf1322;
+                        background-color: #fff1f0;
+                    }
+
+                    /* تخصيص لون البوردر الجانبي والخلفية للتخطي */
+                    .skip-wrapper > div {
+                        border-right-color: #faad14;
+                        background-color: #fffbe6;
+                    }
+
+                    /* تنسيق النصوص داخل الكارت */
+                    .question {
+                        font-weight: bold;
+                        font-size: 16px;
+                        margin-bottom: 10px;
+                        color: #222;
+                    }
+                    
+                    .your-answer { color: #cf1322; font-weight: bold; display: block; margin-top: 5px; }
+                    .correct-answer { color: #389e0d; font-weight: bold; display: block; margin-top: 5px; }
+                    .explanation { 
+                        margin-top: 10px; 
+                        padding: 10px; 
+                        background: rgba(0,0,0,0.05); 
+                        border-radius: 5px; 
+                        font-size: 14px; 
+                        color: #555;
+                    }
+
+                    /* تنسيق الصور */
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                        max-height: 250px;
+                        display: block;
+                        margin: 10px auto;
+                        border-radius: 5px;
+                    }
+                </style>
+            `;
+
+            // 3. الطباعة
             try {
-                const fontBase64 = await loadLocalFont('./Cairo.ttf');
-
-                pdfMake.vfs = { "Cairo.ttf": fontBase64 };
-                pdfMake.fonts = {
-                    Cairo: {
-                        normal: 'Cairo.ttf',
-                        bold: 'Cairo.ttf',
-                        italics: 'Cairo.ttf',
-                        bolditalics: 'Cairo.ttf'
-                    }
-                };
-
-                const totalQuestions = currentQuiz.questions.length;
-                const percentage = Math.round((correctCount / totalQuestions) * 100);
-                
-                const colors = {
-                    wrongBg: '#fff5f5',     // خلفية حمراء فاتحة جداً للأخطاء
-                    wrongBorder: '#ff4d4f', // لون الخط الجانبي للأخطاء
-                    skipBg: '#fffbf0',      // خلفية صفراء فاتحة للمتخطاة
-                    skipBorder: '#faad14',  // لون الخط الجانبي للمتخطاة
-                    textDark: '#333333',
-                    greenText: '#389e0d',   // أخضر داكن للإجابة الصحيحة
-                    redText: '#cf1322'      // أحمر للإجابة الخاطئة
-                };
-
-                const iconCross = {
-                    svg: `<svg viewBox="0 0 24 24"><path fill="${colors.wrongBorder}" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`,
-                    width: 15, 
-                    height: 15
-                };
-
-                const iconWarn = {
-                    svg: `<svg viewBox="0 0 24 24"><path fill="${colors.skipBorder}" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>`,
-                    width: 15, 
-                    height: 15
-                };
-
-                let content = [];
-
-                // 1. الهيدر (Header)
-                content.push({ text: fixArabic(' تقرير مراجعة الأخطاء'), style: 'header' });
-                content.push({ text: currentQuiz.name, style: 'subheader' });
-                content.push({ 
-                    text: ` (${percentage}%) ${totalQuestions} من  ${correctCount} النتيجة: `, 
-                    style: 'score',
-                    color: percentage >= 50 ? colors.greenText : colors.redText
+                printJS({
+                    printable: reportHTML, // بنبعت الـ HTML كله كنص
+                    type: 'raw-html',      // نوع الطباعة: كود HTML خام
+                    documentTitle: `Result_${currentQuiz.name}`
                 });
-                content.push({ text: ' ', margin: [0, 10] }); // مسافة
-
-                // دالة لبناء "بطاقة السؤال" وتنسيقها
-                const createQuestionCard = (child, type) => {
-                    const qText = child.querySelector('.question')?.innerText || "";
-                    const myAns = child.querySelector('.your-answer')?.innerText || "";
-                    const correctAns = child.querySelector('.correct-answer')?.innerText || "";
-                    const explain = child.querySelector('.explanation')?.innerText || "";
-
-                    // تحديد الألوان حسب النوع (خطأ أم تخطي)
-                    const bgColor = type === 'wrong' ? colors.wrongBg : colors.skipBg;
-                    const borderColor = type === 'wrong' ? colors.wrongBorder : colors.skipBorder;
-
-                    const isEnglish = /^[A-Za-z]/.test(qText.trim());
-
-                    // محتوى البطاقة
-                    const cardContent = [];
-                    
-                    // السؤال
-                    cardContent.push({
-                        text: isEnglish ? qText : fixArabic(qText),
-                        style: 'questionText',
-                        alignment: isEnglish ? 'left' : 'right'
-                    });
-
-                    // الإجابات
-                    if (myAns) {
-                        cardContent.push({
-                            text: [ { text: isEnglish ? myAns : fixArabic(myAns), color: colors.redText } ],
-                            alignment: 'right',
-                            margin: [0, 5, 0, 2]
-                        });
-                    }
-
-                    if (correctAns) {
-                        cardContent.push({
-                            text: [ { text: isEnglish ? correctAns : fixArabic(correctAns), color: colors.greenText } ],
-                            alignment: 'right',
-                            margin: [0, 2, 0, 5]
-                        });
-                    }
-
-                    if (explain) {
-                        cardContent.push({
-                            text: [ { text: isEnglish ? explain : fixArabic(explain), italics: true, color: '#666' } ],
-                            style: 'explanation',
-                            alignment: 'right'
-                        });
-                    }
-
-                    // استخدام جدول (Table) لعمل الخلفية والحدود
-                    return {
-                        table: {
-                            widths: ['1%', '99%'], // عمود صغير للحد الملون، والباقي للمحتوى
-                            body: [
-                                [
-                                    { 
-                                        text: '', // العمود الملون الفارغ
-                                        fillColor: borderColor, 
-                                        border: [false, false, false, false] 
-                                    }, 
-                                    { 
-                                        stack: cardContent, 
-                                        fillColor: bgColor, 
-                                        border: [false, false, false, false], // إخفاء حدود الجدول
-                                        margin: [10, 10, 10, 10] // Padding داخلي
-                                    }
-                                ]
-                            ]
-                        },
-                        layout: 'noBorders', // تأكيد إخفاء الحدود الافتراضية
-                        margin: [0, 0, 0, 15], // مسافة أسفل كل بطاقة
-                        unbreakable: true // منع قص البطاقة
-                    };
-                };
-
-                // دالة معالجة الأقسام
-                // دالة معالجة الأقسام (تم تعديلها لدعم الأيقونات)
-                const processSection = (containerId, titleText, type) => {
-                    const container = document.getElementById(containerId);
-                    
-                    // لو مفيش حاوية أو مفيش أسئلة، نخرج من الدالة
-                    if (!container || container.children.length === 0) return;
-
-                    // 1. تحديد الأيقونة واللون بناءً على نوع القسم (خطأ أم تخطي)
-                    // (iconCross و iconWarn و colors لازم يكونوا متعرفين فوق الدالة دي)
-                    const icon = type === 'wrong' ? iconCross : iconWarn;
-                    const titleColor = type === 'wrong' ? colors.redText : colors.skipBorder;
-
-                    // 2. إضافة العنوان + الأيقونة
-                    // بنستخدم columns عشان نحطهم جنب بعض
-                    content.push({
-                        columns: [
-                            { width: '*', text: '' }, // عمود فارغ لزق الكلام لليمين (عشان المحاذاة)
-                            { 
-                                width: 'auto', 
-                                text: fixArabic(titleText), // النص العربي المعكوس
-                                fontSize: 16, 
-                                bold: true, 
-                                color: titleColor,
-                                margin: [0, 0, 10, 0] // مسافة صغيرة بين النص والأيقونة
-                            },
-                            { 
-                                width: 20, 
-                                svg: icon.svg, // رسم الأيقونة
-                                color: icon.color, 
-                                relativePosition: { y: 3 } // تظبيط ارتفاع الأيقونة عشان تكون في سوى النص
-                            } 
-                        ],
-                        columnGap: 10, // مسافة بين الأيقونة والنص
-                        margin: [0, 20, 0, 10] // هوامش العنوان كله
-                    });
-
-                    // 3. اللف على الأسئلة وإضافتها
-                    Array.from(container.children).forEach((child) => {
-                        // نستخدم الدالة createQuestionCard لإنشاء تصميم السؤال
-                        content.push(createQuestionCard(child, type));
-                    });
-                };
-
-                // معالجة البيانات
-                processSection('wrongAnswersList', '  الأسئلة التي أجبت عليها بشكل خاطئ', 'wrong');
-                processSection('skippedAnswersList', ' الأسئلة التي تم تخطيها', 'skip');
-
-                if (content.length <= 4) {
-                    content.push({ text: fixArabic('ممتاز! لا توجد ملاحظات.'), alignment: 'center', margin: [0, 20], color: 'green' });
-                }
-
-                const docDefinition = {
-                    content: content,
-                    defaultStyle: {
-                        font: 'Cairo',
-                        fontSize: 12,
-                        alignment: 'right'
-                    },
-                    styles: {
-                        header: { fontSize: 22, bold: true, alignment: 'center', color: '#555', margin: [0, 0, 0, 5] },
-                        subheader: { fontSize: 16, bold: true, alignment: 'center', color: '#777', margin: [0, 0, 0, 10] },
-                        score: { fontSize: 14, bold: true, alignment: 'center' },
-                        questionText: { fontSize: 13, bold: true, color: '#333', margin: [0, 0, 0, 10] },
-                        explanation: { fontSize: 11, margin: [0, 5, 0, 0] }
-                    }
-                };
-
-                pdfMake.createPdf(docDefinition).download(`Quiz_Result_${currentQuiz.name}.pdf`);
-
             } catch (error) {
                 console.error(error);
-                alert("تأكد من تشغيل الموقع عبر Live Server ووجود ملف الخط");
+                alert("حدث خطأ، تأكد من اتصال الطابعة أو حاول مرة أخرى");
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             }
         }
 
-  
         // ===== إعادة المحاولة =====
         function retakeQuiz() {
             const index = quizzes.indexOf(currentQuiz);

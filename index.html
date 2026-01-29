@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" id="langHtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- مكتبة توليد PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.js"></script>
-    <title>تطبيق الكويزات التفاعلي</title>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    <title>تطبيق الكويزات التفاعلي</title>  
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- صفحة الكويز -->
-    <div id="quizPage" class="quiz-page">
+    <div id="quizPage" class="quiz-page" id="quizPage">
         <div class="container">
             <div class="quiz-header">
                 <div class="quiz-title" id="quizTitle"></div>
@@ -70,7 +70,7 @@
                 <div class="feedback" id="feedback"></div>
             </div>
 
-            <div class="controls">
+            <div class="controls" dir="ltr" id="controlsContainer">
                 <button class="btn-back" onclick="goHome()">← العودة</button>
                 <button class="btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>← السابق</button>
                 <button class="btn-primary" id="submitBtn" onclick="submitAnswer()" style="display: none;">✓ تأكيد</button>
@@ -108,6 +108,18 @@
                     <strong>⏱️ الوقت المستغرق:</strong> <span id="totalTime">00:00</span>
                 </div>
 
+                
+                <div class="lang-switch-container" style="display: none;" id="langSwitchContainer">
+                    <span class="label-text">ترجمة</span>
+                    <label class="switch">
+                        <input type="checkbox" id="langToggle" onchange="toggleLanguage()">
+                        <span class="slider round">
+                            <span class="lang-label ar">AR</span>
+                            <span class="lang-label en">EN</span>
+                        </span>
+                    </label>
+                </div>
+
                 <div class="wrong-answers" id="wrongAnswersContainer" style="display: none;">
                     <h3>❌ الأسئلة التي أجبت عليها بشكل خاطئ</h3>
                     <div id="wrongAnswersList"></div>
@@ -119,7 +131,7 @@
                 </div>
 
                 <div class="controls" style="margin-top: 40px;">
-                    <button class="btn-download" id="downloadPdfBtn" onclick="downloadErrorsPDF()" style="display: none;">📥 تحميل الأخطاء (PDF)</button>
+                    <button class="btn-download" id="downloadPdfBtn" onclick="downloadErrorsPDF()" style="display: none;">📥 تحميل الأخطاء</button>
                     <button class="btn-primary" onclick="goHome()">العودة للرئيسية</button>
                     <button class="btn-secondary" onclick="retakeQuiz()">إعادة الكويز</button>
                 </div>
