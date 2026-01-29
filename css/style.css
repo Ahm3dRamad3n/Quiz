@@ -232,69 +232,80 @@
             display: none;
         }
 
+        /* 1. الحاوية الرئيسية */
         .quiz-header {
             background: var(--bg);
-            padding: 25px;
+            padding: 20px 25px; /* تقليل البادينج العلوي قليلاً */
             border-radius: 15px;
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;             /* تفعيل الفليكس بدلاً من الجريد */
-            justify-content: space-between; /* توزيع العناصر (واحد يمين، وواحد شمال، وواحد وسط) */
-            gap: 20px;
+            
+            display: flex;
+            flex-wrap: wrap; /* أهم تعديل: يسمح للعناصر بالنزول لسطر جديد */
+            justify-content: space-between; /* يبعد العنوان عن التايمر */
             align-items: center;
+            gap: 15px;
         }
 
-        .quiz-header > * {
-            flex: 1; /* يجعل العناصر تتمدد لتملأ الفراغ بالتساوي */
-            text-align: center; /* توسيط النص داخل كل عنصر */
-        }
-
+        /* 2. العنوان */
         .quiz-title {
             color: var(--primary);
-            font-size: 1.5em;
+            font-size: 1.4em;
             font-weight: bold;
+            /* نلغي flex: 1 القديمة عشان ماياخدش مساحة زيادة */
         }
 
-        .quiz-stats {
-            display: inherit;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 10px 15px;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-        }
-
-        .stat label {
-            display: block;
-            color: var(--text-light);
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
-        .stat .value {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
+        /* 3. التايمر */
         .timer {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 8px 20px; /* تصغير الحجم قليلاً ليكون أشيك */
+            border-radius: 20px; /* شكل كبسولة */
             text-align: center;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            min-width: 80px; /* عرض ثابت عشان الأرقام ماترقصش */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .timer.hidden {
             display: none;
         }
 
+        /* 4. حاوية شريط التقدم (الجديد) */
+        .progress-container {
+            width: 100%; /* ياخد العرض بالكامل */
+            margin-top: 10px; /* مسافة بينه وبين العنوان */
+        }
+
+        .progress-track {
+            display: flex;
+            gap: 0; /* إلغاء المسافات نهائياً ليصبح متصلاً */
+            height: 10px; /* سمك الخط */
+            width: 100%;
+            background-color: #e0e0e0; /* لون الخلفية للخط كله */
+            border-radius: 10px; /* التدوير للحاوية الخارجية فقط */
+            overflow: hidden; /* عشان القطع اللي جوه ماتخرجش بره التدوير */
+            direction: rtl; 
+        }
+
+        .progress-segment {
+            flex: 1; 
+            /* شيلنا اللون الرمادي من هنا عشان الخلفية الأساسية هتبان */
+            /* شيلنا border-radius من هنا عشان يبانوا لازقين في بعض */
+            transition: background-color 0.3s ease;
+            border-right: 1px solid rgba(255,255,255,0.2); /* اختياري: خط رفيع جداً شفاف يفصل بينهم شكلياً فقط */
+        }
+
+        .progress-segment:last-child {
+            border-right: none;
+        }
+
+        /* الألوان زي ما هي */
+        .progress-segment.correct { background-color: #4caf50 !important; }
+        .progress-segment.wrong { background-color: #f44336 !important; }
+        .progress-segment.skipped { background-color: #ffc107 !important; }
+        .progress-segment.current { background-color: var(--primary); opacity: 0.5; }
         .question-container {
             background: var(--bg);
             border-radius: 15px;
@@ -590,24 +601,19 @@
             color: var(--primary);
         }
 
+        /* الحاوية */
         .lang-switch-container {
-            position: fixed;       /* التثبيت فوق أي محتوى */
-            top: 20px;            
-            left: 20px;           
-            z-index: 9999;        /* رقم كبير عشان يظهر فوق أي عنصر تاني */
-            
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-family: 'Cairo', sans-serif;
-            font-weight: bold;
-            color: var(--primary); 
-            
-            /* خلفية نصف شفافة اختيارية للنص عشان لو جه فوق كلام */
+            justify-content: center;
             background-color: rgba(255, 255, 255, 0.8); 
-            padding: 5px 10px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px); /* تأثير ضبابي جميل للخلفية */
+            padding: 4px; 
+            border-radius: 34px;
+            backdrop-filter: blur(5px);
         }
 
         .switch {
@@ -615,16 +621,16 @@
             display: inline-block;
             width: 60px;
             height: 30px;
+            margin: 0;
         }
 
-        /* إخفاء الشيك بوكس الأصلي */
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
 
-        /* السلايدر (الجزء المتحرك والخلفية) */
+        /* === السلايدر (الوضع الافتراضي = إنجليزي = ملون) === */
         .slider {
             position: absolute;
             cursor: pointer;
@@ -632,72 +638,78 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: var(--primary);
+            
+            /* 1. اللون الافتراضي: ملون */
+            background-color: var(--primary); 
+            
             transition: .4s;
             border-radius: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
-            border: 2px solid #fff; /* بوردر أبيض */
+            border: 2px solid #fff; 
         }
 
-        /* الدائرة المتحركة (الزرار نفسه) */
+        /* === الدائرة (الوضع الافتراضي = يمين) === */
         .slider:before {
             position: absolute;
             content: "";
             height: 24px;
             width: 24px;
-            left: 3px;
-            bottom: 3px;
+            left: 1px; 
+            bottom: 1px;
             background-color: white;
             transition: .4s;
             border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* ظل للدائرة عشان تبرز */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             z-index: 2;
+            
+            /* 2. المكان الافتراضي: يمين (30 بكسل) */
             transform: translateX(30px); 
         }
 
-        /* حالة التفعيل (لما يتحول لإنجليزي) */
-        input:checked + .slider {
-            background-color: #ccc;
+        /* تنسيق النصوص */
+        .lang-label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 1;
+            user-select: none;
+            transition: opacity 0.3s ease;
         }
 
+        /* كلمة AR (مكانها يمين، وافتراضياً مخفية) */
+        .lang-label.ar {
+            right: 8px; 
+            opacity: 0; /* مخفي */
+        }
+
+        /* كلمة EN (مكانها شمال، وافتراضياً ظاهرة) */
+        .lang-label.en {
+            left: 8px; 
+            opacity: 1; /* ظاهر */
+        }
+
+        /* ====== حالة الضغط (Checked = عربي) ====== */
+
+        /* لما يبقى Checked يقلب رمادي */
+        input:checked + .slider {
+            background-color: #ccc; 
+        }
+
+        /* لما يبقى Checked يرجع الدائرة لليسار */
         input:checked + .slider:before {
             transform: translateX(0); 
         }
 
-        /* تنسيق حروف AR و EN جوه الزرار */
-        .lang-label {
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-            z-index: 1;
-            user-select: none;
-        }
-
-        .lang-label.ar {
-            margin-left: 25px;
-            display: none; /* مخفي */
-        }
-
-        /* كلمة الإنجليزي (ظاهرة افتراضياً) */
-        .lang-label.en {
-            margin-right: 5px;
-            margin-left: 5px;
-            display: inline; /* ظاهر */
-        }
-
-        /* عند الضغط (التحويل لعربي) */
+        /* إظهار العربي */
         input:checked + .slider .lang-label.ar {
-            display: inline; /* إظهار العربي */
-            margin-left: 25px;
-            color: #555;
+            opacity: 1;
         }
 
+        /* إخفاء الإنجليزي */
         input:checked + .slider .lang-label.en {
-            display: none; /* إخفاء الإنجليزي */
+            opacity: 0;
         }
 
         .wrong-answers {

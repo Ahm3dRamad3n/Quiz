@@ -126,12 +126,12 @@
                 const questionCount = quiz.questions.length;
 
                 card.innerHTML = `
-                    <h3>${quiz.name}</h3>
-                    <p>${quiz.description || 'كويز تفاعلي'}</p>
-                    <div class="quiz-info" dir="rtl">
+                    <h3 dir="ltr">${quiz.name}</h3>
+                    <p dir="ltr">${quiz.description || 'كويز تفاعلي'}</p>
+                    <div class="quiz-info">
                         <span class="question-count">${questionCount} أسئلة</span>
                     </div>
-                    <div style="margin-bottom: 15px;" dir="rtl">
+                    <div style="margin-bottom: 15px;">
                         <div class="timer-option">
                             <input type="radio" name="timer_${index}" value="none" id="timer_none_${index}" checked>
                             <label for="timer_none_${index}">بدون وقت</label>
@@ -205,7 +205,6 @@
             document.getElementById('resultsPage').style.display = 'none';
 
             document.getElementById('quizTitle').textContent = currentQuiz.name;
-            document.getElementById('totalQuestions').textContent = currentQuiz.questions.length;
 
             // إخفاء المؤقت إذا كان بدون وقت
             const timerElement = document.getElementById('timer');
@@ -215,6 +214,9 @@
                 timerElement.classList.remove('hidden');
                 startTimer();
             }
+
+            initProgressBar(currentQuiz.questions.length);
+            updateProgressSegment(-1,''); // تلوين الحالي بالازرق
 
             displayQuestion();
         }
@@ -260,12 +262,43 @@
             }
         }
 
+        function initProgressBar(totalQuestions) {
+            const track = document.getElementById('progressTrack');
+            track.innerHTML = ''; // تنظيف القديم
+            
+            for (let i = totalQuestions - 1; i >= 0; i--) {
+                const segment = document.createElement('div');
+                segment.className = 'progress-segment';
+                segment.id = `prog-seg-${i}`; // ID مميز لكل قطعة
+                track.appendChild(segment);
+            }
+        }
+
+        function updateProgressSegment(index, status) {
+            const segment = document.getElementById(`prog-seg-${index}`);
+            if (segment) {
+                // حذف أي كلاس قديم وإضافة الحالة الجديدة
+                segment.classList.remove('current', 'correct', 'wrong', 'skipped');
+                if (status !== 'current' && status !== 'correct' && status !== 'wrong' && status !== 'skipped') {
+                    console.log("No status to update for progress segment.");
+                }
+                else{
+                    segment.classList.add(status);
+                }
+            }
+            
+            // تمييز السؤال التالي (اختياري)
+            const nextSegment = document.getElementById(`prog-seg-${index + 1}`);
+            if (nextSegment) {
+                nextSegment.classList.add('current');
+            }
+        }
+
         // ===== عرض السؤال =====
         function displayQuestion() {
             const question = currentQuiz.questions[currentQuestionIndex];
 
             document.getElementById('questionNumber').textContent = `السؤال ${currentQuestionIndex + 1}`;
-            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
 
             let typeText = '';
             if (question.type === 'true_false') typeText = 'صح / خطأ';
@@ -378,9 +411,11 @@
                             if (isCorrect) {
                                 div.classList.add('correct');
                                 correctCount++;
+                                updateProgressSegment(currentQuestionIndex, 'correct');
                             } else {
                                 div.classList.add('incorrect');
                                 incorrectCount++;
+                                updateProgressSegment(currentQuestionIndex, 'wrong');
                                 // تمييز الإجابة الصحيحة
                                 const correctIdx = question.correct_answer;
                                 const correctOption = document.getElementById(`option_${currentQuestionIndex}_${correctIdx}`);
@@ -444,10 +479,17 @@
         // ===== الترجمة =====
         function toggleTranslate() {
             isTranslated = !isTranslated;
-            document.getElementById('quizPage').dir = isTranslated ? 'rtl' : 'ltr';
-            document.getElementById('langToggle').checked = isTranslated;
-            displayQuestion();
-            showFeedback();
+
+            document.getElementById('question-content').dir = isTranslated ? 'rtl' : 'ltr';
+
+            if (document.getElementById('quizPage').style.display === 'block') {
+                document.getElementById('langToggle').checked = isTranslated;
+                displayQuestion();
+                showFeedback();
+            }
+            else {
+                ShowWrongAndSkipped();
+            }
         }
 
         // ===== عرض الملاحظات =====
@@ -498,9 +540,6 @@
                 `;
             }
 
-            document.getElementById('correctCount').textContent = correctCount;
-            document.getElementById('incorrectCount').textContent = incorrectCount;
-
             updateButtonStates();
         }
 
@@ -538,8 +577,10 @@
             
             if (isCorrect) {
                 correctCount++;
+                updateProgressSegment(currentQuestionIndex, 'correct');
             } else {
                 incorrectCount++;
+                updateProgressSegment(currentQuestionIndex, 'wrong');
             }
 
             // تطبيق ألوان التصحيح
@@ -565,6 +606,7 @@
             if (!submitted[currentQuestionIndex] && !skipped.has(currentQuestionIndex)) {
                 // إذا لم يكن هناك إجابة، اعتبره متخطى
                 skipped.add(currentQuestionIndex);
+                updateProgressSegment(currentQuestionIndex, 'skipped');
             }
 
             if (currentQuestionIndex < currentQuiz.questions.length - 1) {
@@ -585,23 +627,6 @@
         function updateButtonStates() {
             document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
             document.getElementById('nextBtn').disabled = false;
-        }
-
-        function toggleLanguage() {
-            const langToggle = document.getElementById('langToggle');
-
-             if (langToggle.checked) {
-                isTranslated = true;
-                document.getElementById('quizPage').dir = 'rtl';
-                document.getElementById('resultsPage').dir = 'rtl';
-            } else {
-                
-                isTranslated = false;  
-                document.getElementById('quizPage').dir = 'ltr';
-                document.getElementById('resultsPage').dir = 'ltr';
-            }
-
-            ShowWrongAndSkipped();
         }
 
         // ===== عرض النتائج =====

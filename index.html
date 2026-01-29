@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" id="langHtml">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,25 +37,14 @@
     </div>
 
     <!-- صفحة الكويز -->
-    <div id="quizPage" class="quiz-page" id="quizPage">
+    <div id="quizPage" class="quiz-page">
         <div class="container">
             <div class="quiz-header">
                 <div class="quiz-title" id="quizTitle"></div>
-                <div class="quiz-stats">
-                    <div class="stat">
-                        <label>السؤال</label>
-                        <div class="value"><span id="currentQuestion">1</span> / <span id="totalQuestions">0</span></div>
-                    </div>
-                    <div class="stat">
-                        <label>✓ صحيح</label>
-                        <div class="value" id="correctCount">0</div>
-                    </div>
-                    <div class="stat">
-                        <label>✗ خطأ</label>
-                        <div class="value" id="incorrectCount">0</div>
-                    </div>
-                </div>
                 <div class="timer" id="timer">00:00</div>
+                <div class="progress-container">
+                    <div id="progressTrack" class="progress-track"></div>
+                </div>
             </div>
 
             <div class="question-container">
@@ -64,13 +53,15 @@
                     <span class="question-type" id="questionType"></span>
                     <button class="translate-btn" id="translateBtn" onclick="toggleTranslate()">🌐 ترجمة</button>
                 </div>
-                <div class="question-text" id="questionText"></div>
-                <img src="" alt="صورة السؤال" class="question-image" id="questionImage" style="display: none;">
-                <div class="options" id="optionsContainer"></div>
-                <div class="feedback" id="feedback"></div>
+                <div id="question-content" dir="ltr">
+                    <div class="question-text" id="questionText"></div>
+                    <img src="" alt="صورة السؤال" class="question-image" id="questionImage" style="display: none;">
+                    <div class="options" id="optionsContainer"></div>
+                    <div class="feedback" id="feedback"></div>
+                </div>
             </div>
 
-            <div class="controls" dir="ltr" id="controlsContainer">
+            <div class="controls" id="controlsContainer">
                 <button class="btn-back" onclick="goHome()">← العودة</button>
                 <button class="btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>← السابق</button>
                 <button class="btn-primary" id="submitBtn" onclick="submitAnswer()" style="display: none;">✓ تأكيد</button>
@@ -110,9 +101,8 @@
 
                 
                 <div class="lang-switch-container" style="display: none;" id="langSwitchContainer">
-                    <span class="label-text">ترجمة</span>
                     <label class="switch">
-                        <input type="checkbox" id="langToggle" onchange="toggleLanguage()">
+                        <input type="checkbox" id="langToggle" onchange="toggleTranslate()">
                         <span class="slider round">
                             <span class="lang-label ar">AR</span>
                             <span class="lang-label en">EN</span>
