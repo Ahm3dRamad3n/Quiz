@@ -1,23 +1,21 @@
         // ===== الثيمات المتاحة =====
         const themes = [
-    // 🌟 فئة الألوان العصرية (Modern & Vibrant)
-    { name: '💜 أرجواني حالم (Lavender)', primary: '#8b5cf6', secondary: '#d946ef' }, // مزيج عصري من البنفسجي والفوشيا
-    { name: '🌊 أزرق محيطي (Ocean)', primary: '#0ea5e9', secondary: '#14b8a6' }, // أزرق سماوي مع تركواز هادئ
-    { name: '🍑 خوخي دافئ (Sunset)', primary: '#f97316', secondary: '#f43f5e' }, // برتقالي مريح مع لمسة وردية
-    { name: '🍃 أخضر نعناعي (Mint)', primary: '#10b981', secondary: '#3b82f6' }, // أخضر زمردي مع أزرق نقي
-
-    // 💻 فئة الثيمات الليلية الاحترافية (Tech & Dark Modes)
-    { name: '🧛 دراكولا (Dracula Dark)', primary: '#ff79c6', secondary: '#bd93f9' }, // ثيم دراكولا الشهير (وردي وبنفسجي على خلفية داكنة)
-    { name: '❄️ نورد (Nord Frost)', primary: '#88c0d0', secondary: '#81a1c1' }, // أزرق ثلجي مريح جداً للعين
-    { name: '🌌 فضاء سيبراني (Cyberpunk)', primary: '#00ff9f', secondary: '#00b8ff' }, // نيون هادئ متوافق مع الخلفيات السوداء
-    { name: '🦉 بومة الليل (Night Owl)', primary: '#82aaff', secondary: '#c792ea' }, // ألوان زاهية وناعمة في نفس الوقت
-
-    // ☕ فئة الألوان الهادئة والبسيطة (Minimalist & Soft)
-    { name: '🍵 ماتشا (Matcha)', primary: '#65a30d', secondary: '#84cc16' }, // درجات الأخضر الزيتوني الفاتح
-    { name: '☕ كابتشينو (Mocha)', primary: '#a8a29e', secondary: '#d6d3d1' }, // درجات الرمادي الدافئ
-    { name: '🖤 تيتانيوم (Titanium)', primary: '#3f3f46', secondary: '#71717a' }, // رمادي معدني عصري
-    { name: '🌑 سماء منتصف الليل (Slate)', primary: '#0f172a', secondary: '#1e293b' } // أزرق داكن جداً كلون بديل للأسود الصريح
-];
+            { name: '🔵 أزرق بنفسجي', primary: '#667eea', secondary: '#764ba2' },
+            { name: '🔴 أحمر برتقالي', primary: '#f44336', secondary: '#ff9800' },
+            { name: '🟢 أخضر سماوي', primary: '#4caf50', secondary: '#00bcd4' },
+            { name: '💗 وردي بنفسجي', primary: '#e91e63', secondary: '#9c27b0' },
+            { name: '🔷 أزرق سماوي', primary: '#2196f3', secondary: '#00bcd4' },
+            { name: '🟠 برتقالي أحمر', primary: '#ff6f00', secondary: '#d32f2f' },
+            { name: '🌲 أخضر داكن', primary: '#1b5e20', secondary: '#388e3c' },
+            { name: '💜 بنفسجي فاتح', primary: '#7b1fa2', secondary: '#c2185b' },
+            { name: '🌊 أزرق داكن', primary: '#0d47a1', secondary: '#1565c0' },
+            { name: '🏝️ تركواز', primary: '#00796b', secondary: '#00897b' },
+            { name: '✨ ذهبي', primary: '#f57f17', secondary: '#ff6f00' },
+            { name: '🌙 رمادي أزرق', primary: '#455a64', secondary: '#546e7a' },
+            { name: '🖤 Dark - أسود', primary: '#1a1a1a', secondary: '#2d2d2d' },
+            { name: '🌑 Dark - رمادي', primary: '#2c3e50', secondary: '#34495e' },
+            { name: '🌃 Dark - أزرق داكن', primary: '#1e3a5f', secondary: '#2c5aa0' }
+        ];
 
         // ===== المتغيرات الرئيسية =====
         let quizzes = [];
