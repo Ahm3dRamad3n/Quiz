@@ -289,7 +289,7 @@
             
             // تمييز السؤال التالي (اختياري)
             const nextSegment = document.getElementById(`prog-seg-${index + 1}`);
-            if (nextSegment) {
+            if (nextSegment && nextSegment.classList.length === 1) { // إذا لم يكن هناك حالة محددة بعد
                 nextSegment.classList.add('current');
             }
         }
