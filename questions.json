@@ -5,9 +5,9 @@
     "questions": [
       {
         "type": "choice",
-        "question": "Which animal is known as the 'King of the Jungle'?",
+        "question": "Which حيوان الغابه is known as the 'ملك of the Jungle'?",
         "question_ar": "أي حيوان يُعرف بلقب 'ملك الغابة'؟",
-        "image": "images/lion.webp",
+        "image": "https://github.com/Abo3Hamza/Quiz/releases/download/imgs/lion.jpg",
         "options": [
           "The Elephant",
           "The Lion",
@@ -19,7 +19,7 @@
           "الأرنب"
         ],
         "correct_answer": 1,
-        "explanation": "Lions are famous for being the leaders of the wild.",
+        "explanation": "الاسود تكون famous for being  تكون القاده في البريه.",
         "explanation_ar": "الأسود مشهورة بأنها قادة البرية."
       },
       {
@@ -82,7 +82,7 @@
         "type": "multiple_choice",
         "question": "Which of these are birds that CANNOT fly? (Choose 2)",
         "question_ar": "أي من هؤلاء طيور لا تستطيع الطيران؟ (اختر إجابتين)",
-        "image": "images/Ostrich and Penguin.webp",
+        "image": "https://github.com/Abo3Hamza/Quiz/releases/download/imgs/Ostrich.and.Penguin.jpg",
         "options": [
           "Eagle",
           "Penguin",
@@ -143,7 +143,7 @@
         "type": "true_false",
         "question": "Cows eat meat.",
         "question_ar": "الأبقار تأكل اللحوم.",
-        "image": "images/Cow.jpg",
+        "image": "https://github.com/Abo3Hamza/Quiz/releases/download/imgs/Cow.jpg",
         "options": ["True", "False"],
         "options_ar": ["صحيح", "خطأ"],
         "correct_answer": 1,
