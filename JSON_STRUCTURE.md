@@ -1,30 +1,32 @@
-# 📊 دليل هيكل بيانات الكويز | Quiz JSON Structure Guide
+# 📊 JSON Data Structure Guide | Interactive Quiz Platform
 
-هذا الدليل يشرح لك كيفية إضافة أسئلتك الخاصة في ملف `questions.json` لتعمل بشكل مثالي مع المحرك المطور.
+This guide details how to seamlessly integrate your custom questions into the `questions.json` file. By following this schema, the JavaScript engine will automatically parse, render, and manage your quizzes without requiring any HTML modifications.
 
 ---
 
-## 🏗️ الهيكل العام للملف
-الملف عبارة عن مصفوفة (Array) تحتوي على كائنات (Objects)، كل كائن يمثل كويزاً كاملاً.
+## 🏗️ Root Structure
+The JSON file consists of an Array containing Objects. Each Object represents a complete, standalone quiz.
 
 ```json
 [
   {
-    "name": "اسم الكويز",
-    "description": "وصف قصير للكويز",
+    "name": "Quiz Title",
+    "description": "A brief description of the quiz topic.",
     "questions": [
-      // الأسئلة تضاف هنا
+      // Question objects will be injected here
     ]
   }
 ]
+
 ```
 
 ---
 
-## 📝 أنواع الأسئلة وكيفية إضافتها
+## 📝 Question Types & Implementation
 
-### 1. سؤال اختيار واحد (Single Choice)
-يستخدم عندما تكون هناك إجابة صحيحة واحدة فقط.
+### 1. Single Choice
+
+Used when there is strictly one correct answer among multiple options.
 
 ```json
 {
@@ -33,14 +35,16 @@
   "question_ar": "كم ناتج 1 + 1؟",
   "options": ["1", "2", "3", "4"],
   "options_ar": ["1", "2", "3", "4"],
-  "correct_answer": 1, // ترتيب الإجابة الصحيحة يبدأ من 0
+  "correct_answer": 1, // Zero-based index (0 = first option, 1 = second option)
   "explanation": "Because 1 plus 1 equals 2.",
   "explanation_ar": "لأن واحد زائد واحد يساوي اثنين."
 }
+
 ```
 
-### 2. سؤال صح أو خطأ (True/False)
-نوع خاص من الاختيار الواحد، دائماً الخيار 0 هو "صحيح" والخيار 1 هو "خطأ".
+### 2. True / False
+
+A specialized binary choice. By convention, index `0` represents "True" and index `1` represents "False".
 
 ```json
 {
@@ -49,14 +53,16 @@
   "question_ar": "السماء زرقاء.",
   "options": ["True", "False"],
   "options_ar": ["صحيح", "خطأ"],
-  "correct_answer": 0, // 0 للصحيح، 1 للخطأ
+  "correct_answer": 0, // 0 for True, 1 for False
   "explanation": "The sky appears blue due to Rayleigh scattering.",
   "explanation_ar": "تظهر السماء زرقاء بسبب تشتت رايلي."
 }
+
 ```
 
-### 3. سؤال اختيارات متعددة (Multiple Choice)
-يستخدم عندما يكون هناك أكثر من إجابة صحيحة.
+### 3. Multiple Choice
+
+Used when the question requires selecting more than one correct answer.
 
 ```json
 {
@@ -65,17 +71,21 @@
   "question_ar": "أي من هذه تعتبر فواكه؟",
   "options": ["Apple", "Carrot", "Banana", "Potato"],
   "options_ar": ["تفاح", "جزر", "موز", "بطاطس"],
-  "correct_answers": [0, 2], // مصفوفة تحتوي على أرقام كل الإجابات الصحيحة
-  "explanation": "Apple and Banana are fruits, while others are vegetables.",
+  "correct_answers": [0, 2], // An array of the zero-based indices of all correct answers
+  "explanation": "Apple and Banana are fruits, while the others are vegetables.",
   "explanation_ar": "التفاح والموز فواكه، بينما البقية خضروات."
 }
+
 ```
 
 ---
 
-## 💡 ملاحظات هامة:
-1.  **الترجمة:** تأكد دائماً من إضافة الحقول التي تنتهي بـ `_ar` لتعمل ميزة الترجمة الفورية في التطبيق.
-2.  **الترتيب:** الترتيب في `correct_answer` أو `correct_answers` يبدأ دائماً من **0** (الخيار الأول هو 0، الثاني هو 1، وهكذا).
-3.  **التجميد:** بمجرد اختيار الإجابة، سيقوم المحرك بتجميد السؤال فوراً وإظهار الشرح.
+## 💡 Core Engine Behaviors & Developer Notes:
 
-**بالتوفيق في بناء كويزاتك! 🚀**
+1. **Bilingual Rendering:** Always include the suffix `_ar` keys (e.g., `question_ar`, `options_ar`) to ensure the real-time translation toggle works flawlessly within the app.
+2. **Zero-Based Indexing:** The engine relies on strict array logic. The `correct_answer` or `correct_answers` properties always start counting from **0** (i.e., Option 1 = `0`, Option 2 = `1`, etc.).
+3. **State Freezing:** Upon user selection, the core engine instantly freezes the DOM for that specific question and reveals the `explanation` to prevent state tampering.
+
+**Happy Building! 🚀**
+
+---
