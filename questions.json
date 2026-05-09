@@ -7,7 +7,7 @@
         "type": "choice",
         "question": "Which حيوان الغابه is known as the 'ملك of the Jungle'?",
         "question_ar": "أي حيوان يُعرف بلقب 'ملك الغابة'؟",
-        "image": "https://github.com/ahm3dramad3n/Quiz/releases/imgs/lion.jpg",
+        "image": "https://github.com/ahm3dramad3n/Quiz/releases/download/imgs/lion.jpg",
         "options": [
           "The Elephant",
           "The Lion",
