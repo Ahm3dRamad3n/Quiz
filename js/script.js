@@ -37,15 +37,23 @@
         // ===== تحميل البيانات =====
         async function loadQuizzes() {
             try {
-                const response = await fetch('questions.json');
-                quizzes = await response.json();
-                initializeApp();
+                const response = await fetch('questions.json', {
+                cache: 'no-store'
+            });
+        
+            if (!response.ok) {
+                throw new Error(`تعذر جلب الملف، كود الحالة: ${response.status}`);
+            }
+
+            quizzes = await response.json();
+            initializeApp();
             } catch (error) {
                 console.error('خطأ في تحميل الكويزات:', error);
                 quizzes = [];
                 initializeApp();
             }
         }
+
 
         function initializeApp() {
             loadTheme();
