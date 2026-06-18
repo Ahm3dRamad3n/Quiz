@@ -12,6 +12,26 @@ if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
+function openSidebar() {
+  const drawer = document.getElementById("sidebarDrawer");
+  const overlay = document.getElementById("sidebarOverlay");
+  if (drawer) drawer.classList.add("open");
+  if (overlay) overlay.style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeSidebar() {
+  const drawer = document.getElementById("sidebarDrawer");
+  const overlay = document.getElementById("sidebarOverlay");
+  if (drawer) drawer.classList.remove("open");
+  if (overlay) overlay.style.display = "none";
+  document.body.style.overflow = "";
+  // also close any open kebab menus
+  document
+    .querySelectorAll(".kebab-menu.show")
+    .forEach((m) => m.classList.remove("show"));
+}
+
 const themes = [
   { name: "🔵 أزرق بنفسجي", primary: "#667eea", secondary: "#764ba2" },
   { name: "🔴 أحمر برتقالي", primary: "#f44336", secondary: "#ff9800" },
@@ -93,6 +113,16 @@ document.addEventListener("click", (event) => {
   ) {
     closeThemeMenu();
   }
+  // Close any open kebab/dropdown menus when clicking elsewhere
+  document.querySelectorAll(".kebab-menu.show").forEach((m) => {
+    // if the click is outside the menu and not inside any quiz item, close it
+    if (
+      !m.contains(event.target) &&
+      !event.target.closest(".sidebar-quiz-item")
+    ) {
+      m.classList.remove("show");
+    }
+  });
 });
 
 // Settings modal handlers (dashboard)
@@ -433,8 +463,9 @@ async function copyToClipboard(text) {
 }
 
 function ensureMyQuizzesToolbar() {
-  const section = elements.myQuizList.parentElement;
+  const section = elements.myQuizList && elements.myQuizList.parentElement;
   if (!section) return;
+  const sidebarTop = document.querySelector("#sidebarDrawer .sidebar-top");
 
   let toolbar = document.getElementById("myQuizzesToolbar");
   if (!toolbar) {
@@ -475,7 +506,13 @@ function ensureMyQuizzesToolbar() {
 
     toolbar.appendChild(shareProfileBtn);
     toolbar.appendChild(status);
-    section.insertBefore(toolbar, elements.myQuizList);
+    if (sidebarTop) {
+      // place at the very top of the sidebar
+      sidebarTop.replaceChildren();
+      sidebarTop.appendChild(toolbar);
+    } else {
+      section.insertBefore(toolbar, elements.myQuizList);
+    }
   }
 
   const profileBtn = document.getElementById("shareProfileBtn");
@@ -662,65 +699,53 @@ function renderMyQuizzes() {
   }
 
   myQuizzes.forEach((quiz) => {
-    const card = document.createElement("article");
-    card.className = "my-quiz-card";
+    const item = document.createElement("div");
+    item.className = "sidebar-quiz-item";
+    item.dataset.id = quiz.id;
 
-    const questionCount = Array.isArray(quiz.questions)
-      ? quiz.questions.length
-      : 0;
-    const ttl = quiz.ttlDays ? `${quiz.ttlDays}d` : "n/a";
-
-    const title = document.createElement("h3");
+    const title = document.createElement("span");
+    title.className = "quiz-title";
     title.textContent = quiz.name || "Untitled Quiz";
 
-    const meta = document.createElement("div");
-    meta.className = "my-quiz-meta";
-    // Build inline elements: question count badge + download button
-    const qCountSpan = document.createElement("span");
-    qCountSpan.className = "question-count";
-    qCountSpan.textContent = `${questionCount} أسئلة`;
+    const menu = document.createElement("div");
+    menu.className = "kebab-menu";
 
-    const inlineRight = document.createElement("div");
-    inlineRight.style.display = "flex";
-    inlineRight.style.alignItems = "center";
-    inlineRight.style.gap = "8px";
+    const shareBtn = document.createElement("button");
+    shareBtn.type = "button";
+    shareBtn.dataset.action = "share-quiz";
+    shareBtn.dataset.id = quiz.id;
+    shareBtn.innerHTML = "🔗 Share";
 
-    meta.appendChild(qCountSpan);
-    meta.appendChild(inlineRight);
+    const editBtn = document.createElement("button");
+    editBtn.type = "button";
+    editBtn.dataset.action = "edit";
+    editBtn.dataset.id = quiz.id;
+    editBtn.innerHTML = "✏️ Edit";
 
-    const actions = document.createElement("div");
-    actions.className = "card-actions";
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.dataset.action = "delete";
+    deleteBtn.dataset.id = quiz.id;
+    deleteBtn.innerHTML = "🗑️ Delete";
 
-    const editButton = document.createElement("button");
-    editButton.className = "btn-secondary";
-    editButton.type = "button";
-    editButton.dataset.action = "edit";
-    editButton.dataset.id = quiz.id;
-    editButton.textContent = "Edit";
+    menu.appendChild(shareBtn);
+    menu.appendChild(editBtn);
+    menu.appendChild(deleteBtn);
 
-    const deleteButton = document.createElement("button");
-    deleteButton.className = "btn-back";
-    deleteButton.type = "button";
-    deleteButton.dataset.action = "delete";
-    deleteButton.dataset.id = quiz.id;
-    deleteButton.textContent = "Delete";
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // close others
+      document.querySelectorAll(".kebab-menu.show").forEach((m) => {
+        if (m !== menu) m.classList.remove("show");
+      });
+      menu.classList.toggle("show");
+    });
 
-    const shareButton = document.createElement("button");
-    shareButton.className = "btn-primary";
-    shareButton.type = "button";
-    shareButton.dataset.action = "share-quiz";
-    shareButton.dataset.id = quiz.id;
-    shareButton.textContent = "Share Quiz";
+    // append title and menu (menu hidden by default)
+    item.appendChild(title);
+    item.appendChild(menu);
 
-    actions.appendChild(editButton);
-    actions.appendChild(deleteButton);
-    actions.appendChild(shareButton);
-
-    card.appendChild(title);
-    card.appendChild(meta);
-    card.appendChild(actions);
-
-    elements.myQuizList.appendChild(card);
+    elements.myQuizList.appendChild(item);
   });
 }
 
@@ -1136,7 +1161,7 @@ function resetBuilder() {
   elements.jsonRawInput.value = "";
   const defaultTtl = document.querySelector('input[name="ttlDays"][value="3"]');
   if (defaultTtl) defaultTtl.checked = true;
-  elements.saveQuizBtn.textContent = "Save Quiz";
+  elements.saveQuizBtn.textContent = "Save";
   renderQuestionBuilder();
   setStatus("Builder reset.");
   syncJsonTextarea();
@@ -1533,7 +1558,7 @@ function editQuiz(quizId) {
   builderQuestions = (Array.isArray(quiz.questions) ? quiz.questions : []).map(
     normalizeQuestion,
   );
-  elements.saveQuizBtn.textContent = "Update Quiz";
+  elements.saveQuizBtn.textContent = "Update";
   renderQuestionBuilder();
   setStatus("Quiz loaded into editor.", "success");
   syncJsonTextarea();
@@ -1938,22 +1963,18 @@ function registerEventHandlers() {
   });
 
   // Wire up nav buttons
-  document
-    .getElementById("toggleMyQuizzesBtn")
-    ?.addEventListener("click", () => {
-      const panel = document.getElementById("myQuizzesPanel");
-      if (panel) {
-        panel.style.display = panel.style.display === "none" ? "block" : "none";
-        // adjust grid when hidden
-        if (panel.style.display === "none") {
-          document.querySelector(".layout-grid").style.gridTemplateColumns =
-            "1fr";
-        } else {
-          document.querySelector(".layout-grid").style.gridTemplateColumns =
-            "1fr 360px";
-        }
-      }
-    });
+  document.getElementById("openSidebarBtn")?.addEventListener("click", () => {
+    openSidebar();
+  });
+
+  document.getElementById("sidebarOverlay")?.addEventListener("click", () => {
+    closeSidebar();
+  });
+
+  // Close sidebar on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSidebar();
+  });
 
   // Start automatic site analysis if analysis module is available.
   if (typeof window.runSiteAnalysis === "function") {

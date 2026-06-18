@@ -490,6 +490,7 @@ function displayQuizzes() {
   const grid = document.getElementById("quizzesGrid");
   const emptyState = document.getElementById("emptyState");
   grid.innerHTML = "";
+  emptyState.innerHTML = "";
 
   let emptyTitle = emptyState.querySelector("h2");
   let emptyMessage = emptyState.querySelector("p");
@@ -516,18 +517,15 @@ function displayQuizzes() {
     description.textContent =
       "Login to manage your quizzes, create new content, and share public quizzes with a direct link.";
 
-    let ctaL = null;
-    if (!currentUser) {
-      ctaL = document.createElement("button");
-      ctaL.className = "btn-primary";
-      ctaL.style.marginTop = "16px";
-      ctaL.textContent = "Login with Google";
-      ctaL.addEventListener("click", loginWithGoogle);
-    }
+    ctaL = document.createElement("button");
+    ctaL.className = "btn-primary";
+    ctaL.style.marginTop = "16px";
+    ctaL.textContent = "Login with Google";
+    ctaL.addEventListener("click", loginWithGoogle);
 
     emptyState.appendChild(title);
     emptyState.appendChild(description);
-    if (ctaL !== null) emptyState.appendChild(ctaL);
+    emptyState.appendChild(ctaL);
     return;
   }
 

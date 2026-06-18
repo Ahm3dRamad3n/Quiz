@@ -14,6 +14,9 @@
     <div class="dashboard-shell">
       <nav class="dashboard-nav">
         <div class="brand">
+          <div class="nav-links">
+            <a href="index.html" class="nav-link home-link">⬅</a>
+          </div>
           <span>🧠 Quiz Studio</span>
         </div>
 
@@ -23,12 +26,14 @@
             <span id="dashUserName" class="user-name">User</span>
           </div>
           <div class="nav-actions">
-            <button id="toggleMyQuizzesBtn" class="nav-link" type="button">
-              إظهار/إخفاء My Quizzes
+            <button
+              id="openSidebarBtn"
+              class="nav-link"
+              type="button"
+              aria-label="Open quizzes sidebar"
+            >
+              ☰
             </button>
-          </div>
-          <div class="nav-links">
-            <a href="index.html" class="nav-link home-link">⬅ Home</a>
           </div>
         </div>
       </nav>
@@ -116,10 +121,7 @@
           <div id="builderStatus" class="status">Ready.</div>
         </section>
 
-        <section id="myQuizzesPanel" class="panel">
-          <h2>My Quizzes</h2>
-          <div id="myQuizList" class="my-quiz-list"></div>
-        </section>
+        <!-- My Quizzes moved to slide-out sidebar drawer -->
       </main>
 
       <div class="builder-controls sticky-footer">
@@ -131,14 +133,30 @@
         <button class="btn-secondary" id="addQuestionBtn" type="button">
           Add Question
         </button>
-        <button class="btn-primary" id="saveQuizBtn" type="button">
-          Save Quiz
-        </button>
+        <button class="btn-primary" id="saveQuizBtn" type="button">Save</button>
         <button class="btn-back" id="resetBuilderBtn" type="button">
-          Reset Builder
+          Reset
         </button>
       </div>
     </div>
+
+    <!-- Sidebar Drawer + Overlay -->
+    <div
+      id="sidebarOverlay"
+      class="sidebar-overlay"
+      style="display: none"
+    ></div>
+    <aside id="sidebarDrawer" class="sidebar-drawer" aria-hidden="true">
+      <div class="sidebar-inner">
+        <div class="sidebar-top">
+          <!-- Share button will be created dynamically by JS (ensureMyQuizzesToolbar) -->
+          <div id="sidebarToolbarPlaceholder"></div>
+        </div>
+        <div class="sidebar-list-wrap">
+          <div id="myQuizList" class="my-quiz-list"></div>
+        </div>
+      </div>
+    </aside>
 
     <!-- ===== AI Prompt Modal ===== -->
     <div class="ai-modal-overlay" id="aiModalOverlay" style="display: none">
