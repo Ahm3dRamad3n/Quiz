@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎓 Interactive Quiz Platform
+# 🎓 Interactive Quiz Platform (Pro Quiz Master)
 
 **A full-stack, serverless dynamic quiz engine designed for high performance, robust security, and a seamless user experience. Create, manage, share, and export quizzes effortlessly.**
 
@@ -20,7 +20,7 @@
 
 ## 📌 Overview
 
-**Interactive Quiz Platform** has evolved from a static webpage into a highly scalable, data-driven **Full-Stack Quiz Platform**. Built with Vanilla JavaScript and powered by **Firebase**, it empowers educators and creators to build, manage, and share complex interactive quizzes instantly. With a dedicated creator dashboard, real-time cloud syncing, and enterprise-grade security, users can deploy quizzes without touching a single line of code.
+**Pro Quiz Master** has evolved from a static webpage into a highly scalable, data-driven **Full-Stack Quiz Platform**. Built with Vanilla JavaScript and powered by **Firebase**, it empowers educators and creators to build, manage, and share complex interactive quizzes instantly. With a dedicated creator dashboard, real-time cloud syncing, and enterprise-grade security, users can deploy quizzes without touching a single line of code.
 
 ---
 
@@ -67,37 +67,9 @@ Gone are the days of manually editing JSON files! The platform is now fully GUI-
 
 ---
 
-## 💻 Local Development Setup
-
-Want to run the project locally or contribute to the code? Follow these steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Ahm3dRamad3n/Quiz.git](https://github.com/Ahm3dRamad3n/Quiz.git)
-
-   ```
-
-2. **Open the project folder:**
-   ```bash
-   cd Quiz
-
-   ```
-
-3. **Run a Local Server:**
-Since the project uses ES6 Modules and fetches external resources, it must be run via a local server (opening the HTML file directly in the browser using `file://` will cause CORS errors).
-* If you use **VS Code**, install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension and click "Go Live".
-* Alternatively, use Python: `python -m http.server 8000`
-
-
-4. **Firebase Configuration (For Contributors):**
-The live demo connects to the production Firebase project. If you wish to modify the code or test database writes without affecting the production data, please create your own free Firebase project, enable Firestore and Google Authentication, and replace the `firebaseConfig` object in the JS files with your own credentials.
-
----
-
 ## 🛠️ Technical Stack
 
 Built with a philosophy of **Logic over Heavy Frameworks**:
-
 * **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+).
 * **Backend & Database:** Firebase Authentication, Cloud Firestore.
 * **Analytics:** Firebase Site Analytics & Google Analytics integrated.
