@@ -26,10 +26,6 @@ function closeSidebar() {
   if (drawer) drawer.classList.remove("open");
   if (overlay) overlay.style.display = "none";
   document.body.style.overflow = "";
-  // also close any open kebab menus
-  document
-    .querySelectorAll(".kebab-menu.show")
-    .forEach((m) => m.classList.remove("show"));
 }
 
 const themes = [
@@ -157,6 +153,7 @@ const db = firebase.firestore();
 
 let currentUser = null;
 let myQuizzes = [];
+let CurrentQuiz = null;
 let editingQuizId = null;
 let builderQuestions = [];
 let dragSourceIndex = null;
@@ -698,53 +695,55 @@ function renderMyQuizzes() {
     return;
   }
 
+  const menu = document.createElement("div");
+  menu.className = "kebab-menu";
+
+  const shareBtn = document.createElement("button");
+  shareBtn.type = "button";
+  shareBtn.dataset.action = "share-quiz";
+  shareBtn.innerHTML = "🔗";
+
+  const editBtn = document.createElement("button");
+  editBtn.type = "button";
+  editBtn.dataset.action = "edit";
+  editBtn.innerHTML = "✏️";
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.type = "button";
+  deleteBtn.dataset.action = "delete";
+  deleteBtn.innerHTML = "🗑️";
+
+  menu.appendChild(shareBtn);
+  menu.appendChild(editBtn);
+  menu.appendChild(deleteBtn);
+
+  elements.myQuizList.appendChild(menu);
+
   myQuizzes.forEach((quiz) => {
     const item = document.createElement("div");
     item.className = "sidebar-quiz-item";
     item.dataset.id = quiz.id;
+    CurrentQuiz = CurrentQuiz || quiz.id; // default to first quiz if none selected
+    if (CurrentQuiz === quiz.id) {
+      item.classList.add("selected");
+    }
 
     const title = document.createElement("span");
     title.className = "quiz-title";
     title.textContent = quiz.name || "Untitled Quiz";
 
-    const menu = document.createElement("div");
-    menu.className = "kebab-menu";
-
-    const shareBtn = document.createElement("button");
-    shareBtn.type = "button";
-    shareBtn.dataset.action = "share-quiz";
-    shareBtn.dataset.id = quiz.id;
-    shareBtn.innerHTML = "🔗 Share";
-
-    const editBtn = document.createElement("button");
-    editBtn.type = "button";
-    editBtn.dataset.action = "edit";
-    editBtn.dataset.id = quiz.id;
-    editBtn.innerHTML = "✏️ Edit";
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.type = "button";
-    deleteBtn.dataset.action = "delete";
-    deleteBtn.dataset.id = quiz.id;
-    deleteBtn.innerHTML = "🗑️ Delete";
-
-    menu.appendChild(shareBtn);
-    menu.appendChild(editBtn);
-    menu.appendChild(deleteBtn);
-
     item.addEventListener("click", (e) => {
       e.stopPropagation();
-      // close others
-      document.querySelectorAll(".kebab-menu.show").forEach((m) => {
-        if (m !== menu) m.classList.remove("show");
-      });
-      menu.classList.toggle("show");
+      CurrentQuiz = quiz.id;
+      // remove all selected classes
+      document
+        .querySelectorAll(".sidebar-quiz-item.selected")
+        .forEach((el) => el.classList.remove("selected"));
+      item.classList.add("selected");
     });
 
     // append title and menu (menu hidden by default)
     item.appendChild(title);
-    item.appendChild(menu);
-
     elements.myQuizList.appendChild(item);
   });
 }
@@ -1947,14 +1946,13 @@ function registerEventHandlers() {
     if (!button) return;
 
     const action = button.dataset.action;
-    const quizId = button.dataset.id;
 
     if (action === "edit") {
-      editQuiz(quizId);
+      editQuiz(CurrentQuiz);
     } else if (action === "delete") {
-      deleteQuiz(quizId);
+      deleteQuiz(CurrentQuiz);
     } else if (action === "share-quiz") {
-      const shareUrl = `${buildShareBaseUrl()}?quizId=${quizId}`;
+      const shareUrl = `${buildShareBaseUrl()}?quizId=${CurrentQuiz}`;
       copyToClipboard(shareUrl).catch((error) => {
         console.error("Copy quiz share link failed:", error);
         showShareToast("Copy failed");
