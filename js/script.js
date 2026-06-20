@@ -1,4 +1,3 @@
-// ===== الثيمات المتاحة =====
 const themes = [
   { name: "🔵 أزرق بنفسجي", primary: "#667eea", secondary: "#764ba2" },
   { name: "🔴 أحمر برتقالي", primary: "#f44336", secondary: "#ff9800" },
@@ -17,7 +16,6 @@ const themes = [
   { name: "🌃 Dark - أزرق داكن", primary: "#1e3a5f", secondary: "#2c5aa0" },
 ];
 
-// ===== المتغيرات الرئيسية =====
 let quizzes = [];
 let currentQuiz = null;
 let currentQuestionIndex = 0;
@@ -38,7 +36,6 @@ let appInitialized = false;
 let feedMessage = null;
 let landingMode = false;
 
-// ===== Firebase إعداد =====
 const firebaseConfig = {
   apiKey: "AIzaSyD1T2YkT0bJ3-6xrqzGRafObRuln6ajYpg",
   authDomain: "interactive-quiz-platfor-1a676.firebaseapp.com",
@@ -53,6 +50,7 @@ if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
+const analytics = typeof firebase !== "undefined" ? firebase.analytics() : null;
 const auth = typeof firebase !== "undefined" ? firebase.auth() : null;
 const db = typeof firebase !== "undefined" ? firebase.firestore() : null;
 
@@ -243,7 +241,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ===== تحميل البيانات =====
 async function loadQuizzes() {
   if (!db) {
     quizzes = [];
@@ -402,7 +399,6 @@ function initializeApp() {
   displayQuizzes();
 }
 
-// ===== نظام الثيمات =====
 function displayThemeOptions() {
   const container = document.getElementById("themeList");
   container.innerHTML = "";
@@ -443,7 +439,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Settings modal handlers
 function openSettingsModal() {
   const overlay = document.getElementById("settingsModalOverlay");
   if (!overlay) return;
@@ -485,7 +480,6 @@ function loadTheme() {
   applyTheme(parseInt(savedTheme));
 }
 
-// ===== عرض الكويزات =====
 function displayQuizzes() {
   const grid = document.getElementById("quizzesGrid");
   const emptyState = document.getElementById("emptyState");
@@ -776,7 +770,6 @@ function buildQuizPrintHtml(quiz, mode, lang) {
   return content + style;
 }
 
-// ===== بدء الكويز =====
 function startQuiz(index) {
   currentQuiz = quizzes[index];
   currentQuestionIndex = 0;
@@ -854,9 +847,39 @@ function startQuiz(index) {
   }
 
   displayQuestion();
+  updateQuizExpiryAt();
 }
 
-// ===== نظام المؤقت =====
+function updateQuizExpiryAt() {
+  if (!currentQuiz) return;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const oldExpiryDate = currentQuiz.expireAt.toDate();
+  oldExpiryDate.setHours(0, 0, 0, 0);
+
+  const newExpiryDate = new Date(today);
+  newExpiryDate.setDate(newExpiryDate.getDate() + Number(currentQuiz.ttlDays));
+
+  const diffInDays =
+    (newExpiryDate.getTime() - oldExpiryDate.getTime()) / (1000 * 3600 * 24);
+
+  if (diffInDays >= 1) {
+    db.collection("quizzes")
+      .doc(currentQuiz.id)
+      .update({
+        expireAt: firebase.firestore.Timestamp.fromDate(newExpiryDate),
+      })
+      .then(() => {
+        console.log(
+          `تم التجديد بنجاح! الصلاحية امتدت لغاية: ${newExpiryDate.toLocaleDateString()}`,
+        );
+      })
+      .catch((e) => console.log("تجاهل هذا الخطأ:", e));
+  }
+}
+
 function startTimer() {
   if (timerInterval) clearInterval(timerInterval);
 
@@ -953,7 +976,6 @@ function updateProgressSegment(index, status) {
   }
 }
 
-// ===== عرض السؤال =====
 function displayQuestion() {
   const question = currentQuiz.questions[currentQuestionIndex];
 
@@ -1156,7 +1178,6 @@ function updateOptionSelection(groupName) {
   });
 }
 
-// ===== الترجمة =====
 function toggleTranslate() {
   isTranslated = !isTranslated;
 
@@ -1175,7 +1196,6 @@ function toggleTranslate() {
   }
 }
 
-// ===== عرض الملاحظات =====
 function showFeedback() {
   if (answers[currentQuestionIndex] === undefined) return;
   const question = currentQuiz.questions[currentQuestionIndex];
@@ -1318,7 +1338,6 @@ function submitAnswer() {
   showFeedback();
 }
 
-// ===== التنقل بين الأسئلة =====
 function nextQuestion() {
   const question = currentQuiz.questions[currentQuestionIndex];
 
@@ -1349,7 +1368,6 @@ function updateButtonStates() {
   document.getElementById("nextBtn").disabled = false;
 }
 
-// ===== عرض النتائج =====
 function showResults() {
   clearInterval(timerInterval);
 
@@ -2022,13 +2040,11 @@ async function downloadErrorsPDF() {
   }
 }
 
-// ===== إعادة المحاولة =====
 function retakeQuiz() {
   const index = quizzes.indexOf(currentQuiz);
   startQuiz(index);
 }
 
-// ===== العودة للرئيسية =====
 function goHome() {
   clearInterval(timerInterval);
   document.getElementById("homePage").style.display = "flex";
@@ -2039,7 +2055,6 @@ function goHome() {
   if (topNavbar) topNavbar.style.display = "flex";
 }
 
-// تحميل البيانات عند بدء التطبيق
 window.onload = function () {
   landingMode = !hasRouteParams();
   initializeApp();

@@ -1,33 +1,3 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyD1T2YkT0bJ3-6xrqzGRafObRuln6ajYpg",
-  authDomain: "interactive-quiz-platfor-1a676.firebaseapp.com",
-  projectId: "interactive-quiz-platfor-1a676",
-  storageBucket: "interactive-quiz-platfor-1a676.firebasestorage.app",
-  messagingSenderId: "192993714442",
-  appId: "1:192993714442:web:528534562bceff2e391af3",
-  measurementId: "G-2KRYYZY7NR",
-};
-
-if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
-
-function openSidebar() {
-  const drawer = document.getElementById("sidebarDrawer");
-  const overlay = document.getElementById("sidebarOverlay");
-  if (drawer) drawer.classList.add("open");
-  if (overlay) overlay.style.display = "block";
-  document.body.style.overflow = "hidden";
-}
-
-function closeSidebar() {
-  const drawer = document.getElementById("sidebarDrawer");
-  const overlay = document.getElementById("sidebarOverlay");
-  if (drawer) drawer.classList.remove("open");
-  if (overlay) overlay.style.display = "none";
-  document.body.style.overflow = "";
-}
-
 const themes = [
   { name: "🔵 أزرق بنفسجي", primary: "#667eea", secondary: "#764ba2" },
   { name: "🔴 أحمر برتقالي", primary: "#f44336", secondary: "#ff9800" },
@@ -46,114 +16,27 @@ const themes = [
   { name: "🌃 Dark - أزرق داكن", primary: "#1e3a5f", secondary: "#2c5aa0" },
 ];
 
-function displayThemeOptions() {
-  const container = document.getElementById("themeList");
-  if (!container) return;
+const firebaseConfig = {
+  apiKey: "AIzaSyD1T2YkT0bJ3-6xrqzGRafObRuln6ajYpg",
+  authDomain: "interactive-quiz-platfor-1a676.firebaseapp.com",
+  projectId: "interactive-quiz-platfor-1a676",
+  storageBucket: "interactive-quiz-platfor-1a676.firebasestorage.app",
+  messagingSenderId: "192993714442",
+  appId: "1:192993714442:web:528534562bceff2e391af3",
+  measurementId: "G-2KRYYZY7NR",
+};
 
-  container.replaceChildren();
-
-  const savedTheme = localStorage.getItem("selectedTheme") || "0";
-
-  themes.forEach((theme, index) => {
-    const div = document.createElement("div");
-    div.className = "theme-item";
-    div.textContent = theme.name;
-    div.addEventListener("click", () => {
-      applyTheme(index);
-      closeThemeMenu();
-    });
-
-    if (parseInt(savedTheme, 10) === index) {
-      div.classList.add("active");
-    }
-
-    container.appendChild(div);
-  });
+if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
 }
 
-function applyTheme(index) {
-  const theme = themes[index];
-  document.documentElement.style.setProperty("--primary", theme.primary);
-  document.documentElement.style.setProperty("--secondary", theme.secondary);
-  localStorage.setItem("selectedTheme", String(index));
-  displayThemeOptions();
-}
-
-function loadTheme() {
-  const savedTheme = localStorage.getItem("selectedTheme") || "0";
-  applyTheme(parseInt(savedTheme, 10));
-}
-
-function toggleThemeMenu() {
-  const menu = document.getElementById("themeMenu");
-  if (menu) {
-    menu.classList.toggle("show");
-  }
-}
-
-function closeThemeMenu() {
-  const menu = document.getElementById("themeMenu");
-  if (menu) {
-    menu.classList.remove("show");
-  }
-}
-
-document.addEventListener("click", (event) => {
-  const menu = document.getElementById("themeMenu");
-  const button = document.querySelector(".theme-toggle-btn");
-  if (
-    menu &&
-    button &&
-    !menu.contains(event.target) &&
-    !button.contains(event.target)
-  ) {
-    closeThemeMenu();
-  }
-  // Close any open kebab/dropdown menus when clicking elsewhere
-  document.querySelectorAll(".kebab-menu.show").forEach((m) => {
-    // if the click is outside the menu and not inside any quiz item, close it
-    if (
-      !m.contains(event.target) &&
-      !event.target.closest(".sidebar-quiz-item")
-    ) {
-      m.classList.remove("show");
-    }
-  });
-});
-
-// Settings modal handlers (dashboard)
-function openSettingsModal() {
-  const overlay = document.getElementById("settingsModalOverlay");
-  if (!overlay) return;
-  displayThemeOptions();
-  overlay.style.display = "flex";
-}
-
-function closeSettingsModal() {
-  const overlay = document.getElementById("settingsModalOverlay");
-  if (!overlay) return;
-  overlay.style.display = "none";
-}
-
-function saveSettings() {
-  try {
-    const checked = document.querySelector('input[name="globalTimer"]:checked');
-    timerMode = checked ? checked.value : "none";
-    const minutesEl = document.getElementById("globalTimerValue");
-    const minutes = minutesEl ? parseInt(minutesEl.value, 10) || 10 : 10;
-    timerDuration = minutes * 60;
-  } catch (e) {
-    console.warn("saveSettings failed:", e);
-  }
-  closeSettingsModal();
-}
-
-const auth = firebase.auth();
-const db = firebase.firestore();
+const analytics = typeof firebase !== "undefined" ? firebase.analytics() : null;
+const auth = typeof firebase !== "undefined" ? firebase.auth() : null;
+const db = typeof firebase !== "undefined" ? firebase.firestore() : null;
 
 let currentUser = null;
 let myQuizzes = [];
-let CurrentQuiz = null;
+let SelectedQuiz = null;
 let editingQuizId = null;
 let builderQuestions = [];
 let dragSourceIndex = null;
@@ -185,6 +68,34 @@ const MAX_LENGTHS = {
   question: 1000,
   option: 500,
 };
+
+function openSidebar() {
+  const drawer = document.getElementById("sidebarDrawer");
+  const overlay = document.getElementById("sidebarOverlay");
+  if (drawer) drawer.classList.add("open");
+  if (overlay) overlay.style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeSidebar() {
+  const drawer = document.getElementById("sidebarDrawer");
+  const overlay = document.getElementById("sidebarOverlay");
+  if (drawer) drawer.classList.remove("open");
+  if (overlay) overlay.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+function applyTheme(index) {
+  const theme = themes[index];
+  document.documentElement.style.setProperty("--primary", theme.primary);
+  document.documentElement.style.setProperty("--secondary", theme.secondary);
+  localStorage.setItem("selectedTheme", String(index));
+}
+
+function loadTheme() {
+  const savedTheme = localStorage.getItem("selectedTheme") || "0";
+  applyTheme(parseInt(savedTheme, 10));
+}
 
 function updateSaveAddState() {
   const anyCharErrors = document.querySelectorAll(".char-error").length > 0;
@@ -372,7 +283,7 @@ function syncQuestionOptionArrays(question) {
 
 function syncJsonTextarea() {
   if (!elements.jsonRawInput) return;
-  elements.jsonRawInput.value = JSON.stringify(builderQuestions, null, 2);
+  elements.jsonRawInput.value = JSON.stringify(builderQuestions, null, 2); // pretty print with 2 spaces
 }
 
 function clearInlineError(element) {
@@ -432,7 +343,7 @@ function getQuestionField(index, field, lang, optionIndex) {
 function buildShareBaseUrl() {
   return `${window.location.origin}${window.location.pathname.replace(
     "dashboard.html",
-    "index.html",
+    "",
   )}`;
 }
 
@@ -723,8 +634,8 @@ function renderMyQuizzes() {
     const item = document.createElement("div");
     item.className = "sidebar-quiz-item";
     item.dataset.id = quiz.id;
-    CurrentQuiz = CurrentQuiz || quiz.id; // default to first quiz if none selected
-    if (CurrentQuiz === quiz.id) {
+    SelectedQuiz = SelectedQuiz || quiz.id; // default to first quiz if none selected
+    if (SelectedQuiz === quiz.id) {
       item.classList.add("selected");
     }
 
@@ -734,7 +645,7 @@ function renderMyQuizzes() {
 
     item.addEventListener("click", (e) => {
       e.stopPropagation();
-      CurrentQuiz = quiz.id;
+      SelectedQuiz = quiz.id;
       // remove all selected classes
       document
         .querySelectorAll(".sidebar-quiz-item.selected")
@@ -1145,18 +1056,23 @@ function onQuestionDragEnd(event) {
   dragSourceIndex = null;
 }
 
-function resetBuilder() {
-  const confirmReset = window.confirm(
-    "Reset the builder? Unsaved changes will be lost.",
-  );
-  if (!confirmReset) return;
+function resetBuilder(FromSave) {
+  if (!FromSave) {
+    const confirmReset = window.confirm(
+      "Reset the builder? Unsaved changes will be lost.",
+    );
+    if (!confirmReset) return;
+  }
+
+  document.getElementById("createPanelHeading").textContent = `Create New Quiz`;
+
   editingQuizId = null;
   builderQuestions = [];
   elements.quizName.value = "";
   elements.quizDescription.value = "";
-  elements.quizPrimaryLanguage.value = "ar";
-  elements.enableTranslation.checked = true;
-  elements.isPublic.checked = false;
+  elements.quizPrimaryLanguage.value = "en";
+  elements.enableTranslation.checked = false;
+  elements.isPublic.checked = true;
   elements.jsonRawInput.value = "";
   const defaultTtl = document.querySelector('input[name="ttlDays"][value="3"]');
   if (defaultTtl) defaultTtl.checked = true;
@@ -1505,7 +1421,7 @@ async function saveQuiz() {
     }
 
     await loadMyQuizzes();
-    resetBuilder();
+    resetBuilder(true);
   } catch (error) {
     handleFirestoreError(error, "Failed to save quiz. Please try again later.");
   }
@@ -1523,7 +1439,7 @@ async function deleteQuiz(quizId) {
     await loadMyQuizzes();
 
     if (editingQuizId === quizId) {
-      resetBuilder();
+      resetBuilder(true);
     }
   } catch (error) {
     handleFirestoreError(
@@ -1536,6 +1452,8 @@ async function deleteQuiz(quizId) {
 function editQuiz(quizId) {
   const quiz = myQuizzes.find((item) => item.id === quizId);
   if (!quiz) return;
+
+  document.getElementById("createPanelHeading").textContent = `Edit Quiz`;
 
   editingQuizId = quiz.id;
   elements.quizName.value = quiz.name || "";
@@ -1628,26 +1546,6 @@ function updateUserHeader(user) {
       user && (user.displayName || user.email)
         ? user.displayName || user.email
         : "User";
-  }
-}
-
-// Analysis: create a simple analysis document in Firestore for a quiz
-async function analyzeQuiz(quizId) {
-  if (!currentUser || !db) return;
-  const confirmAnalysis = window.confirm(
-    "Run analysis for this quiz? This will create an analysis record.",
-  );
-  if (!confirmAnalysis) return;
-  try {
-    await db.collection("analysis").add({
-      quizId,
-      userId: currentUser.uid,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      status: "queued",
-    });
-    setStatus("Analysis task queued.", "success");
-  } catch (error) {
-    handleFirestoreError(error, "Analysis failed to start.");
   }
 }
 
@@ -1771,7 +1669,9 @@ function registerEventHandlers() {
     setStatus(`Added ${type} question.`);
   });
 
-  elements.resetBuilderBtn?.addEventListener("click", resetBuilder);
+  elements.resetBuilderBtn?.addEventListener("click", () =>
+    resetBuilder(false),
+  );
   elements.saveQuizBtn?.addEventListener("click", saveQuiz);
 
   // Real-time validation for top-level fields
@@ -1948,11 +1848,11 @@ function registerEventHandlers() {
     const action = button.dataset.action;
 
     if (action === "edit") {
-      editQuiz(CurrentQuiz);
+      editQuiz(SelectedQuiz);
     } else if (action === "delete") {
-      deleteQuiz(CurrentQuiz);
+      deleteQuiz(SelectedQuiz);
     } else if (action === "share-quiz") {
-      const shareUrl = `${buildShareBaseUrl()}?quizId=${CurrentQuiz}`;
+      const shareUrl = `${buildShareBaseUrl()}?quizId=${SelectedQuiz}`;
       copyToClipboard(shareUrl).catch((error) => {
         console.error("Copy quiz share link failed:", error);
         showShareToast("Copy failed");
@@ -2051,10 +1951,6 @@ document.addEventListener("keydown", (e) => {
 function initDashboard() {
   registerEventHandlers();
   loadTheme();
-  displayThemeOptions();
-
-  const settingsBtn = document.getElementById("settingsBtn");
-  if (settingsBtn) settingsBtn.addEventListener("click", openSettingsModal);
 
   // Validate top-level fields initially
   if (elements.quizName) validateInputElement(elements.quizName);
