@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎓 Interactive Quiz Platform (Pro Quiz Master)
+# 🎓 Interactive Quiz Platform
 
 **A full-stack, serverless dynamic quiz engine designed for high performance, robust security, and a seamless user experience. Create, manage, share, and export quizzes effortlessly.**
 
@@ -20,7 +20,7 @@
 
 ## 📌 Overview
 
-**Pro Quiz Master** has evolved from a static webpage into a highly scalable, data-driven **Full-Stack Quiz Platform**. Built with Vanilla JavaScript and powered by **Firebase**, it empowers educators and creators to build, manage, and share complex interactive quizzes instantly. With a dedicated creator dashboard, real-time cloud syncing, and enterprise-grade security, users can deploy quizzes without touching a single line of code.
+**Interactive Quiz Platform** has evolved from a static webpage into a highly scalable, data-driven **Full-Stack Quiz Platform**. Built with Vanilla JavaScript and powered by **Firebase**, it empowers educators and creators to build, manage, and share complex interactive quizzes instantly. With a dedicated creator dashboard, real-time cloud syncing, and enterprise-grade security, users can deploy quizzes without touching a single line of code.
 
 ---
 
