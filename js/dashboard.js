@@ -63,10 +63,10 @@ const elements = {
 
 // Validation config
 const MAX_LENGTHS = {
-  quizName: 200,
-  quizDescription: 500,
+  quizName: 100,
+  quizDescription: 250,
   question: 1000,
-  option: 500,
+  option: 300,
 };
 
 function openSidebar() {
@@ -1141,10 +1141,10 @@ async function saveQuiz() {
     return;
   }
   // Enforce reasonable length limits
-  if (name.length > 200) {
+  if (name.length > 100) {
     showInlineError(
       elements.quizName,
-      "Quiz name must be 200 characters or fewer.",
+      "Quiz name must be 100 characters or fewer.",
     );
     return;
   }
@@ -1158,9 +1158,9 @@ async function saveQuiz() {
   }
 
   // Enforce maximum number of questions
-  if (builderQuestions.length > 200) {
+  if (builderQuestions.length > 100) {
     setStatus(
-      `Quiz has too many questions: ${builderQuestions.length} / 200`,
+      `Quiz has too many questions: ${builderQuestions.length} / 100 allowed.`,
       "error",
     );
     return;
@@ -1342,9 +1342,9 @@ async function saveQuiz() {
       : [];
     for (let oi = 0; oi < opts.length; oi += 1) {
       const oText = String(opts[oi] || "").trim();
-      if (oText.length > 500) {
+      if (oText.length > 300) {
         setStatus(
-          `Question ${questionIndex + 1} option ${oi + 1} is too long: ${oText.length} / 500 characters`,
+          `Question ${questionIndex + 1} option ${oi + 1} is too long: ${oText.length} / 300 characters`,
           "error",
         );
         return;
@@ -1352,9 +1352,9 @@ async function saveQuiz() {
     }
     for (let oi = 0; oi < optsAr.length; oi += 1) {
       const oText = String(optsAr[oi] || "").trim();
-      if (oText.length > 500) {
+      if (oText.length > 300) {
         setStatus(
-          `Question ${questionIndex + 1} Arabic option ${oi + 1} is too long: ${oText.length} / 500 characters`,
+          `Question ${questionIndex + 1} Arabic option ${oi + 1} is too long: ${oText.length} / 300 characters`,
           "error",
         );
         return;
@@ -1364,9 +1364,9 @@ async function saveQuiz() {
 
   // Validate description length
   const description = (elements.quizDescription.value || "").trim();
-  if (description.length > 500) {
+  if (description.length > 250) {
     setStatus(
-      `Description is too long: ${description.length} / 500 characters`,
+      `Description is too long: ${description.length} / 250 characters`,
       "error",
     );
     return;
@@ -1413,10 +1413,34 @@ async function saveQuiz() {
       await db.collection("quizzes").doc(editingQuizId).update(payload);
       setStatus("Quiz updated successfully.", "success");
     } else {
-      await db.collection("quizzes").add({
-        ...payload,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+      let qId = null;
+      for (let i = 1; i <= 10; i += 1) {
+        // if quizId already exists, append a number to make it unique
+        const potentialId = auth.currentUser.uid + "_q" + i;
+        const snapshot = await db
+          .collection("quizzes")
+          .where("userId", "==", auth.currentUser.uid)
+          .get();
+        const existingIds = snapshot.docs.map((doc) => doc.id);
+        if (!existingIds.includes(potentialId)) {
+          qId = potentialId;
+          break;
+        }
+      }
+      if (!qId) {
+        setStatus(
+          "You have reached the maximum number of quizzes (10). Please delete an existing quiz before creating a new one.",
+          "error",
+        );
+        return;
+      }
+      await db
+        .collection("quizzes")
+        .doc(qId)
+        .set({
+          ...payload,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
       setStatus("Quiz created successfully.", "success");
     }
 
