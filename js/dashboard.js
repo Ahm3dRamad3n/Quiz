@@ -30,6 +30,18 @@ if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
+if (window.location.hostname === "127.0.0.1") {
+  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+}
+
+const appCheck = firebase.appCheck();
+appCheck.activate(
+  new firebase.appCheck.ReCaptchaEnterpriseProvider(
+    "6LdCfCstAAAAAK9zKRoSN-lepPmF7uXc_0MVFyTC",
+  ),
+  true,
+);
+
 const analytics = typeof firebase !== "undefined" ? firebase.analytics() : null;
 const auth = typeof firebase !== "undefined" ? firebase.auth() : null;
 const db = typeof firebase !== "undefined" ? firebase.firestore() : null;
@@ -1080,6 +1092,8 @@ function resetBuilder(FromSave) {
   renderQuestionBuilder();
   setStatus("Builder reset.");
   syncJsonTextarea();
+
+  saveQuizBtn.disabled = false;
 }
 
 function sanitizeQuestionsForSave() {
@@ -1129,6 +1143,9 @@ function sanitizeQuestionsForSave() {
 }
 
 async function saveQuiz() {
+  saveQuizBtn.disabled = true;
+  saveQuizBtn.innerHTML = '<span class="spinner-saveBtn"></span> جاري الحفظ...';
+
   clearAllInlineErrors();
 
   if (!currentUser) {
@@ -1972,7 +1989,22 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+function ShowLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "flex";
+  }
+}
+
+function CloseLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "none";
+  }
+}
+
 function initDashboard() {
+  ShowLoadingScreen();
   registerEventHandlers();
   loadTheme();
 
@@ -1991,6 +2023,8 @@ function initDashboard() {
     await loadMyQuizzes();
     setStatus("Authenticated. You can manage your quizzes now.", "success");
   });
+
+  CloseLoadingScreen();
 }
 
 initDashboard();

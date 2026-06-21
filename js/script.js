@@ -50,6 +50,18 @@ if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
+if (window.location.hostname === "127.0.0.1") {
+  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+}
+
+const appCheck = firebase.appCheck();
+appCheck.activate(
+  new firebase.appCheck.ReCaptchaEnterpriseProvider(
+    "6LdCfCstAAAAAK9zKRoSN-lepPmF7uXc_0MVFyTC",
+  ),
+  true,
+);
+
 const analytics = typeof firebase !== "undefined" ? firebase.analytics() : null;
 const auth = typeof firebase !== "undefined" ? firebase.auth() : null;
 const db = typeof firebase !== "undefined" ? firebase.firestore() : null;
@@ -2055,7 +2067,22 @@ function goHome() {
   if (topNavbar) topNavbar.style.display = "flex";
 }
 
+function ShowLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "flex";
+  }
+}
+
+function CloseLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "none";
+  }
+}
+
 window.onload = function () {
+  ShowLoadingScreen();
   landingMode = !hasRouteParams();
   initializeApp();
 
@@ -2074,4 +2101,5 @@ window.onload = function () {
   // Bind settings button if present
   const settingsBtn = document.getElementById("settingsBtn");
   if (settingsBtn) settingsBtn.addEventListener("click", openSettingsModal);
+  CloseLoadingScreen();
 };
