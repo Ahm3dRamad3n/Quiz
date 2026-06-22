@@ -1089,11 +1089,10 @@ function resetBuilder(FromSave) {
   const defaultTtl = document.querySelector('input[name="ttlDays"][value="3"]');
   if (defaultTtl) defaultTtl.checked = true;
   elements.saveQuizBtn.textContent = "Save";
+  elements.saveQuizBtn.disabled = false;
   renderQuestionBuilder();
-  setStatus("Builder reset.");
+  if (!FromSave) setStatus("Builder reset.");
   syncJsonTextarea();
-
-  saveQuizBtn.disabled = false;
 }
 
 function sanitizeQuestionsForSave() {
@@ -1142,6 +1141,12 @@ function sanitizeQuestionsForSave() {
   });
 }
 
+function enableSaveBtn() {
+  saveQuizBtn.disabled = false;
+  if (editingQuizId) saveQuizBtn.textContent = "Update";
+  else saveQuizBtn.textContent = "Save";
+}
+
 async function saveQuiz() {
   saveQuizBtn.disabled = true;
   saveQuizBtn.innerHTML = '<span class="spinner-saveBtn"></span> جاري الحفظ...';
@@ -1149,12 +1154,14 @@ async function saveQuiz() {
   clearAllInlineErrors();
 
   if (!currentUser) {
+    enableSaveBtn();
     return;
   }
 
   const name = elements.quizName.value.trim();
   if (!name) {
     showInlineError(elements.quizName, "Quiz name is required.");
+    enableSaveBtn();
     return;
   }
   // Enforce reasonable length limits
@@ -1163,6 +1170,18 @@ async function saveQuiz() {
       elements.quizName,
       "Quiz name must be 100 characters or fewer.",
     );
+    enableSaveBtn();
+    return;
+  }
+
+  // Validate description length
+  const description = (elements.quizDescription.value || "").trim();
+  if (description.length > 250) {
+    setStatus(
+      `Description is too long: ${description.length} / 250 characters`,
+      "error",
+    );
+    enableSaveBtn();
     return;
   }
 
@@ -1171,15 +1190,17 @@ async function saveQuiz() {
       elements.questionBuilderList,
       "Add at least one question before saving.",
     );
+    enableSaveBtn();
     return;
   }
 
   // Enforce maximum number of questions
-  if (builderQuestions.length > 100) {
+  if (builderQuestions.length > 200) {
     setStatus(
-      `Quiz has too many questions: ${builderQuestions.length} / 100 allowed.`,
+      `Quiz has too many questions: ${builderQuestions.length} / 200 allowed.`,
       "error",
     );
+    enableSaveBtn();
     return;
   }
 
@@ -1213,20 +1234,27 @@ async function saveQuiz() {
     const questionText = String(question.question || "").trim();
     const questionArText = String(question.question_ar || "").trim();
 
-    if (!questionText) {
-      showInlineError(
-        primaryQuestionField || card,
-        "Question text is required.",
-      );
-      return;
-    }
-
-    if (translationEnabled && !questionArText) {
-      showInlineError(
-        arabicQuestionField || primaryQuestionField || card,
-        "Arabic translation is required.",
-      );
-      return;
+    if (translationEnabled) {
+      if (!questionArText || !questionText) {
+        showInlineError(
+          arabicQuestionField || primaryQuestionField || card,
+          "Question text is required in both languages",
+        );
+        enableSaveBtn();
+        return;
+      }
+    } else {
+      if (
+        (!questionText && primaryLanguage === "en") ||
+        (!questionArText && primaryLanguage === "ar")
+      ) {
+        showInlineError(
+          primaryQuestionField || card,
+          "Question text is required.",
+        );
+        enableSaveBtn();
+        return;
+      }
     }
 
     if (question.type !== "true_false") {
@@ -1235,6 +1263,7 @@ async function saveQuiz() {
           getQuestionField(questionIndex, "option", primaryLanguage, 0) || card,
           "At least 2 options are required.",
         );
+        enableSaveBtn();
         return;
       }
     }
@@ -1254,6 +1283,7 @@ async function saveQuiz() {
           ) || card,
           "Arabic option text is required for every option.",
         );
+        enableSaveBtn();
         return;
       }
     }
@@ -1268,6 +1298,7 @@ async function saveQuiz() {
             card,
           "Select at least one correct answer.",
         );
+        enableSaveBtn();
         return;
       }
 
@@ -1284,6 +1315,7 @@ async function saveQuiz() {
             card,
           "Select a valid correct answer.",
         );
+        enableSaveBtn();
         return;
       }
     } else {
@@ -1297,6 +1329,7 @@ async function saveQuiz() {
             card,
           "Select a valid correct answer.",
         );
+        enableSaveBtn();
         return;
       }
     }
@@ -1308,7 +1341,7 @@ async function saveQuiz() {
           : question.explanation || "",
       ).trim();
       const explanationSecondary = String(
-        secondaryLanguage === "ar"
+        primaryLanguage === "en"
           ? question.explanation_ar || ""
           : question.explanation || "",
       ).trim();
@@ -1323,6 +1356,7 @@ async function saveQuiz() {
             card,
           `Explanation (${getLanguageLabel(secondaryLanguage)}) is required when the other language has content.`,
         );
+        enableSaveBtn();
         return;
       }
       if (!hasPrimary && hasSecondary) {
@@ -1331,6 +1365,7 @@ async function saveQuiz() {
             card,
           `Explanation (${getLanguageLabel(primaryLanguage)}) is required when the other language has content.`,
         );
+        enableSaveBtn();
         return;
       }
     }
@@ -1343,6 +1378,7 @@ async function saveQuiz() {
         `Question ${questionIndex + 1} is too long: ${qText.length} / 1000 characters`,
         "error",
       );
+      enableSaveBtn();
       return;
     }
     if (qTextAr.length > 1000) {
@@ -1350,6 +1386,7 @@ async function saveQuiz() {
         `Question ${questionIndex + 1} (Arabic) is too long: ${qTextAr.length} / 1000 characters`,
         "error",
       );
+      enableSaveBtn();
       return;
     }
 
@@ -1364,6 +1401,7 @@ async function saveQuiz() {
           `Question ${questionIndex + 1} option ${oi + 1} is too long: ${oText.length} / 300 characters`,
           "error",
         );
+        enableSaveBtn();
         return;
       }
     }
@@ -1374,19 +1412,10 @@ async function saveQuiz() {
           `Question ${questionIndex + 1} Arabic option ${oi + 1} is too long: ${oText.length} / 300 characters`,
           "error",
         );
+        enableSaveBtn();
         return;
       }
     }
-  }
-
-  // Validate description length
-  const description = (elements.quizDescription.value || "").trim();
-  if (description.length > 250) {
-    setStatus(
-      `Description is too long: ${description.length} / 250 characters`,
-      "error",
-    );
-    return;
   }
 
   const payload = {
@@ -1415,9 +1444,11 @@ async function saveQuiz() {
         "Quiz is too large to save. Please reduce text length or remove some questions.",
         "error",
       );
+      enableSaveBtn();
       return;
     }
   } catch (e) {
+    enableSaveBtn();
     console.warn("Failed to compute payload size", e);
   }
 
@@ -1426,7 +1457,10 @@ async function saveQuiz() {
       const confirmUpdate = window.confirm(
         "Update this quiz with the changes?",
       );
-      if (!confirmUpdate) return;
+      if (!confirmUpdate) {
+        enableSaveBtn();
+        return;
+      }
       await db.collection("quizzes").doc(editingQuizId).update(payload);
       setStatus("Quiz updated successfully.", "success");
     } else {
@@ -1449,6 +1483,7 @@ async function saveQuiz() {
           "You have reached the maximum number of quizzes (10). Please delete an existing quiz before creating a new one.",
           "error",
         );
+        enableSaveBtn();
         return;
       }
       await db
@@ -1463,7 +1498,9 @@ async function saveQuiz() {
 
     await loadMyQuizzes();
     resetBuilder(true);
+    enableSaveBtn();
   } catch (error) {
+    enableSaveBtn();
     handleFirestoreError(error, "Failed to save quiz. Please try again later.");
   }
 }
@@ -1890,6 +1927,7 @@ function registerEventHandlers() {
 
     if (action === "edit") {
       editQuiz(SelectedQuiz);
+      closeSidebar();
     } else if (action === "delete") {
       deleteQuiz(SelectedQuiz);
     } else if (action === "share-quiz") {
@@ -1987,6 +2025,72 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeAiModal();
   }
+});
+
+const btn = document.getElementById("smartScrollBtn");
+let lastScrollY = window.scrollY;
+let lastTimestamp = performance.now();
+let hideTimeout;
+let currentPos = "pos-down";
+
+// مقياس السرعة
+const speedThreshold = 0.5;
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+  const currentTimestamp = performance.now();
+
+  const distance = currentScrollY - lastScrollY;
+  const timeDiff = currentTimestamp - lastTimestamp;
+
+  if (timeDiff === 0) return;
+
+  // حساب السرعة
+  const speed = Math.abs(distance / timeDiff);
+
+  // لو السرعة عدت الحد، نظهر الزرار ونحدد اتجاهه
+  if (speed > speedThreshold) {
+    if (distance > 0) {
+      currentPos = "pos-down";
+      btn.className = "smart-scroll-btn pos-down visible";
+      btn.innerHTML = "↓";
+      btn.onclick = () =>
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+    } else if (distance < 0) {
+      currentPos = "pos-up";
+      btn.className = "smart-scroll-btn pos-up visible";
+      btn.innerHTML = "↑";
+      btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+  // لاحظ: مسحنا الـ else اللي كانت بتخفيه فوراً وقت السكرول البطيء!
+
+  lastScrollY = currentScrollY;
+  lastTimestamp = currentTimestamp;
+
+  // إعادة ضبط التايمر (هنجعله يختفي بعد 2.5 ثانية من وقوف السكرول)
+  startHideTimer();
+});
+
+// دالة تشغيل التايمر
+function startHideTimer() {
+  clearTimeout(hideTimeout);
+  hideTimeout = setTimeout(() => {
+    btn.className = `smart-scroll-btn ${currentPos}`;
+  }, 2500); // 2500 = ثانيتين ونص
+}
+
+// 🔥 ميزة الحماية: لو الماوس جه على الزرار، نوقف التايمر عشان ميختفيش وهو بيضغط
+btn.addEventListener("mouseenter", () => {
+  clearTimeout(hideTimeout);
+});
+
+// لو شال الماوس من عليه ومضغطش، نشغل التايمر تاني
+btn.addEventListener("mouseleave", () => {
+  startHideTimer();
 });
 
 function ShowLoadingScreen() {

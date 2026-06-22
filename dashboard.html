@@ -177,9 +177,18 @@
             assistant to generate a complete quiz JSON:
           </p>
           <div class="ai-prompt-code-wrap">
-            <pre><code id="aiPromptCode">Act as an expert educator and quiz creator. Create a quiz about [INSERT YOUR TOPIC HERE].
+            <pre><code id="aiPromptCode">Act as an expert educator and quiz creator. Your task is to generate a quiz based on the user's input.
 
-Return strictly a JSON array of question objects. Each object must match this exact structure:
+First, check if the user has specified a preferred language for the quiz (Arabic, English, or Bilingual). 
+- If the user DID NOT specify a language (left it blank), you MUST pause and ask the user first: "هل تريد الكويز باللغة العربية، الإنجليزية، أم باللغتين معاً؟ / Would you like the quiz in Arabic, English, or Bilingual?"
+- Do not generate any JSON until the user answers this question.
+
+Once the language is determined, return strictly a JSON array of question objects based on these language rules:
+1. If "Bilingual" (اللغتين): Include all English and Arabic fields exactly as shown in the structure below.
+2. If "Arabic only" (عربي): Include ONLY the Arabic fields (e.g., question_ar, options_ar, explanation_ar) and remove the English counterparts.
+3. If "English only" (إنجليزي): Include ONLY the English fields (e.g., question, options, explanation) and remove the Arabic counterparts.
+
+The JSON structure must strictly follow this format (Example shows the Bilingual structure):
 
 [
   {
@@ -221,11 +230,8 @@ Rules:
 - type can be: "choice" (single answer), "true_false", or "multiple_choice" (multiple correct answers).
 - For "choice" and "true_false", use "correct_answer" with a single number (0-based index).
 - For "multiple_choice", use "correct_answers" with an array of correct indices.
-- Provide both "question" (English) and "question_ar" (Arabic) fields.
-- Provide both "options" (English) and "options_ar" (Arabic) arrays.
-- explanation and explanation_ar are optional but recommended.
 - Keep "image" as an empty string unless you have a valid image URL.
-- Generate at least 5 questions for a complete quiz experience.</code></pre>
+- Output ONLY the valid JSON array. No markdown explanation outside the JSON once selected..</code></pre>
           </div>
         </div>
         <div class="ai-modal-footer">
@@ -238,6 +244,8 @@ Rules:
         </div>
       </div>
     </div>
+
+    <button id="smartScrollBtn" class="smart-scroll-btn pos-down">↓</button>
 
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>

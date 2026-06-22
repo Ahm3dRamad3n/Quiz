@@ -2376,3 +2376,53 @@ input[type="radio"]:focus-visible {
     width: 100%;
   }
 }
+
+.smart-scroll-btn {
+  position: fixed;
+  top: 0;
+  left: 40px;
+  width: 50px;
+  height: 50px;
+  min-width: 0;
+  border: none;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: var(--secondary);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 0.3s ease;
+}
+
+.smart-scroll-btn.pos-down {
+  transform: translate(-50%, calc(100vh - 80px)) scale(0.8);
+}
+
+.smart-scroll-btn.pos-up {
+  transform: translate(-50%, 30px) scale(0.8);
+}
+
+.smart-scroll-btn.visible.pos-down {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, calc(100vh - 80px)) scale(1);
+}
+
+.smart-scroll-btn.visible.pos-up {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 30px) scale(1);
+}
