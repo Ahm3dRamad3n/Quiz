@@ -1239,11 +1239,13 @@ function showFeedback() {
     const title = document.createElement("div");
     title.className = "feedback-title";
     title.textContent = `✓ ${CorrectAnswerText}`;
-    const text = document.createElement("div");
-    text.className = "feedback-text";
-    text.textContent = explanation || "";
     feedback.appendChild(title);
-    feedback.appendChild(text);
+    if (explanation) {
+      const text = document.createElement("div");
+      text.className = "feedback-text";
+      text.textContent = explanation;
+      feedback.appendChild(text);
+    }
   } else {
     let correctAnswerText = "";
     const correctOptions =
@@ -1276,15 +1278,16 @@ function showFeedback() {
     correctStrong.textContent = `${CorrectAnswerText}: `;
     correctLine.appendChild(correctStrong);
     correctLine.appendChild(document.createTextNode(correctAnswerText));
-
-    const explanationLine = document.createElement("div");
-    const explanationStrong = document.createElement("strong");
-    explanationStrong.textContent = `${ExplanationText}: `;
-    explanationLine.appendChild(explanationStrong);
-    explanationLine.appendChild(document.createTextNode(explanation || ""));
-
     text.appendChild(correctLine);
-    text.appendChild(explanationLine);
+    if (explanation) {
+      const explanationLine = document.createElement("div");
+      const explanationStrong = document.createElement("strong");
+      explanationStrong.textContent = `${ExplanationText}: `;
+      explanationLine.appendChild(explanationStrong);
+      explanationLine.appendChild(document.createTextNode(explanation));
+      text.appendChild(explanationLine);
+    }
+
     feedback.appendChild(title);
     feedback.appendChild(text);
   }
