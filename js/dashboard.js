@@ -1930,6 +1930,14 @@ function registerEventHandlers() {
       closeSidebar();
     } else if (action === "delete") {
       deleteQuiz(SelectedQuiz);
+      if (
+        !myQuizzes.some(
+          (quiz) => quiz.quizId === SelectedQuiz && myQuizzes.length > 0,
+        )
+      ) {
+        SelectedQuiz = myQuizzes[0].quizId;
+        button.classList.add("selected");
+      }
     } else if (action === "share-quiz") {
       const shareUrl = `${buildShareBaseUrl()}?quizId=${SelectedQuiz}`;
       copyToClipboard(shareUrl).catch((error) => {
