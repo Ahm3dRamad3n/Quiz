@@ -1,3 +1,11 @@
+function ShowLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "flex";
+  }
+}
+ShowLoadingScreen();
+
 const themes = [
   { name: "🔵 أزرق بنفسجي", primary: "#667eea", secondary: "#764ba2" },
   { name: "🔴 أحمر برتقالي", primary: "#f44336", secondary: "#ff9800" },
@@ -2039,15 +2047,12 @@ const btn = document.getElementById("smartScrollBtn");
 let lastScrollY = window.scrollY;
 let lastTimestamp = performance.now();
 let hideTimeout;
-let currentPos = "pos-down";
-
 // مقياس السرعة
 const speedThreshold = 0.5;
 
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
   const currentTimestamp = performance.now();
-
   const distance = currentScrollY - lastScrollY;
   const timeDiff = currentTimestamp - lastTimestamp;
 
@@ -2058,9 +2063,8 @@ window.addEventListener("scroll", () => {
 
   // لو السرعة عدت الحد، نظهر الزرار ونحدد اتجاهه
   if (speed > speedThreshold) {
+    btn.className = "smart-scroll-btn pos visible";
     if (distance > 0) {
-      currentPos = "pos-down";
-      btn.className = "smart-scroll-btn pos-down visible";
       btn.innerHTML = "↓";
       btn.onclick = () =>
         window.scrollTo({
@@ -2068,8 +2072,6 @@ window.addEventListener("scroll", () => {
           behavior: "smooth",
         });
     } else if (distance < 0) {
-      currentPos = "pos-up";
-      btn.className = "smart-scroll-btn pos-up visible";
       btn.innerHTML = "↑";
       btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -2087,7 +2089,7 @@ window.addEventListener("scroll", () => {
 function startHideTimer() {
   clearTimeout(hideTimeout);
   hideTimeout = setTimeout(() => {
-    btn.className = `smart-scroll-btn ${currentPos}`;
+    btn.className = `smart-scroll-btn pos`;
   }, 2500); // 2500 = ثانيتين ونص
 }
 
@@ -2101,22 +2103,7 @@ btn.addEventListener("mouseleave", () => {
   startHideTimer();
 });
 
-function ShowLoadingScreen() {
-  const loadingScreen = document.getElementById("loadingScreen");
-  if (loadingScreen) {
-    loadingScreen.style.display = "flex";
-  }
-}
-
-function CloseLoadingScreen() {
-  const loadingScreen = document.getElementById("loadingScreen");
-  if (loadingScreen) {
-    loadingScreen.style.display = "none";
-  }
-}
-
 function initDashboard() {
-  ShowLoadingScreen();
   registerEventHandlers();
   loadTheme();
 
@@ -2135,8 +2122,16 @@ function initDashboard() {
     await loadMyQuizzes();
     setStatus("Authenticated. You can manage your quizzes now.", "success");
   });
+}
+initDashboard();
 
-  CloseLoadingScreen();
+function CloseLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "none";
+  }
 }
 
-initDashboard();
+setTimeout(() => {
+  CloseLoadingScreen();
+}, 0); // this is MacroStack

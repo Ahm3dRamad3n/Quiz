@@ -2407,22 +2407,12 @@ input[type="radio"]:focus-visible {
     opacity 0.3s ease;
 }
 
-.smart-scroll-btn.pos-down {
+.smart-scroll-btn.pos {
   transform: translate(-50%, calc(100vh - 80px)) scale(0.8);
 }
 
-.smart-scroll-btn.pos-up {
-  transform: translate(-50%, 30px) scale(0.8);
-}
-
-.smart-scroll-btn.visible.pos-down {
+.smart-scroll-btn.visible.pos {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, calc(100vh - 80px)) scale(1);
-}
-
-.smart-scroll-btn.visible.pos-up {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, 30px) scale(1);
 }

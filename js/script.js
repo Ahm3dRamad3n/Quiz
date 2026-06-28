@@ -1,3 +1,11 @@
+function ShowLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "flex";
+  }
+}
+ShowLoadingScreen();
+
 const themes = [
   { name: "🔵 أزرق بنفسجي", primary: "#667eea", secondary: "#764ba2" },
   { name: "🔴 أحمر برتقالي", primary: "#f44336", secondary: "#ff9800" },
@@ -2070,22 +2078,7 @@ function goHome() {
   if (topNavbar) topNavbar.style.display = "flex";
 }
 
-function ShowLoadingScreen() {
-  const loadingScreen = document.getElementById("loadingScreen");
-  if (loadingScreen) {
-    loadingScreen.style.display = "flex";
-  }
-}
-
-function CloseLoadingScreen() {
-  const loadingScreen = document.getElementById("loadingScreen");
-  if (loadingScreen) {
-    loadingScreen.style.display = "none";
-  }
-}
-
-window.onload = function () {
-  ShowLoadingScreen();
+function initHomePage() {
   landingMode = !hasRouteParams();
   initializeApp();
 
@@ -2104,5 +2097,16 @@ window.onload = function () {
   // Bind settings button if present
   const settingsBtn = document.getElementById("settingsBtn");
   if (settingsBtn) settingsBtn.addEventListener("click", openSettingsModal);
+}
+initHomePage();
+
+function CloseLoadingScreen() {
+  const loadingScreen = document.getElementById("loadingScreen");
+  if (loadingScreen) {
+    loadingScreen.style.display = "none";
+  }
+}
+
+setTimeout(() => {
   CloseLoadingScreen();
-};
+}, 0); // this is MacroStack
