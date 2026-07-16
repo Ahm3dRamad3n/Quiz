@@ -1,58 +1,21 @@
-function ShowLoadingScreen() {
-  const loadingScreen = document.getElementById("loadingScreen");
-  if (loadingScreen) {
-    loadingScreen.style.display = "flex";
-  }
-}
+import {
+  ShowLoadingScreen,
+  CloseLoadingScreen,
+  apiFetch,
+  getCurrentUser,
+  loadTheme,
+  applyTheme,
+  themes,
+  sanitizeImageUrl,
+  escapeHtml,
+  auth,
+  analytics,
+} from "./shared.js";
+
 ShowLoadingScreen();
-
-const themes = [
-  { name: "🔵 أزرق بنفسجي", primary: "#667eea", secondary: "#764ba2" },
-  { name: "🔴 أحمر برتقالي", primary: "#f44336", secondary: "#ff9800" },
-  { name: "🟢 أخضر سماوي", primary: "#4caf50", secondary: "#00bcd4" },
-  { name: "💗 وردي بنفسجي", primary: "#e91e63", secondary: "#9c27b0" },
-  { name: "🔷 أزرق سماوي", primary: "#2196f3", secondary: "#00bcd4" },
-  { name: "🟠 برتقالي أحمر", primary: "#ff6f00", secondary: "#d32f2f" },
-  { name: "🌲 أخضر داكن", primary: "#1b5e20", secondary: "#388e3c" },
-  { name: "💜 بنفسجي فاتح", primary: "#7b1fa2", secondary: "#c2185b" },
-  { name: "🌊 أزرق داكن", primary: "#0d47a1", secondary: "#1565c0" },
-  { name: "🏝️ تركواز", primary: "#00796b", secondary: "#00897b" },
-  { name: "✨ ذهبي", primary: "#f57f17", secondary: "#ff6f00" },
-  { name: "🌙 رمادي أزرق", primary: "#455a64", secondary: "#546e7a" },
-  { name: "🖤 Dark - أسود", primary: "#1a1a1a", secondary: "#2d2d2d" },
-  { name: "🌑 Dark - رمادي", primary: "#2c3e50", secondary: "#34495e" },
-  { name: "🌃 Dark - أزرق داكن", primary: "#1e3a5f", secondary: "#2c5aa0" },
-];
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD1T2YkT0bJ3-6xrqzGRafObRuln6ajYpg",
-  authDomain: "interactive-quiz-platfor-1a676.firebaseapp.com",
-  projectId: "interactive-quiz-platfor-1a676",
-  storageBucket: "interactive-quiz-platfor-1a676.firebasestorage.app",
-  messagingSenderId: "192993714442",
-  appId: "1:192993714442:web:528534562bceff2e391af3",
-  measurementId: "G-2KRYYZY7NR",
-};
-
-if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
-
-if (window.location.hostname === "127.0.0.1") {
-  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-}
-
-const appCheck = firebase.appCheck();
-appCheck.activate(
-  new firebase.appCheck.ReCaptchaEnterpriseProvider(
-    "6LdCfCstAAAAAK9zKRoSN-lepPmF7uXc_0MVFyTC",
-  ),
-  true,
-);
-
-const analytics = typeof firebase !== "undefined" ? firebase.analytics() : null;
-const auth = typeof firebase !== "undefined" ? firebase.auth() : null;
-const db = typeof firebase !== "undefined" ? firebase.firestore() : null;
+setTimeout(() => {
+  CloseLoadingScreen();
+}, 0);
 
 let currentUser = null;
 let myQuizzes = [];
@@ -103,18 +66,6 @@ function closeSidebar() {
   if (drawer) drawer.classList.remove("open");
   if (overlay) overlay.style.display = "none";
   document.body.style.overflow = "";
-}
-
-function applyTheme(index) {
-  const theme = themes[index];
-  document.documentElement.style.setProperty("--primary", theme.primary);
-  document.documentElement.style.setProperty("--secondary", theme.secondary);
-  localStorage.setItem("selectedTheme", String(index));
-}
-
-function loadTheme() {
-  const savedTheme = localStorage.getItem("selectedTheme") || "0";
-  applyTheme(parseInt(savedTheme, 10));
 }
 
 function updateSaveAddState() {
@@ -230,15 +181,6 @@ function handleFirestoreError(error, defaultMessage) {
       defaultMessage || "An unexpected error occurred.",
     );
   }
-}
-
-function sanitizeImageUrl(url) {
-  if (!url) return "";
-  try {
-    const u = new URL(String(url), window.location.href);
-    if (u.protocol === "http:" || u.protocol === "https:") return u.href;
-  } catch (e) {}
-  return "";
 }
 
 function getPrimaryLanguage() {
@@ -1216,9 +1158,6 @@ async function saveQuiz() {
   const primaryLanguage = getPrimaryLanguage();
 
   const ttlDays = getSelectedTtlDays();
-  const expireAt = firebase.firestore.Timestamp.fromDate(
-    new Date(Date.now() + ttlDays * 24 * 60 * 60 * 1000),
-  );
 
   for (
     let questionIndex = 0;
@@ -1433,10 +1372,7 @@ async function saveQuiz() {
     enableTranslation: isTranslationEnabled(),
     isPublic: elements.isPublic.checked,
     ttlDays,
-    expireAt,
-    userId: auth.currentUser.uid,
     questions: sanitizeQuestionsForSave(),
-    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
   };
 
   // Payload size safety check (approximate UTF-8 bytes)
@@ -1461,55 +1397,44 @@ async function saveQuiz() {
   }
 
   try {
+    let res;
     if (editingQuizId) {
       const confirmUpdate = window.confirm(
         "Update this quiz with the changes?",
       );
       if (!confirmUpdate) {
-        enableSaveBtn();
         return;
       }
-      await db.collection("quizzes").doc(editingQuizId).update(payload);
-      setStatus("Quiz updated successfully.", "success");
+
+      res = await apiFetch(`/quizzes/${editingQuizId}`, {
+        method: "PUT",
+        body: payload,
+      });
     } else {
-      let qId = null;
-      for (let i = 1; i <= 10; i += 1) {
-        // if quizId already exists, append a number to make it unique
-        const potentialId = auth.currentUser.uid + "_q" + i;
-        const snapshot = await db
-          .collection("quizzes")
-          .where("userId", "==", auth.currentUser.uid)
-          .get();
-        const existingIds = snapshot.docs.map((doc) => doc.id);
-        if (!existingIds.includes(potentialId)) {
-          qId = potentialId;
-          break;
-        }
-      }
-      if (!qId) {
-        setStatus(
-          "You have reached the maximum number of quizzes (10). Please delete an existing quiz before creating a new one.",
-          "error",
-        );
-        enableSaveBtn();
-        return;
-      }
-      await db
-        .collection("quizzes")
-        .doc(qId)
-        .set({
-          ...payload,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        });
-      setStatus("Quiz created successfully.", "success");
+      res = await apiFetch("/quizzes", {
+        method: "POST",
+        body: payload,
+      });
     }
 
+    if (!res.ok) {
+      const errText = await res.text();
+      setStatus(errText || "Failed to save quiz.", "error");
+      return;
+    }
+
+    setStatus(
+      editingQuizId
+        ? "Quiz updated successfully."
+        : "Quiz created successfully.",
+      "success",
+    );
     await loadMyQuizzes();
     resetBuilder(true);
-    enableSaveBtn();
   } catch (error) {
-    enableSaveBtn();
     handleFirestoreError(error, "Failed to save quiz. Please try again later.");
+  } finally {
+    enableSaveBtn();
   }
 }
 
@@ -1520,7 +1445,12 @@ async function deleteQuiz(quizId) {
   if (!confirmDelete) return;
 
   try {
-    await db.collection("quizzes").doc(quizId).delete();
+    const res = await apiFetch(`/quizzes/${quizId}`, { method: "DELETE" });
+
+    if (!res.ok) {
+      throw new Error("Server rejected delete request.");
+    }
+
     setStatus("Quiz deleted.", "success");
     await loadMyQuizzes();
 
@@ -1528,10 +1458,7 @@ async function deleteQuiz(quizId) {
       resetBuilder(true);
     }
   } catch (error) {
-    handleFirestoreError(
-      error,
-      `Delete failed: ${error.message || "Unable to delete quiz."}`,
-    );
+    handleFirestoreError(error, `Delete failed: Unable to delete quiz.`);
   }
 }
 
@@ -1568,46 +1495,30 @@ function editQuiz(quizId) {
 }
 
 async function loadMyQuizzes() {
-  // Strict: only run when `currentUser` is set by auth.onAuthStateChanged
   if (!currentUser) {
     console.log("loadMyQuizzes: currentUser is null — skipping fetch.");
     elements.myQuizList.replaceChildren();
-    const msg = document.createElement("div");
-    msg.style.textAlign = "center";
-    msg.style.padding = "30px";
-    msg.style.color = "#666";
-    msg.style.gridColumn = "1 / -1";
-    msg.textContent =
-      "You haven't created any quizzes yet. Use the builder on the left to create your first quiz!";
-    elements.myQuizList.appendChild(msg);
+    renderEmptyQuizMessage();
     myQuizzes = [];
     return;
   }
 
   try {
-    console.log("loadMyQuizzes: querying quizzes for userId=", currentUser.uid);
-    const snapshot = await db
-      .collection("quizzes")
-      .where("userId", "==", currentUser.uid)
-      .get();
+    const res = await apiFetch("/quizzes/my-quizzes");
+    if (!res.ok) {
+      throw new Error("Failed to load quizzes from server.");
+    }
 
-    console.log("loadMyQuizzes: fetched", snapshot ? snapshot.size : 0, "docs");
+    myQuizzes = await res.json();
 
-    if (!snapshot || snapshot.empty) {
+    if (myQuizzes.length === 0) {
       elements.myQuizList.replaceChildren();
       const emptyMsg = document.createElement("div");
-      emptyMsg.style.textAlign = "center";
-      emptyMsg.style.padding = "30px";
-      emptyMsg.style.color = "#666";
-      emptyMsg.style.gridColumn = "1 / -1";
-      emptyMsg.textContent =
-        "You haven't created any quizzes yet. Use the builder on the left to create your first quiz!";
-      elements.myQuizList.appendChild(emptyMsg);
+      renderEmptyQuizMessage();
       myQuizzes = [];
       return;
     }
 
-    myQuizzes = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     renderMyQuizzes();
   } catch (error) {
     handleFirestoreError(
@@ -1615,6 +1526,17 @@ async function loadMyQuizzes() {
       `Load failed: ${error.message || "Unable to load your quizzes."}`,
     );
   }
+}
+
+function renderEmptyQuizMessage() {
+  const msg = document.createElement("div");
+  msg.style.textAlign = "center";
+  msg.style.padding = "30px";
+  msg.style.color = "#666";
+  msg.style.gridColumn = "1 / -1";
+  msg.textContent =
+    "You haven't created any quizzes yet. Use the builder on the left to create your first quiz!";
+  elements.myQuizList.appendChild(msg);
 }
 
 function updateUserHeader(user) {
@@ -2028,6 +1950,18 @@ async function copyAiPrompt() {
   }
 }
 
+document.getElementById("openAiModalBtn")?.addEventListener("click", () => {
+  openAiModal();
+});
+
+document.getElementById("copyAiPromptBtn")?.addEventListener("click", () => {
+  copyAiPrompt();
+});
+
+document.getElementById("closeAiModalBtn")?.addEventListener("click", (e) => {
+  closeAiModal();
+});
+
 // Close modal on overlay click
 document.addEventListener("click", (e) => {
   const overlay = document.getElementById("aiModalOverlay");
@@ -2124,14 +2058,3 @@ function initDashboard() {
   });
 }
 initDashboard();
-
-function CloseLoadingScreen() {
-  const loadingScreen = document.getElementById("loadingScreen");
-  if (loadingScreen) {
-    loadingScreen.style.display = "none";
-  }
-}
-
-setTimeout(() => {
-  CloseLoadingScreen();
-}, 0); // this is MacroStack
