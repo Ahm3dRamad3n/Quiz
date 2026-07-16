@@ -50,8 +50,8 @@ export const analytics =
   typeof firebase !== "undefined" ? firebase.analytics() : null;
 export const auth = typeof firebase !== "undefined" ? firebase.auth() : null;
 
-//export const API_BASE_URL = "http://localhost:5154/api";
-export const API_BASE_URL = "https://quiz-backend.runasp.net/api";
+export const API_BASE_URL = "http://localhost:5154/api";
+//export const API_BASE_URL = "https://quiz-backend.runasp.net/api";
 
 export const themes = [
   { name: "🔵 أزرق بنفسجي", primary: "#667eea", secondary: "#764ba2" },

@@ -57,9 +57,10 @@ actionButtons.forEach((button) => {
       } else {
         // السيرفر رجع خطأ (403, 404, 500, etc.)
         if (res.status === 403) {
-          const errMsg = await res.text();
+          let errMsg = await res.text();
+          errMsg = errMsg || `\nالرسالة: ${errMsg}`;
           showResult(
-            `❌ وصول مرفوض: حسابك لا يمتلك صلاحيات الإدارة! تم تسجيل المحاولة وتطبيق الحظر.\nالرسالة: ${errMsg}`,
+            `❌ وصول مرفوض: حسابك لا يمتلك صلاحيات الإدارة! تم تسجيل المحاولة وتطبيق الحظر.${errMsg}`,
             false,
             false,
           );
