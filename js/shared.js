@@ -33,9 +33,9 @@ if (typeof firebase !== "undefined" && firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
-if (window.location.hostname === "127.0.0.1") {
-  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-}
+// if (window.location.hostname === "127.0.0.1") {
+//   self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+// }
 
 firebase
   .appCheck()
@@ -88,6 +88,19 @@ export async function apiFetch(endpoint, options = {}) {
     }
   } catch (e) {
     console.error("Error getting auth token:", e);
+  }
+
+  try {
+    // الـ false معناها متعملش refresh اجباري لو التوكن لسه شغال
+    const appCheckTokenResponse = await firebase.appCheck().getToken(false);
+    if (appCheckTokenResponse.token) {
+      headers["X-Firebase-AppCheck"] = appCheckTokenResponse.token;
+    }
+  } catch (e) {
+    console.warn(
+      "Error getting App Check token (Request might be rejected by server):",
+      e,
+    );
   }
 
   try {
