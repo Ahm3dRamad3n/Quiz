@@ -13,9 +13,14 @@ import {
 } from "./shared.js";
 
 ShowLoadingScreen();
-setTimeout(() => {
-  CloseLoadingScreen();
-}, 0);
+window.addEventListener("load", () => {
+  requestAnimationFrame(() => {
+    // نطلب منه يستنى كمان فريم عشان نتأكد إن الرسم ظهر فعلياً للمستخدم
+    requestAnimationFrame(() => {
+      CloseLoadingScreen();
+    });
+  });
+});
 
 let quizzes = [];
 let currentQuiz = null;
@@ -212,69 +217,63 @@ document.addEventListener("click", (e) => {
 });
 
 async function loadQuizzes() {
-  try {
-    const quizId = getQuizIdFromUrl();
-    const userId = getUserIdFromUrl();
+  const quizId = getQuizIdFromUrl();
+  const userId = getUserIdFromUrl();
 
-    // السيناريو الأول: فتح كويز محدد برابط مباشر
-    if (quizId) {
-      landingMode = false;
-      const res = await apiFetch(`/quizzes/quizId=${quizId}`);
-      if (res.ok) {
-        const data = await res.json();
-        clearFeedMessage();
-        quizzes = [data];
-      } else if (res.status === 401 || res.status === 403) {
-        quizzes = [];
-        setFeedMessage(
-          "Access Denied / Private Quiz",
-          "This quiz is private and cannot be opened from this account.",
-        );
-      } else {
-        quizzes = [];
-        setFeedMessage(
-          "Quiz Not Found or Private",
-          "This quiz either does not exist, was deleted by its creator, or is set to private.",
-        );
-      }
-      displayQuizzes();
-      return;
+  // السيناريو الأول: فتح كويز محدد برابط مباشر
+  if (quizId) {
+    landingMode = false;
+    const res = await apiFetch(`/quizzes/quizId=${quizId}`);
+    if (res.ok) {
+      const data = await res.json();
+      clearFeedMessage();
+      quizzes = [data];
+    } else if (res.status === 401 || res.status === 403) {
+      quizzes = [];
+      setFeedMessage(
+        "Access Denied / Private Quiz",
+        "This quiz is private and cannot be opened from this account.",
+      );
+    } else {
+      quizzes = [];
+      setFeedMessage(
+        "Quiz Not Found or Private",
+        "This quiz either does not exist, was deleted by its creator, or is set to private.",
+      );
     }
-
-    // السيناريو الثاني: عرض كويزات مستخدم معين برابط صفحته
-    if (userId) {
-      landingMode = false;
-      const res = await apiFetch(`/quizzes/userId=${userId}`); // تأكد من اسم الـ Endpoint في الباك إند
-      if (res.ok) {
-        quizzes = await res.json();
-      }
-      displayQuizzes();
-
-      return;
-    }
-
-    if (currentUser) {
-      landingMode = false;
-      console.log("loadQuizzes: fetching personal quizzes via API");
-      const res = await apiFetch("/quizzes/my-quizzes");
-      if (res.ok) {
-        quizzes = await res.json();
-      } else {
-        quizzes = [];
-      }
-      displayQuizzes();
-      return;
-    }
-
-    landingMode = true;
-    quizzes = [];
-    clearFeedMessage();
     displayQuizzes();
-  } catch (error) {
-    quizzes = [];
-    handleFirestoreErrorGlobal(error, "Unable to load quizzes right now.");
-    displayQuizzes();
+    return;
   }
+
+  // السيناريو الثاني: عرض كويزات مستخدم معين برابط صفحته
+  if (userId) {
+    landingMode = false;
+    const res = await apiFetch(`/quizzes/userId=${userId}`); // تأكد من اسم الـ Endpoint في الباك إند
+    if (res.ok) {
+      quizzes = await res.json();
+    }
+    displayQuizzes();
+
+    return;
+  }
+
+  if (currentUser) {
+    landingMode = false;
+    console.log("loadQuizzes: fetching personal quizzes via API");
+    const res = await apiFetch("/quizzes/my-quizzes");
+    if (res.ok) {
+      quizzes = await res.json();
+    } else {
+      quizzes = [];
+    }
+    displayQuizzes();
+    return;
+  }
+
+  landingMode = true;
+  quizzes = [];
+  clearFeedMessage();
+  displayQuizzes();
 }
 
 function initializeApp() {

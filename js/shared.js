@@ -84,20 +84,106 @@ export async function apiFetch(endpoint, options = {}) {
       const token = await currentUser.getIdToken();
       headers["Authorization"] = `Bearer ${token}`;
     } else {
-      console.warn(
-        "No authenticated user found. Proceeding without auth token.",
-      );
+      console.warn("No authenticated user found.");
     }
   } catch (e) {
     console.error("Error getting auth token:", e);
   }
 
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-    ...options,
-    headers,
-  });
+  try {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      ...options,
+      headers,
+    });
 
-  return response;
+    if (!response.ok) {
+      const errorText = await response.clone().text();
+      showToastError(response.status, errorText);
+    }
+
+    return response;
+  } catch (error) {
+    console.error("Error:", error);
+    showToastError(
+      0,
+      !navigator.onLine
+        ? "أنت غير متصل بالإنترنت. يرجى التحقق من الشبكة."
+        : "السيرفر غير متاح حالياً.",
+    );
+    return { ok: false, status: 0 };
+  }
+}
+
+function showToastError(status, errMsg) {
+  let container = document.getElementById("toast-container");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "toast-container";
+    document.body.appendChild(container);
+  }
+
+  let defaultMsg = "حدث خطأ غير متوقع.";
+  if (status === 0) defaultMsg = errMsg;
+  else if (status === 403) defaultMsg = "وصول مرفوض: لا تمتلك صلاحيات الإدارة!";
+  else if (status === 404) defaultMsg = "لم يتم العثور على هذا المستخدم.";
+  else if (status === 401) defaultMsg = "يرجى تسجيل الدخول أولاً.";
+  else if (status === 429)
+    defaultMsg = "ضغط كبير على السيرفر، يرجى المحاولة لاحقاً.";
+  else if (status >= 500)
+    defaultMsg = "مشكلة داخلية في السيرفر (Server Error).";
+
+  const finalMessage = status !== 0 && errMsg ? errMsg : defaultMsg;
+  const titleText = status === 0 ? "فشل الاتصال" : `خطأ ${status}`;
+  const iconClass =
+    status === 0 ? "fa-solid fa-wifi" : "fa-solid fa-circle-exclamation";
+
+  const toast = document.createElement("div");
+  toast.className = "custom-toast"; // استخدمنا كلاس واحد بس نظيف
+
+  toast.innerHTML = `
+        <i class="${iconClass} toast-icon"></i>
+        <div class="toast-content">
+            <div class="toast-title">${titleText}</div>
+            <div class="toast-msg">${finalMessage}</div>
+        </div>
+        <button class="toast-close" onclick="this.parentElement.remove()">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+        <div class="toast-progress"></div>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 10);
+
+  let remainingTime = 4000;
+  let startTime;
+  let timerId;
+  const progressBar = toast.querySelector(".toast-progress");
+
+  const startTimer = () => {
+    startTime = Date.now();
+    progressBar.style.animationPlayState = "running";
+    timerId = setTimeout(() => closeToast(toast), remainingTime);
+  };
+
+  const pauseTimer = () => {
+    clearTimeout(timerId);
+    remainingTime -= Date.now() - startTime;
+    progressBar.style.animationPlayState = "paused";
+  };
+
+  const closeToast = (element) => {
+    element.classList.remove("show");
+    setTimeout(() => element.remove(), 300);
+  };
+
+  toast.addEventListener("mouseenter", pauseTimer);
+  toast.addEventListener("mouseleave", startTimer);
+
+  startTimer();
 }
 
 export function getCurrentUser() {

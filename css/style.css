@@ -2416,3 +2416,97 @@ input[type="radio"]:focus-visible {
   pointer-events: auto;
   transform: translate(-50%, calc(100vh - 80px)) scale(1);
 }
+
+/* Toast Notification Progress Bar Animation */
+@keyframes shrink-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Toast Container */
+#toast-container {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+  width: 100%;
+  max-width: 28rem;
+  padding: 0 1rem;
+}
+
+/* Toast Body - متوافق مع الثيمات */
+.custom-toast {
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-right: 4px solid var(--danger); /* خط جانبي أنيق للغة العربية */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* حركة الظهور */
+.custom-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* نصوص وأيقونات الرسالة - متوافقة مع الثيمات */
+.toast-icon {
+  color: var(--danger);
+  font-size: 1.25rem;
+  margin-top: 0.125rem;
+}
+.toast-content {
+  flex: 1;
+}
+.toast-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--danger); /* العنوان بلون الخطأ */
+  margin-bottom: 0.125rem;
+}
+.toast-msg {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--text); /* النص العادي يتغير مع الثيم */
+}
+.toast-close {
+  color: var(--text-light);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: color 0.2s;
+}
+.toast-close:hover {
+  color: var(--danger);
+}
+
+/* شريط التحميل - متوافق مع الثيمات */
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.25rem;
+  background-color: var(--danger); /* شريط بلون الخطأ */
+  width: 100%;
+  animation: shrink-progress 4s linear forwards;
+}

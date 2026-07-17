@@ -13,9 +13,14 @@ import {
 } from "./shared.js";
 
 ShowLoadingScreen();
-setTimeout(() => {
-  CloseLoadingScreen();
-}, 0);
+window.addEventListener("load", () => {
+  requestAnimationFrame(() => {
+    // نطلب منه يستنى كمان فريم عشان نتأكد إن الرسم ظهر فعلياً للمستخدم
+    requestAnimationFrame(() => {
+      CloseLoadingScreen();
+    });
+  });
+});
 
 let currentUser = null;
 let myQuizzes = [];
